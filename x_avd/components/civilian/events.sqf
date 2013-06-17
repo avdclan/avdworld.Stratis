@@ -5,9 +5,11 @@
 ["avd_location_create", {
 	//DLOG("Location create: " + str(_this));
     //DLOG("Location radius: " + str((_this select 0) getVariable "avd_location_radius"));
-    [-2, {
+//    remoteSpawn({ DLOG("test!");}, []);
+
+	[{
         DLOG(str(playableUnits));
-        if(! local AVD_D_CLIENT_CIV) exitWith {
+        if(! local AVD_D_CLIENT_CIV or true) exitWith {
             _str = format["I am not %1 (%2), I am %3 (%4)", AVD_D_CLIENT_CIV, owner AVD_D_CLIENT_CIV, player, owner player];
             DLOG(_str);
         };
@@ -76,7 +78,8 @@
          _grp setBehaviour "CARELESS";
          _grp setSpeedMode "LIMITED";
      };
-     }, _this] call CBA_fnc_globalExecute;    
+   }, _this] call AVD_fnc_remote_execute;
+             */
 }] call CBA_fnc_addEventHandler;
 
 ["avd_unit_zone_activated", {
@@ -90,7 +93,7 @@
     
 	if(! local _unit) exitWith {};
     
-    [-2, {
+    [{
     	private ["_unit", "_caller", "_res"];
         _unit = _this select 0;
         _caller = _this select 1;
@@ -105,7 +108,7 @@
        // DLOG("Alright, activating.");
         [_unit] call AVD_fnc_cache_activateUnit;
                         
-    }, _this] call CBA_fnc_globalExecute;    
+    }, _this] call AVD_fnc_remote_execute;    
  
 }] call CBA_fnc_addEventHandler;
 ["avd_unit_zone_deactivated", {
@@ -117,7 +120,7 @@
     };
 	if(! local _unit) exitWith {};
     
-    [-2, {
+    [{
     	private ["_unit", "_caller", "_res"];
         _unit = _this select 0;
         _caller = _this select 1;
@@ -133,6 +136,6 @@
        // DLOG("Alright, caching.");
         [_unit] call AVD_fnc_cache_cacheUnit;
                         
-    }, _this] call CBA_fnc_globalExecute;      
+    }, _this] call AVD_fnc_remote_execute;      
  
 }] call CBA_fnc_addEventHandler;

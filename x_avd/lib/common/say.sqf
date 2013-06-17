@@ -7,11 +7,11 @@ _message = _this select 1;
 _color = "#FF3B3E";
 //_str = format["<t color='%1'>%2</t>: %3", _color, name _speaker, _message];
 _str = format["%1: %2", name _speaker, _message];
-[-2, {
+[{
     private ["_str"];
     if(!hasInterface) exitWith {};
     //DLOG(_this);
     _str = _this;
     cutText[_str, "PLAIN DOWN", 1];
     
-}, _str] call CBA_fnc_globalExecute;
+}, _str] call AVD_fnc_remote_execute;

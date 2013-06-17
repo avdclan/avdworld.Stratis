@@ -1,5 +1,6 @@
 #include "debug.h"
 #include "meta.h"
+#include "remote.h"
 #define DB "avdworld"
 
 #define ccp(path) call compile preprocessFileLineNumbers path
