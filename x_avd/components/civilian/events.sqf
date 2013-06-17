@@ -2,6 +2,7 @@
 #include "include\avd.h"
 #define __quiet true
 
+AVD_LOCATIONS_INITIALIZED = [];
 ["avd_location_create", {
 	//DLOG("Location create: " + str(_this));
     //DLOG("Location radius: " + str((_this select 0) getVariable "avd_location_radius"));
@@ -15,6 +16,8 @@
         };
         private ["_logic", "_side", "_name", "_marker", "_size", "_houses", "_chouses", "_counter"];
     	_logic = _this select 0;
+        if(_logic in AVD_LOCATIONS_INITIALIZED) exitWith { DLOG(str(_logic) + " already initialized."); };
+        AVD_LOCATIONS_INITIALIZED = AVD_LOCATIONS_INITIALIZED + [_logic];
     	// populate location with civilians
      	_side = _logic getVariable "avd_side";
       _name = _logic getVariable "avd_name";
@@ -59,7 +62,7 @@
       
       // place normal civs.
      _index = call AVD_fnc_getIndex;
-     _min = (_size select 0) / 20;
+     _min = (_size select 0) / 10;
      _rand = _min / 2;
      _count = [_min, _rand];
      [_logic, 0, (_size select 0), true, true, false, _count, 0, 0.1, nil, "", _index] execVM "militarize.sqf";
