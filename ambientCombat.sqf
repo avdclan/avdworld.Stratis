@@ -37,7 +37,7 @@
 					["AWARE","SAD"]] execVM "ambientCombat.sqf";
 					
 */
-if (!isServer)exitWith{};
+if (hasInterface)exitWith{};
 private ["_patrolType","_customInit","_communication","_eastGroups","_westGroups","_skills","_syncedUnit","_groupAmount","_grp","_minRange","_maxRange","_minTime","_maxTime","_centerPos","_range","_dir","_spawnPos","_side","_menOrVehicle","_timeDelay","_BLUhq","_BLUgrp","_OPFhq","_OPFgrp","_skls"];
 
 _minRange = if(count _this > 0)then{_this select 0;} else {450};	 

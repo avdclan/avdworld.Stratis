@@ -36,7 +36,7 @@ EXAMPLE: 	nul = [this, 2, true, 2, 50, 1, 0.75, nil, nil, 9] execVM "fillHouse.s
 			spawns in nearest building east soldiers in 50% of possible building positions with skill 0.75,
 			and makes them patrol in & outside of that building
 */
-if (!isServer)exitWith{};
+if (hasInterface)exitWith{};
 private ["_grpId","_customInit","_center","_skls","_skills","_a","_buildings","_rat","_milHQ","_milGroup","_menArray","_i","_newPos","_i2","_unitType","_unit","_building","_sideOption","_blueMenArray","_redMenArray","_bPoss","_patrol","_pFile","_pType"];
 
 _center = if (count _this > 0) then { _this select 0;};	 

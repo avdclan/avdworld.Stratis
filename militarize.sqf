@@ -37,7 +37,7 @@
 EXAMPLE: nul = [this,2,50,true,false,false,[10,0],0.1,[0.2,0.2,0.2,0.85,0.9,0.75,0.1,0.6,1,1],nil,nil,13] execVM "militarize.sqf";
 				will spawn 10 red team men, which will patrol in radius of 50m from the object this is called from
 */
-if (!isServer)exitWith{};
+if (hasInterface)exitWith{};
 private ["_grpId","_customInit","_cPos","_skls","_skills","_maxD","_mi","_dir","_range","_unitType","_unit","_radius","_men","_vehicles","_still","_centerPos","_menAmount","_vehAmount","_milHQ","_milGroup","_menArray","_blueMenArray","_redMenArray","_yellowMenArray","_sideOption","_vehArray","_vi","_pos","_blueCarArray","_redCarArray","_yellowCarArray","_sPos","_vCrew","_allUnitsArray","_menRatio","_vehRatio","_sPos2"];
 
 _cPos = if(count _this > 0)then{_this select 0;};
