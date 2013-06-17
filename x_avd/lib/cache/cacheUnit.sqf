@@ -13,12 +13,13 @@ if(isPlayer _unit) exitWith {};
     	_l = _l + [_vec];
     };
 	{
-       // DLOG("Working on " + str(_x));
+        
         //[format["Caching %1", _x], "cacheUnit"] call AVD_fnc_log;
         if((! local _x) or (isServer and !isDedicated)) then {
          _marker = _x getVariable "avd_tracking_marker";
          _cachable = [_x] call AVD_fnc_cache_isCachable;
          if(_cachable) then {
+             DLOG("Caching unit " + str(_x));
             //[format["Caching unit %1 (%2)", _this, typeOf _this], "debug"] call AVD_fnc_log;
 	        if(! isNil "_marker") then {
 	          _marker setMarkerColorLocal "ColorWhite";  
@@ -28,7 +29,7 @@ if(isPlayer _unit) exitWith {};
 	        _obj = _x getVariable "avd_cache_object";
 	        //detach _obj;
             //sleep 0.01;
-	        //_x enableSimulation false;
+	        _x enableSimulation false;
 	        _x setVariable ["avd_cache_isCached", true, false];
 	        _obj setVariable ["avd_cache_isCached", true, false];
        };
