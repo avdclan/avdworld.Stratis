@@ -1,0 +1,1 @@
+[player, "das ist ein test, yoyo"] call AVD_fnc_say;
