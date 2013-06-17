@@ -1,6 +1,6 @@
 #define SELF "x_avd\xeh\unit.sqf"
 #include "include\avd.h"
-DLOG("Creating unit: " + str(_this));
+//DLOG("Creating unit: " + str(_this));
 if(!isServer) exitWith {};
 private ["_unit", "_varName"];
 _unit = _this select 0;
