@@ -79,7 +79,7 @@
          _grp setSpeedMode "LIMITED";
      };
    }, _this] call AVD_fnc_remote_execute;
-             */
+     
 }] call CBA_fnc_addEventHandler;
 
 ["avd_unit_zone_activated", {
