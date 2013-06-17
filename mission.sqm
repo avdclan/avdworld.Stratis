@@ -145,7 +145,7 @@ class Mission
 			player="PLAY CDG";
 			leader=1;
 			skill=0.2;
-			text="avd_d_hc_civ";
+			text="AVD_D_CLIENT_CIV";
 			init="this allowDamage false;";
 		};
 		class Item1
