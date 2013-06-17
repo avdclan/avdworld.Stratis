@@ -9,7 +9,7 @@
 
 	[{
         DLOG(str(playableUnits));
-        if(! local AVD_D_CLIENT_CIV or true) exitWith {
+        if(! local AVD_D_CLIENT_CIV) exitWith {
             _str = format["I am not %1 (%2), I am %3 (%4)", AVD_D_CLIENT_CIV, owner AVD_D_CLIENT_CIV, player, owner player];
             DLOG(_str);
         };
