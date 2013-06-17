@@ -6,7 +6,11 @@
 	//DLOG("Location create: " + str(_this));
     //DLOG("Location radius: " + str((_this select 0) getVariable "avd_location_radius"));
     [-2, {
-        if(! local AVD_D_CLIENT_CIV) exitWith {};
+        DLOG(str(playableUnits));
+        if(! local AVD_D_CLIENT_CIV) exitWith {
+            _str = format["I am not %1 (%2), I am %3 (%4)", AVD_D_CLIENT_CIV, owner AVD_D_CLIENT_CIV, player, owner player];
+            DLOG(_str);
+        };
         private ["_logic", "_side", "_name", "_marker", "_size", "_houses", "_chouses", "_counter"];
     	_logic = _this select 0;
     	// populate location with civilians

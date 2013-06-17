@@ -26,14 +26,15 @@ resistance setFriend[west, 0];
 if(isServer) then {
   AVD_SERVER = (createGroup sideLogic) createUnit["LOGIC", [0, 0, 0], [], 0, ""];
   publicVariable "AVD_SERVER";
-  
-  if(isNIL "AVD_D_CLIENT_CIV") then { AVD_D_CLIENT_CIV = AVD_SERVER; publicVariable "AVD_D_CLIENT_CIV"; };
-  if(isNIL "AVD_D_CLIENT_EAST") then { AVD_D_CLIENT_EAST = AVD_SERVER; publicVariable "AVD_D_CLIENT_EAST"; };
-  if(isNIL "AVD_D_CLIENT_WEST") then { AVD_D_CLIENT_WEST = AVD_SERVER; publicVariable "AVD_D_CLIENT_WEST"; };
-  if(isNIL "AVD_D_CLIENT_GUER") then { AVD_D_CLIENT_GUER = AVD_SERVER; publicVariable "AVD_D_CLIENT_GUER"; };
-  
-  HC_CLIENTS = [AVD_D_CLIENT_CIV, AVD_D_CLIENT_EAST, AVD_D_CLIENT_WEST, AVD_D_CLIENT_GUER];
-  //publicVariable "HC_CLIENTS";
+  [] spawn {
+      
+	  if(isNIL "AVD_D_CLIENT_CIV") then { AVD_D_CLIENT_CIV = AVD_SERVER; publicVariable "AVD_D_CLIENT_CIV"; DLOG("AVD_D_CLIENT_CIV is server."); };
+	  if(isNIL "AVD_D_CLIENT_EAST") then { AVD_D_CLIENT_EAST = AVD_SERVER; publicVariable "AVD_D_CLIENT_EAST"; DLOG("AVD_D_CLIENT_EAST is server."); };
+	  if(isNIL "AVD_D_CLIENT_WEST") then { AVD_D_CLIENT_WEST = AVD_SERVER; publicVariable "AVD_D_CLIENT_WEST"; DLOG("AVD_D_CLIENT_WEST is server."); };
+	  if(isNIL "AVD_D_CLIENT_GUER") then { AVD_D_CLIENT_GUER = AVD_SERVER; publicVariable "AVD_D_CLIENT_GUER"; DLOG("AVD_D_CLIENT_GUER is server."); };
+	  
+	  HC_CLIENTS = [AVD_D_CLIENT_CIV, AVD_D_CLIENT_EAST, AVD_D_CLIENT_WEST, AVD_D_CLIENT_GUER];
+	  //publicVariable "HC_CLIENTS";
 
 
   	["avd_network_opc", {
@@ -62,7 +63,7 @@ if(isServer) then {
         };
     	    
 	}] call CBA_fnc_addEventHandler;
-  
+  };
             
 };
 

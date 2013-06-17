@@ -147,6 +147,7 @@ class Mission
 			skill=0.2;
 			text="AVD_D_CLIENT_CIV";
 			init="this allowDamage false;";
+			forceHeadlessClient=1;
 		};
 		class Item1
 		{
