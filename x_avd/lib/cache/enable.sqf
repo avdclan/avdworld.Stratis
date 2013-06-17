@@ -1,6 +1,6 @@
  #define SELF "x_\avd\lib\cache\enable.sqf"
  #include "include\avd.h"
- 
+ if(true) exitWith {};
  private ["_unit", "_res"];
 // DLOG(_this);
  _unit = _this select 0; 

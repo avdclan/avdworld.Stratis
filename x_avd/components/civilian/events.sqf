@@ -9,7 +9,7 @@ AVD_LOCATIONS_INITIALIZED = [];
 //    remoteSpawn({ DLOG("test!");}, []);
 
 	[{
-        DLOG(str(playableUnits));
+        
         if(! local AVD_D_CLIENT_CIV) exitWith {
             _str = format["I am not %1 (%2), I am %3 (%4)", AVD_D_CLIENT_CIV, owner AVD_D_CLIENT_CIV, player, owner player];
             DLOG(_str);
@@ -20,6 +20,7 @@ AVD_LOCATIONS_INITIALIZED = [];
         AVD_LOCATIONS_INITIALIZED = AVD_LOCATIONS_INITIALIZED + [_logic];
     	// populate location with civilians
      	_side = _logic getVariable "avd_side";
+        if(_side != civilian) exitWith {};
       _name = _logic getVariable "avd_name";
       _marker = _logic getVariable "avd_marker";
       _size = getMarkerSize _marker;

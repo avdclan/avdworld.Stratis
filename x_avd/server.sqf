@@ -17,6 +17,7 @@ call compile preProcessFile "\iniDB\init.sqf";
 
 
 LOAD_COMPONENT("civilian");
+LOAD_COMPONENT("red");
 
 
 publicVariable "AVD_WORLD_SERVER_INIT";
