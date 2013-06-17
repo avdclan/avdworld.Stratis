@@ -84,9 +84,6 @@ DLOG("Initializing AVD World " + AVD_META_VERSION);
 diag_log "";
 diag_log "";
 
-DLOG("Initializing iniDB.");
-call compile preProcessFile "\iniDB\init.sqf";
-
 
 //DLOG("Initializing UPSMON.");
 //call compile preprocessFileLineNumbers "scripts\Init_UPSMON.sqf";	

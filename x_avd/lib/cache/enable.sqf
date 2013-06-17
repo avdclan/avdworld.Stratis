@@ -23,7 +23,7 @@ AVD_fnc_cache_createTriggerZone = {
       [_unit, _varName] call AVD_fnc_setVehicleVarName;
     };
     
-   // DLOG("Enabling cache for unit " + str(_unit) + " (" + str(netId _unit) + ")");
+   DLOG("Enabling cache for unit " + str(_unit) + " (" + str(netId _unit) + ")");
     _logic = _this select 3;
     _trgs = _logic getVariable "avd_zone_triggers";
     if(isNil "_trgs") then {

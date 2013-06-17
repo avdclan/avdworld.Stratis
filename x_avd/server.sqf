@@ -12,6 +12,9 @@ AVD_WORLD_SERVER_INIT = true;
 
 DLOG("Initializing AvD World Server...");
 
+DLOG("Initializing iniDB.");
+call compile preProcessFile "\iniDB\init.sqf";
+
 
 LOAD_COMPONENT("civilian");
 
