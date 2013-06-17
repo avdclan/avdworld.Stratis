@@ -90,8 +90,8 @@ AVD_LOCATIONS_INITIALIZED = [];
     _unit = _this select 0;
     _caller = _this select 1;
 	
-    if(isPlayer _caller) then {
-    //  DLOG("zone activated: " + str(_this));  
+    if(isPlayer _caller and hasInterface) then {
+   		DLOG("zone activated: " + str(_this));  
     };
     
 	if(! local _unit) exitWith {};
@@ -118,8 +118,8 @@ AVD_LOCATIONS_INITIALIZED = [];
     private ["_unit", "_caller", "_res"];
     _unit = _this select 0;
     _caller = _this select 1;
-    if(isPlayer _caller) then {
-      //DLOG("zone deactivated: " + str(_this));  
+    if(isPlayer _caller and hasInterface) then {
+   		DLOG("zone deactivated: " + str(_this));  
     };
 	if(! local _unit) exitWith {};
     
