@@ -1,8 +1,14 @@
 #define SELF "x_avd\player\actions\debug.sqf"
 #include "include\avd.h"
 
+{
+    if(side _x == east) then {
+      deleteVehicle _x;  
+    };
+} foreach allUnits;
 private ["_target", "_str", "_curHouse, _numPos", "_unit"];
 _target = cursorTarget;
+_target setFuelCargo 0.5;
 if(isNull _target) then { _target = player; };
 _curHouse = nearestBuilding player;
 _numPos = 0;
@@ -19,4 +25,6 @@ cutText[_str, "PLAIN", 3];
 
 {
     DLOG("Having house: " + str(_x) + " type: " + str(typeof _x));
-} foreach (nearestObjects [player, ["House"], 20])
+} foreach (nearestObjects [player, ["House"], 20]);
+
+DLOG("Sides: " + str(resistance));

@@ -14,7 +14,9 @@ _cities = nearestLocations [[0,0,0], ["NameCity"], 100000];
 _capitals = nearestLocations [[0,0,0], ["NameCityCapital"], 100000];
 _locals = nearestLocations [[0,0,0], ["NameLocal"], 100000];
 { 
-	[east, position _x, 500] call AVD_fnc_military_createOutpost;
+	if(!((text _x) in AVD_LOCATION_EXCLUDE)) then {
+		[east, position _x, 250, true] call AVD_fnc_military_createOutpost;
+    };
     
 
 } foreach _villages; 
