@@ -3,4 +3,5 @@
 
 
 player addAction ["Debug", "x_avd\player\actions\debug.sqf", [player], 0, true, true, "", "true"];
+player addAction ["Debug1", "x_avd\player\actions\debug1.sqf", [player], 0, true, true, "", "true"];
 player addAction ["Arrest", "x_avd\player\actions\arrest.sqf", [player], 0, true, true, "", "true"];

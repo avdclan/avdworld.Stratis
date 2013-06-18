@@ -7,6 +7,8 @@ enableSaving false;
 
 AVD_WORLD_SERVER_INIT = false;
 
+AVD_LOCATION_EXCLUDE=["Stratis Air Base", "Kamino Firing Range", "Pythos"];
+
 civilian setFriend [west, 0];
 civilian setFriend [east, 0.7];
 civilian setFriend [resistance, 0.8];
@@ -93,9 +95,10 @@ if(isServer) then {
 	execVM "x_avd\server.sqf";  
 };
 
-if(! isDedicated) then {
-    execVM "x_avd\client.sqf";
-};
+// setup player
+[{
+    execVM "x_avd\player\setup.sqf";
+}, [], true, true] call AVD_fnc_remote_execute;
 
 
 

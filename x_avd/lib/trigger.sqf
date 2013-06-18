@@ -55,6 +55,7 @@ AVD_fnc_createTriggerLocation = {
      
      private ["_loc", "_rad", "_logicGroups", "_vecs", "_logic", "_pos", "_logicCenter", "_logicGroup", "_var", "_name", "_trg", "_marker", "_markerName"];
    	_loc = _this select 0;
+    
    	_rad = _this select 1;
     _logicGroups = _this select 2;
     _vecs = _this select 3;
@@ -62,6 +63,7 @@ AVD_fnc_createTriggerLocation = {
     _pos = position _loc;
     _name = text _loc;
     
+    if(_name in AVD_LOCATION_EXCLUDE) exitWith { DLOG("Excluding location " + str(_name)); };
     
 	private ["_x", "_y"];
     _x = _rad select 0;

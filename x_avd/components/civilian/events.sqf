@@ -22,6 +22,7 @@ AVD_LOCATIONS_INITIALIZED = [];
      	_side = _logic getVariable "avd_side";
         if(_side != civilian) exitWith {};
       _name = _logic getVariable "avd_name";
+      
       _marker = _logic getVariable "avd_marker";
       _size = getMarkerSize _marker;
       // getting all houses
@@ -53,6 +54,8 @@ AVD_LOCATIONS_INITIALIZED = [];
                         _shfl = [_sides] call CBA_fnc_shuffle;
                         _nullGrp = createGroup (_shfl select 0);
                         [_houseHolder] joinSilent _nullGrp;
+                       	_houseHolder setCaptive true;
+                        
                     };
                    _houseHolder setVariable["avd_location_logic", _logic, true];
                    //[_logic, [_houseHolder]] call AVD_fnc_addCachingUnit;

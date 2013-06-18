@@ -7,5 +7,6 @@ call compileFinal preprocessFile "x_avd\lib\cache.sqf";
 call compileFinal preprocessFile "x_avd\lib\road.sqf";
 call compileFinal preprocessFile "x_avd\lib\waypoint.sqf";
 call compileFinal preprocessFile "x_avd\lib\group.sqf";
+call compileFinal preprocessFile "x_avd\lib\military.sqf";
 
 call compileFinal preprocessFile "x_avd\lib\scripts\arrest.sqf";
