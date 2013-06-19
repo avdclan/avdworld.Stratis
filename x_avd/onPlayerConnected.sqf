@@ -16,7 +16,7 @@ _name = _this select 1;
         //DLOG(_n + " is " + _name + ", calling event for " + _x);
         _str = format["Player %1 connected.", _x];
         DLOG(_str);
-      ["avd_network_opc", [_x]] call CBA_fnc_globalEvent;  
+      	["avd_network_opc", [_x]] call CBA_fnc_globalEvent;  
     };
   
 } foreach playableUnits;

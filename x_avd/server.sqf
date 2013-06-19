@@ -16,6 +16,7 @@ DLOG("Initializing iniDB.");
 call compile preProcessFile "\iniDB\init.sqf";
 
 
+LOAD_COMPONENT("spawn");
 LOAD_COMPONENT("civilian");
 LOAD_COMPONENT("red");
 

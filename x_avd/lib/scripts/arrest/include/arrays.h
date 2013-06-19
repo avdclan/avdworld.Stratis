@@ -11,7 +11,7 @@
 
 #define AIRPORT_TOWERS ["Land_Airport_Tower_F"]
 
-#define ITEM_SPAWN_HOUSES ["Land_Metal_Shed_F", "Land_ToiletBox_F"]
+#define ITEM_SPAWN_HOUSES ["Land_i_Stone_HouseBig_V1_F", "Land_i_Stone_Shed_V1_F", "Land_Metal_Shed_F", "Land_ToiletBox_F"]
 
 #define CAPTURE_BUILDINGS ["Land_Radar_F"]
 

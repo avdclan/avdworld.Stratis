@@ -1,8 +1,10 @@
-private ["_unit", "_color", "_label", "_marker", "_side"];
-_unit = _this select 0;
-_label = _this select 1;
+#define SELF "x_avd\lib\common\trackingMarker"
+#include "include\avd.h"
 
-if(isNil "_label") then { _label = name _unit; };
+private ["_unit", "_color", "_label", "_marker", "_side", "_timeout"];
+_unit = _this select 0;
+_label = if(count(_this) > 1) then { _this select 1; } else { ""; };
+_timeout  = if(count(_this) > 2) then { _this select 2; } else { 0; };
 
 _index = call AVD_fnc_getIndex;
 if(_unit == objNull) exitWith { ["Sorry, I won't create a marker for a null object."] call dbg; };
@@ -41,14 +43,22 @@ switch(_side) do {
 _marker setMarkerColorLocal _col;
 
 
-[_unit, _marker] spawn {
+[_unit, _marker, _label, _timeout] spawn {
+    private ["_unit", "_marker", "_time", "_label", "_timeout"];
     _unit = _this select 0;
     _marker = _this select 1;
+    _label = _this select 2;
+    _timeout = _this select 3;
     _unit setVariable ["avd_tracking_marker", _marker, true];
     _unit setVariable ["avd_tracking_marker_original", getMarkerColor _marker, true];
+    _time = time;
 	waitUntil {
 		  _marker setMarkerPos getPos _unit;
-          _marker setMarkerText format["%1 (%2)", name _unit, owner _unit];
+          if(_label == "") then {
+          	_marker setMarkerText format["%1 (%2)", name _unit, owner _unit];
+          } else {
+              _marker setMarkerText _label;
+          };
           _side = side _unit;
           _col = "colorBlack";
           switch(_side) do {
@@ -72,7 +82,11 @@ _marker setMarkerColorLocal _col;
           _marker setMarkerColorLocal _col;
           
 	      sleep 0.5;
-	      (isNull _unit || !(alive _unit));
+          if(_timeout > 0) then {
+          	_str = format["_time: %1, _timeout: %2, diff: %3", _time, _timeout, (time - _time)];
+            DLOG(_str);
+          };
+	      (isNull _unit || !(alive _unit) || ((_timeout > 0) and _timeout < (time - _time)));
 	};
     deleteMarkerLocal _marker;
 };

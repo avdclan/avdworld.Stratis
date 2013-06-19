@@ -143,11 +143,11 @@ class Mission
 			side="AMBIENT LIFE";
 			vehicle="Rabbit_F";
 			player="PLAY CDG";
+			forceHeadlessClient=1;
 			leader=1;
 			skill=0.2;
 			text="AVD_D_CLIENT_CIV";
 			init="this allowDamage false;";
-			forceHeadlessClient=1;
 		};
 		class Item1
 		{

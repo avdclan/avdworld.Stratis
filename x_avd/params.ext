@@ -1,0 +1,159 @@
+class Params {
+	class d_params_dummy_line_common {
+		title = "---------------------- Common Mission Values ----------------------";
+		values[] = {-99999};
+		default = -99999;
+		texts[] = {""};
+	};
+	class d_common_realtime {
+		title = "Sync time with realtime (server time)";
+		values[] = {0, 1};
+		default = 0;
+		texts[] = {"off", "on"};
+	};
+	class d_common_realweather {
+		title = "Sync weather with local weather (server location) [EXPERIMENTAL]";
+		values[] = {0};
+		default = 0;
+		texts[] = {"off"};
+	};
+	class d_common_sync_interval {
+		title = "Sync time and/or weather every x minutes.";
+		values[] = {15, 30, 45, 60, 90, 120};
+		default = 15;
+		texts[] = {"15", "30", "45", "60", "90", "120"};
+	};
+	
+	class d_params_dummy_line_difficulty {
+		title = "---------------------- Difficulty Settings ----------------------";
+		values[] = {-99999};
+		default = -99999;
+		texts[] = {""};
+	};
+	class d_difficulty_aiUseNVGoogles {
+		title = "AI uses NVGoogles";
+		values[] = {0, 1};
+		default = 1;
+		texts[] = {"off", "on"};
+	};
+	class d_difficulty_aiUseTI {
+		title = "AI uses TI";
+		values[] = {0, 1};
+		default = 1;
+		texts[] = {"off", "on"};
+	};
+	
+
+	class d_params_dummy_line_world {
+		title = "---------------------- World Settings ----------------------";
+		values[] = {-99999};
+		default = -99999;
+		texts[] = {""};
+	};
+	
+
+	
+	
+	class d_params_dummy_line_spawn {
+		title = "---------------------- Spawn Settings ----------------------";
+		values[] = {-99999};
+		default = -99999;
+		texts[] = {""};
+	};
+	
+	class d_spawn_house_rate {
+		title = "Amount of Houses to place spawn in";
+		values[] = {25, 50, 75, 100, -1};
+		default = 50;
+		texts[] = {"25 %", "50 %", "75 %", "100 %", "random"};
+	};
+	
+	class d_spawn_house_refresh_rate {
+		title = "Refresh spawn in house every x minutes";
+		values[] = {0, 60, 120, 360, 720, 1440};
+		default = 720;
+		texts[] = {"disabled", "60", "120", "360", "720", "1440"};
+	};
+	class d_spawn_house_refresh_recalculate {
+		title = "Recalculate houses on refresh";
+		values[] = {0, 1};
+		default = 1;
+		texts[] = {"disabled", "enabled"};
+	};
+	
+	class d_params_dummy_line_persistent {
+		title = "---------------------- Persistent Settings ----------------------";
+		values[] = {-99999};
+		default = -99999;
+		texts[] = {""};
+	};
+	class d_common_persistent {
+		title = "Make the game persistent";
+		values[] = {0, 1, 2};
+		default = 0;
+		texts[] = {"off", "player only", "everything (not supported yet)"};
+	};
+	
+	class d_common_persistent_driver {
+		title = "Persistent Driver";
+		values[] = {"inidb"};
+		default = "inidb";
+		texts[] = {"iniDB"};
+	};
+		
+	class d_params_dummy_line_headless {
+		title = "---------------------- Headless Client Settings ----------------------";
+		values[] = {-99999};
+		default = -99999;
+		texts[] = {""};
+	};
+	
+	class d_headless_fallback {
+		title = "Use this headless client as fallback";
+		values[] = {"civilian", "east", "west", "resistance"};
+		default = "civilian";
+		texts[] = {"Civilian", "East", "West", "Resistance"};
+	};
+	
+	
+	/*
+	class d_params_dummy_line_reporting {
+		title = "---------------------- Reporting Settings ----------------------";
+		values[] = {-99999};
+		default = -99999;
+		texts[] = {""};
+	};
+	
+	class d_reporting {
+		title = "Enable reporting (know exactly what you're doing!)";
+		values[] = {0, 1};
+		default = 0;
+		texts[] = {"no", "yes"};
+	};
+	class d_reporting_server {
+		title = "Reporting server";
+		values[] = {"avdworld.net", "custom"};
+		default = "avdworld.net";
+		texts[] = {"avdworld.net", "custom"};
+	};
+	*/
+	class d_params_dummy_line_debug {
+		title = "---------------------- Debug Settings ----------------------";
+		values[] = {-99999};
+		default = -99999;
+		texts[] = {""};
+	};
+	
+	class d_debug_log {
+		title = "Enable logging";
+		values[] = {0, 1};
+		default = 1;
+		texts[] = {"no", "yes"};
+	};
+	class d_debug_log_server {
+		title = "All clients log to server (not recommended)";
+		values[] = {0, 1};
+		default = 0;
+		texts[] = {"disabled", "enabled"};
+	};
+};

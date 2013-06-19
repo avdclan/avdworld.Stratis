@@ -71,6 +71,7 @@ if(isServer) then {
 
 
 call compile preprocessFile "x_avd\lib\init.sqf";
+call compile preprocessFile "x_avd\events.sqf";
 
 /*
 ["avd_unit_zone_activated", {
@@ -92,13 +93,9 @@ diag_log "";
 
 
 if(isServer) then {
-	execVM "x_avd\server.sqf";  
+	execVM "x_avd\server.sqf";
 };
 
-// setup player
-[{
-    execVM "x_avd\player\setup.sqf";
-}, [], true, true] call AVD_fnc_remote_execute;
 
 
 
