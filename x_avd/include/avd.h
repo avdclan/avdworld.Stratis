@@ -8,4 +8,13 @@
 
 #define getIndex call AVD_fnc_getIndex
 
+#define VAR(obj, var, val) obj setVariable[var, val, false]
+#define pVAR(obj, var, val) obj setVariable[var, val, false]
+
 #define isAdmin (serverCommandAvailable "#kick" || isServer)
+
+#ifndef PATH
+	#define PATH "x_avd\"
+#endif
+
+#define COMP(file) call compile preprocessFile format["%1%2", PATH, file]
