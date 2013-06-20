@@ -10,7 +10,7 @@
     };
 } forEach _objs;
 */
-execVM "x_avd\components\spawn\init.sqf";
+//execVM "x_avd\components\spawn\init.sqf";
 /*
 call compile preprocessFile "x_avd\lib\uniform.sqf";
 // ammo
@@ -71,5 +71,5 @@ for "_i" from 0 to (count _cfgWeapons)-1 do {
                                                 */
 //["<t size='2'>Hello World</t>",getPos player,15,0] spawn bis_fnc_3Dcredits; 
     
-player addWeaponCargo ["ARP_Objects_waterbottle_m", 1];
-
+//player addWeaponCargo ["ARP_Objects_waterbottle_m", 1];
+DLOG("Spawn locations: " + str(AVD_SPAWN_BOXES));
