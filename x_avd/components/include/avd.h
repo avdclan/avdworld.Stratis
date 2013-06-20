@@ -18,3 +18,4 @@
 #endif
 
 #define COMP(file) call compile preprocessFile format["%1\%2.sqf", PATH, file]
+#define SPWN(file) execVM format["%1\%2.sqf", PATH, file]

@@ -3,5 +3,5 @@
 #include "include\avd.h"
 
 DLOG("Loading Food & Drink System");
-COMP("modules\fooddrink\init.sqf");
+COMP("modules\fooddrink\init");
 

@@ -96,7 +96,9 @@ if(isServer) then {
 	execVM "x_avd\server.sqf";
 };
 
-
+if(hasInterface) then {
+    execVM "x_avd\player\setup.sqf";
+};
 
 
 //["avdworld", "server", "starttime", date] call iniDB_write;

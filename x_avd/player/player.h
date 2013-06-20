@@ -1,0 +1,5 @@
+#define PLAYER_DEFAULT_VESTS [["V_Rangemaster_belt", 1]]
+#define PLAYER_DEFAULT_UNIFORMS [["U_C_Poloshirt_blue", 1]]
+#define PLAYER_DEFAULT_BACKPACKS []
+#define PLAYER_DEFAULT_HEADGEARS [["H_cap_green", 1]]
+#define PLAYER_DEFAULT_ITEMS []

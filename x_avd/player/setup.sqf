@@ -1,3 +1,4 @@
+waitUntil { !isNull player };
 if(! local player) exitWith {};
 if(! hasInterface) exitWith {};
 //waitUntil { ! player };

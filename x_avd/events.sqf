@@ -5,7 +5,7 @@
     [{
     private ["_player"];
     _player = _this select 0;
-    execVM "x_avd\player\setup.sqf";
+    //execVM "x_avd\player\setup.sqf";
     }, _this, (_this select 0), false] call AVD_fnc_remote_execute;
     
 }] call CBA_fnc_addEventHandler;
@@ -21,8 +21,9 @@
 }] call CBA_fnc_addEventHandler;
 
 ["avd_unit_killed", {
-    DLOG("KILLED: " + str(_this));
+  //  DLOG("KILLED: " + str(_this));
 }] call CBA_fnc_addEventHandler;
 ["avd_unit_hit", {
-    DLOG("HIT: " + str(_this));
+  //  DLOG("HIT: " + str(_this));
 }] call CBA_fnc_addEventHandler;
+
