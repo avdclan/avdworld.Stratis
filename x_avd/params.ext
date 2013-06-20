@@ -44,7 +44,7 @@ class Params {
 		default = 1;
 		texts[] = {"off", "on"};
 	};
-	
+	class d_params_space_1_1 { title = ""; values[] = {0}; default = 0; texts[] = {""}; };
 	class d_params_dummy_line_revive {
 		title = "-- Revive Settings:";
 		values[] = {-99999};
@@ -64,7 +64,7 @@ class Params {
 		texts[] = {"30", "60", "300", "600"};
 	};
 	
-
+	class d_params_space_1_2 { title = ""; values[] = {0}; default = 0; texts[] = {""}; };
 	class d_params_dummy_line_world {
 		title = "-- World Settings:";
 		values[] = {-99999};
@@ -74,7 +74,7 @@ class Params {
 	
 
 	
-	
+	class d_params_space_1_3 { title = ""; values[] = {0}; default = 0; texts[] = {""}; };
 	class d_params_dummy_line_spawn {
 		title = "-- Spawn Setting:";
 		values[] = {-99999};
@@ -101,7 +101,7 @@ class Params {
 		default = 1;
 		texts[] = {"disabled", "enabled"};
 	};
-	
+	class d_params_space_1_4 { title = ""; values[] = {0}; default = 0; texts[] = {""}; };
 	class d_params_dummy_line_persistent {
 		title = "-- Persistent Settings:";
 		values[] = {-99999};
@@ -121,7 +121,7 @@ class Params {
 		default = "inidb";
 		texts[] = {"iniDB"};
 	};
-		
+	class d_params_space_1_5 { title = ""; values[] = {0}; default = 0; texts[] = {""}; };	
 	class d_params_dummy_line_headless {
 		title = "-- Headless Client Settings";
 		values[] = {-99999};
@@ -138,6 +138,7 @@ class Params {
 	
 	
 	/*
+	class d_params_space_1_6 { title = ""; values[] = {0}; default = 0; texts[] = {""}; };
 	class d_params_dummy_line_reporting {
 		title = "-- Reporting Settings:";
 		values[] = {-99999};
@@ -158,6 +159,7 @@ class Params {
 		texts[] = {"avdworld.net", "custom"};
 	};
 	*/
+	class d_params_space_1_7 { title = ""; values[] = {0}; default = 0; texts[] = {""}; };
 	class d_params_dummy_line_debug {
 		title = "-- Debug Settings:";
 		values[] = {-99999};
