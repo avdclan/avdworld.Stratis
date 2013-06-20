@@ -1,5 +1,5 @@
 #define PLAYER_DEFAULT_VESTS [["V_Rangemaster_belt", 1]]
-#define PLAYER_DEFAULT_UNIFORMS [["U_C_Poloshirt_blue", 1]]
+#define PLAYER_DEFAULT_UNIFORMS [["U_C_Citizen_clothes1", 1], ["U_C_Citizen_clothes2", 1], ["U_C_Citizen_clothes3", 1]]
 #define PLAYER_DEFAULT_BACKPACKS []
-#define PLAYER_DEFAULT_HEADGEARS [["H_cap_green", 1]]
+#define PLAYER_DEFAULT_HEADGEARS [["H_MilCap_grey", 1], ["H_Booniehat_Indp", 1], ["H_MilCap_check1", 1], ["H_MilCap_check2", 1], ["H_SUD_Hat", 1], ["H_SUD_Bandage", 1]]
 #define PLAYER_DEFAULT_ITEMS []

@@ -16,7 +16,8 @@ DLOG("Initializing iniDB.");
 call compile preProcessFile "\iniDB\init.sqf";
 
 
-LOAD_COMPONENT("spawn");
+//LOAD_COMPONENT("spawn");
+execVM "x_avd\components\spawn\init.sqf";
 LOAD_COMPONENT("civilian");
 LOAD_COMPONENT("red");
 

@@ -10,7 +10,7 @@
     };
 } forEach _objs;
 */
-//execVM "x_avd\components\spawn\init.sqf";
+execVM "x_avd\components\spawn\init.sqf";
 /*
 call compile preprocessFile "x_avd\lib\uniform.sqf";
 // ammo

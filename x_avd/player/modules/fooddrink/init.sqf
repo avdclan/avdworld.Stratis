@@ -43,7 +43,7 @@ AVD_FDS_TIMER = [_unit, _foodVal, _drinkVal] spawn {
       _foodVal =  _foodVal - _factor;
 	  VAR(_unit, "avd_fds_drinkVal", _drinkVal);      
 	  VAR(_unit, "avd_fds_foodVal", _foodVal);
-      DLOG("ANIM: " + str(_anim) + ", factor: " + str(_factor) + ", curVal: " + str(_drinkVal));
+     // DLOG("ANIM: " + str(_anim) + ", factor: " + str(_factor) + ", curVal: " + str(_drinkVal));
       hintSilent parseText format["Food: %1 (%3)<br />Drink: %2 (%4)<br />", _foodVal, _drinkVal, _factor, (_factor * 5)];  
       sleep 1;
       !(alive _unit)

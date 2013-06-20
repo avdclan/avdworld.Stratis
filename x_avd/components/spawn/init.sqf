@@ -41,6 +41,63 @@ _o = 0;
 _p = (100 / _o) * count(_houses);
 DLOG("Got " + str(count(_houses)) + "/" + str(_o) + " (" + str(_p) + "%) houses to place spawn in.");
 {
+   _pos = _x buildingPos 1;
+   _result = [_pos,[0,0,0]] call BIS_fnc_areEqual;
+   if(_result) then {
+     _pos = getPosATL _x;  
+   };   
+   _holder = "Box_NATO_Wps_F" createVehicle _pos;
+   clearWeaponCargoGlobal _holder;
+   clearMagazineCargoGlobal _holder;
    
+   
+   // add min 2, max 5 food items.
+   _num = floor(random 3) + 2;
+   _shfl = [FOOD_SPAWN] call CBA_fnc_shuffle;
+   for[{_i = 0}, {_i < _num}, { _i = _i + 1 }] do {
+      {
+          _rand = random 1;
+          _class = _x select 0;
+          _p = _x select 1;
+          if(_p < _rand) then {
+            _holder addMagazineCargoGlobal [_class, 1];  
+          };
+      } foreach _shfl;
+   };
+   
+   // add min 2, max 5 drink items.
+   _num = floor(random 3) + 2;
+   _shfl = [DRINK_SPAWN] call CBA_fnc_shuffle;
+   for[{_i = 0}, {_i < _num}, { _i = _i + 1 }] do {
+      {
+          _rand = random 1;
+          _class = _x select 0;
+          _p = _x select 1;
+          if(_p < _rand) then {
+             DLOG("Adding " + str(_class) + " to holder " + str(_holder));
+            _holder addMagazineCargoGlobal [_class, 1];  
+          };
+      } foreach _shfl;
+   };
+   
+   
+   // add min 2, max 5 drink items.
+   _num = floor(random 3) + 2;
+   _shfl = [NORMAL_SPAWN] call CBA_fnc_shuffle;
+   for[{_i = 0}, {_i < _num}, { _i = _i + 1 }] do {
+      {
+          _rand = random 1;
+          _class = _x select 0;
+          _p = _x select 1;
+          if(_p < _rand) then {
+             DLOG("Adding " + str(_class) + " to holder " + str(_holder));
+            _holder addWeaponCargoGlobal [_class, 1];  
+          };
+      } foreach _shfl;
+   };
+   
+   player setPos _pos;
+   [_x] call AVD_fnc_trackingMarker;
+   sleep 60;
 } foreach _houses;
 DLOG("Algo took: " + str(time - _stime));
