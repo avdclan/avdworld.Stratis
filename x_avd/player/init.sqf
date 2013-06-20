@@ -20,5 +20,7 @@ player addMPEventHandler ["mprespawn", { _this call compile preprocessFile "x_av
 DLOG("Adding actions.");
 ccp("x_avd\player\actions\init.sqf");
 
+ccp("x_avd\player\init_include.sqf");
+
 DLOG("Setting view distance");
 setViewDistance 1500;
