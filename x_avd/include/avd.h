@@ -17,4 +17,4 @@
 	#define PATH "x_avd\"
 #endif
 
-#define COMP(file) call compile preprocessFile format["%1%2", PATH, file]
+#define COMP(file) call compile preprocessFile format["%1\%2.sqf", PATH, file]
