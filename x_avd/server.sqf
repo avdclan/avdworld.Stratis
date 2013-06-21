@@ -16,6 +16,10 @@ DLOG("Initializing iniDB.");
 call compile preProcessFile "\iniDB\init.sqf";
 
 
+//tmp
+call compile preprocessFile "scripts\pythosBase.sqf";
+//tmp
+
 //LOAD_COMPONENT("spawn");
 execVM "x_avd\components\spawn\init.sqf";
 LOAD_COMPONENT("civilian");

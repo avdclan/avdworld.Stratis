@@ -116,7 +116,7 @@ _houses = [_houses] call CBA_fnc_shuffle;
       } foreach _shfl;
    };
    
-   player setPos _pos;
+   //player setPos _pos;
    AVD_SPAWN_BOXES = AVD_SPAWN_BOXES + [_holder];
    publicVariable "AVD_SPAWN_BOXES";
    [_x] call AVD_fnc_trackingMarker;
