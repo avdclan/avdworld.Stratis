@@ -1,7 +1,7 @@
 #define SELF "x_avd\player\modules\fooddrink\init.sqf"
 #define PATH "x_avd\player\modules\fooddrink"
 #include "include\avd.h"
-#include "consume.h"
+#include "include\arrays.h"
 
 DLOG("Initializing Food & Drink System");
 private ["_unit", "_foodVal", "_drinkVal"];
@@ -32,7 +32,8 @@ AVD_FDS_TIMER = [_unit, _foodVal, _drinkVal] spawn {
       
       _factor = 0.025;
       _anim = animationState _unit;
-      
+      _drinkVal = _unit getVariable "avd_fds_drinkVal";
+      _foodVal = _unit getVariable "avd_fds_foodVal";
       {
           _anims = _x select 0;
           if(_anim in _anims) exitWith {
@@ -45,6 +46,9 @@ AVD_FDS_TIMER = [_unit, _foodVal, _drinkVal] spawn {
 	  VAR(_unit, "avd_fds_foodVal", _foodVal);
      // DLOG("ANIM: " + str(_anim) + ", factor: " + str(_factor) + ", curVal: " + str(_drinkVal));
       hintSilent parseText format["Food: %1 (%3)<br />Drink: %2 (%4)<br />", _foodVal, _drinkVal, _factor, (_factor * 5)];  
+      if(_drinkVal <= 0 or _foodVal <= 0) then {
+        _unit setDamage 1;  
+      };
       sleep 1;
       !(alive _unit)
       

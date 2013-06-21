@@ -24,7 +24,7 @@
 
 #define SPAWN_HOLDER "Box_NATO_Wps_F"
 
-#define NORMAL_SPAWN [["V_BandollierB_cbr", 0.6], ["U_B_CombatUniform_mcam_tshirt", 0.25], ["U_O_CombatUniform_ocamo", 0.25], ["V_PlateCarrierGL_rgr", 0.3]]
+#define NORMAL_SPAWN [["V_BandollierB_cbr", 0.6], ["U_B_CombatUniform_mcam_tshirt", 0.25], ["U_O_CombatUniform_ocamo", 0.25]]
 
 #define RARE_SPAWN [["ARP_Objects_smartphone_m", 0.1], ["ARP_Objects_Toughbook_M", 0.1], ["G_Diving", 0.5], ["30Rnd_65x39_caseless_mag", 0.4], ["arifle_SUD_AK107_GL", 0.6], ["30rnd_545x39_AK107", 0.65], ["20Rnd_762x51_Mag", 0.3], ["V_HarnessOGL_brn", 0.05], ["U_B_Wetsuit", 0.07], ["ARP_Objects_satbag_m", 0.1], ["1Rnd_HE_Grenade_shell", 0.2], ["ItemGPS", 0.01], ["HandGrenade", 0.3], ["arifle_MX_GL_F", 0.2], ["B_Carryall_oucamo", 0.15], ["srifle_EBR_F", 0.1], ["NVGoggles", 0.01], ["V_RebreatherB", 0.02]]
 

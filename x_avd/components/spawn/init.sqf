@@ -59,14 +59,14 @@ _houses = [_houses] call CBA_fnc_shuffle;
    if(_result) then {
      _pos = getPosATL _x;  
    };   
-	_x enableSimulation false;
+	//_x enableSimulation false;
     _holder = SPAWN_HOLDER createVehicle _pos;
     _holder allowDamage false;
    	clearWeaponCargoGlobal _holder;
 	clearMagazineCargoGlobal _holder;
-    _holder disableCollisionWith _x;
+    //_holder disableCollisionWith _x;
     
-    _x disableCollisionWith _holder;
+    //_x disableCollisionWith _holder;
     _holder setPosATL _pos;
     
    
@@ -78,7 +78,7 @@ _houses = [_houses] call CBA_fnc_shuffle;
           _rand = random 1;
           _class = _x select 0;
           _p = _x select 1;
-          if(_p < _rand) then {
+          if(_rand < _p) then {
             _holder addMagazineCargoGlobal [_class, 1];  
           };
       } foreach _shfl;
@@ -93,7 +93,7 @@ _houses = [_houses] call CBA_fnc_shuffle;
           _rand = random 1;
           _class = _x select 0;
           _p = _x select 1;
-          if(_p < _rand) then {
+          if(_rand < _p) then {
              DLOG("Adding " + str(_class) + " to holder " + str(_holder));
             _holder addMagazineCargoGlobal [_class, 1];  
           };
@@ -109,7 +109,7 @@ _houses = [_houses] call CBA_fnc_shuffle;
           _rand = random 1;
           _class = _x select 0;
           _p = _x select 1;
-          if(_p < _rand) then {
+          if(_rand < _p) then {
              DLOG("Adding " + str(_class) + " to holder " + str(_holder));
             _holder addWeaponCargoGlobal [_class, 1];  
           };
