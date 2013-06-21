@@ -1,10 +1,9 @@
 #define SELF "x_avd\components\civilian\events.sqf"
 #include "include\avd.h"
-#define __quiet true
 
 AVD_LOCATIONS_INITIALIZED = [];
 ["avd_location_create", {
-	//DLOG("Location create: " + str(_this));
+	DLOG("Location create: " + str(_this) + " - target: " + str(AVD_D_CLIENT_CIV));
     //DLOG("Location radius: " + str((_this select 0) getVariable "avd_location_radius"));
 //    remoteSpawn({ DLOG("test!");}, []);
 

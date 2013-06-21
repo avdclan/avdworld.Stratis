@@ -1,4 +1,6 @@
-/*
+#include "x_avd\include\arrays.h"
+ 
+ /*
 				***		ARMA3Alpha MILITARIZE AREA SCRIPT v1.1 - by SPUn / lostvar	***
 
 			Calling the script:
@@ -78,8 +80,8 @@ if(typeName _vehRatio == "ARRAY")then{
 };
 _allUnitsArray = [];
 
-_blueMenArray = ["B_spotter_F","B_sniper_F","B_soldier_AR_F","B_soldier_exp_F","B_Soldier_GL_F","B_soldier_M_F","B_medic_F","B_Soldier_F","B_soldier_repair_F","B_soldier_LAT_F","B_Soldier_SL_F","B_Soldier_lite_F","B_Soldier_TL_F"];
-_redMenArray = ["O_spotter_F","O_sniper_F","O_Soldier_F","O_Soldier_AR_F","O_soldier_exp_F","O_Soldier_GL_F","O_soldier_M_F","O_medic_F","O_soldier_repair_F","O_Soldier_LAT_F","O_Soldier_lite_F","O_Soldier_SL_F","O_Soldier_TL_F"];
+_blueMenArray = BLUE_UNITS; 
+_redMenArray = RED_UNITS;
 _yellowMenArray = ["C_man_1","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F","C_man_1_1_F","C_man_1_2_F","C_man_1_3_F"];
 
 _blueCarArray = ["B_Hunter_F","B_Hunter_HMG_F","B_Hunter_RCWS_F","B_Quadbike_F"];

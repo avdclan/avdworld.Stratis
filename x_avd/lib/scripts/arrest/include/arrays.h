@@ -42,3 +42,9 @@
 #define FOOD_SPAWN [["ARP_Objects_mre_m", 1]]
 
 #define FOOD_CLASSES ["ARP_Objects_mre_m"] 
+
+
+
+#define ITEM_PASSPORT "ARP_Objects_passport_m"
+
+#define ANIM_HANDCUFF "amovpknlmstpsnonwnondnon"

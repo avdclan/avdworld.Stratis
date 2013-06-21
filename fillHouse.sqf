@@ -1,4 +1,5 @@
-/*
+#include "x_avd\include\arrays.h"
+/* 
 				***		ARMA3Alpha FILL HOUSE SCRIPT v1.1 - by SPUn / lostvar	***
 
 						Fills house or buildings in defined range with soldiers
@@ -53,8 +54,8 @@ _grpId = if (count _this > 9) then { _this select 9;} else {nil};
 if(isNil("LV_ACskills"))then{LV_ACskills = compile preprocessFile "LV_functions\LV_fnc_ACskills.sqf";};
 if(isNil("LV_vehicleInit"))then{LV_vehicleInit = compile preprocessFile "LV_functions\LV_fnc_vehicleInit.sqf";};
 
-_blueMenArray = ["B_spotter_F","B_sniper_F","B_soldier_AR_F","B_soldier_exp_F","B_Soldier_GL_F","B_soldier_M_F","B_medic_F","B_Soldier_F","B_soldier_repair_F","B_soldier_LAT_F","B_Soldier_SL_F","B_Soldier_lite_F","B_Soldier_TL_F"];
-_redMenArray = ["O_spotter_F","O_sniper_F","O_Soldier_F","O_Soldier_AR_F","O_soldier_exp_F","O_Soldier_GL_F","O_soldier_M_F","O_medic_F","O_soldier_repair_F","O_Soldier_LAT_F","O_Soldier_lite_F","O_Soldier_SL_F","O_Soldier_TL_F"];
+_blueMenArray = BLUE_UNITS; 
+_redMenArray = RED_UNITS;
 
 switch (_sideOption) do { 
     case 1: {

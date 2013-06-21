@@ -24,28 +24,28 @@ enableItemsDropping = 0;
 
 class Extended_PreInit_EventHandlers 
 {
-  	      xeh_init = "call compileFinal preprocessFile 'x_avd\init.sqf';";
+  	      xeh_init =  "call compileFinal preprocessFile 'x_avd\events.sqf';  call compileFinal preprocessFile 'x_avd\init.sqf';";
 };
 
 class Extended_Init_EventHandlers 
 {
 	  onRespawn = true;
-	  //xeh_init = "_this execVM 'x_avd\xeh\init.sqf';";  	
+	  //xeh_init = "_this call compileFinal preprocessFile'x_avd\xeh\init.sqf';";  	
       class Man 
       {
       	  onRespawn = true;
-          xeh_init = "_this execVM 'x_avd\xeh\unit.sqf';"; 
+          xeh_init = "_this call compileFinal preprocessFile'x_avd\xeh\unit.sqf';"; 
       };
       
       class Land 
       {
       	  onRespawn = true;
-          xeh_init = "_this execVM 'x_avd\xeh\land.sqf';";
+          xeh_init = "_this call compileFinal preprocessFile'x_avd\xeh\land.sqf';";
           
           class Car 
 	      {
 	      	  onRespawn = true;
-	          xeh_init = "_this execVM 'x_avd\xeh\car.sqf';"; 
+	          xeh_init = "_this call compileFinal preprocessFile'x_avd\xeh\car.sqf';"; 
 	      };
 	      class Tank 
 	      {

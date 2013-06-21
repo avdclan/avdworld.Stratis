@@ -1,6 +1,8 @@
 #define SELF "x_avd\xeh\unit.sqf"
+#define NODEBUG
 #include "include\avd.h"
-//DLOG("Creating unit: " + str(_this));
+
+DLOG("Creating unit: " + str(_this));
 private ["_unit", "_varName"];
 _unit = _this select 0;
 if(! local _unit) exitWith {};
@@ -22,8 +24,6 @@ if(_varName == "") then {
 //_unit addEventHandler ["hit", { _this call compile preprocessFile "x_avd\events\unit\hit.sqf"; }];
 
 //[_unit] spawn {
-    _unit = _this select 0;
-   	[_unit, format["%2_%1", typeOf _unit, _unit]] call AVD_fnc_trackingMarker;
 	["avd_unit_creation", [_unit]] call CBA_fnc_globalEvent;
 	["avd_unit_create", [_unit]] call CBA_fnc_globalEvent;
 //};

@@ -1,4 +1,5 @@
 #define SELF "x_avd\lib\military\createOutpost.sqf"
+//#define NODEBUG
 #include "include\avd.h"
 #include "include\arrays.h"
 private ["_side", "_position", "_radius", "_marker", "_trigger", "_enemies", "_cargoHouses", "_towers", "_houses", "_hqs", "_numPat", "_airportTowers", "_logic", "_varName", "_flag", "_captureAble"];
@@ -18,7 +19,7 @@ _varName = call AVD_fnc_getValidVarName;
 [_logic, _varName] call AVD_fnc_setVehicleVarName;
 _numPatrol = random ((_radius / 50) / 2); 
 // find all cargo hosues.
-DLOG("Finding all cargo places...");
+//DLOG("Finding all cargo places...");
 _houses = nearestObjects [_position, ["House"], _radius];
 _cargoHouses = [];
 _towers = [];

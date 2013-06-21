@@ -8,8 +8,7 @@ class Mission
 		"A3_Animals_F_Rabbit",
 		"A3_Weapons_F_Ammoboxes",
 		"A3_Modules_F",
-		"a3_modules_f_sites",
-		"A3_Soft_F_Offroad"
+		"a3_modules_f_sites"
 	};
 	addOnsAuto[]=
 	{

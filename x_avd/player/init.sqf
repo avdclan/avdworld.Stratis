@@ -13,6 +13,11 @@ DLOG("varCheck");
 _var = (player getVariable "avd_player_init");
 if(! isNil "_var") exitWith { DLOG("EXIT!!"); };
 player setVariable ["avd_player_init", true, true];
+private "_varName";
+_varName = format["player_%1", getPlayerUID player];
+DLOG("Setting varname:" + str(_varName));
+[player, _varName] call AVD_fnc_setVehicleVarName;
+
 DLOG("Adding events");
 player addMPEventHandler ["mpkilled", { _this call compile preprocessFile "x_avd\player\events\killed.sqf";}];
 player addMPEventHandler ["mprespawn", { _this call compile preprocessFile "x_avd\player\events\respawn.sqf";}];

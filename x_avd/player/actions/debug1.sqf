@@ -1,5 +1,6 @@
 #define SELF "x_avd\player\actions\debug1.sqf"
 #include "include\avd.h"
+#include "include\arrays.h"
 //_outpost = [east, getPos player, 500, true] call compile preprocessFile "x_avd\lib\military\createOutpost.sqf";
 //DLOG("Having outpost: " + str(_outpost));
 //_objs =  nearestObjects [getPos player, [], 500];
@@ -72,4 +73,36 @@ for "_i" from 0 to (count _cfgWeapons)-1 do {
 //["<t size='2'>Hello World</t>",getPos player,15,0] spawn bis_fnc_3Dcredits; 
     
 //player addWeaponCargo ["ARP_Objects_waterbottle_m", 1];
-DLOG("Spawn locations: " + str(AVD_SPAWN_BOXES));
+/*
+detach player;
+player attachTo [cursorTarget, [-0.3, 0.2, 0]];
+[47, [true, false, false], { detach player; player setVariable["avd_arrested", false, true]; }] call CBA_fnc_addKeyHandler;
+cursorTarget spawn {
+  waitUntil {
+      _var = player getVariable "avd_arrested";
+      if(!isNil "_var" and !_var) exitWith {};
+      player playMoveNow animationState _this;
+      sleep 0.5;
+      false;
+  }  
+};
+*/
+_villages = nearestLocations [[0,0,0], ["NameVillage"], 100000]; 
+_cities = nearestLocations [[0,0,0], ["NameCity"], 100000];
+_capitals = nearestLocations [[0,0,0], ["NameCityCapital"], 100000];
+_locals = nearestLocations [[0,0,0], ["NameLocal"], 100000];
+{
+    DLOG("Village: " + str(text _x));
+} foreach _villages;
+{
+    DLOG("_cities: " + str(text _x));
+} foreach _cities;
+{
+    DLOG("_capitals: " + str(text _x));
+} foreach _capitals;
+{
+    DLOG("_locals: " + str(text _x));
+} foreach _locals
+
+call compile preprocessFile "x_avd\components\red\init.sqf";
+

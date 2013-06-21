@@ -22,12 +22,12 @@
  
  _func = format["%1 = %2; [%3, this, thislist, %4] call %1;", _funcName, _cond, _radius, _cargs];
  _str = format["Having func cond: %1", _func];
-DLOG(_str);
+//DLOG(_str);
 _ix = call AVD_fnc_getIndex;
  _funcSName = format["wp_func_%1", _ix];
 _funcStatement = format["%1 = %2; [%3, this, thislist, %4] call %1; %5 = nil; %1 = nil;", _funcSName, _statement, _radius, _sargs, _funcName];
  _str = format["Having func statement: %1", _funcStatement];
- DLOG(_str);
+ //DLOG(_str);
 
 _wp = _group addwaypoint [_pos, _radius, _index];
 _wp setWaypointStatements[_func, _funcStatement];

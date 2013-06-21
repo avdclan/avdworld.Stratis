@@ -1,9 +1,9 @@
 if(!isServer) exitWith {};
 #define SELF "x_avd\components\civilian\init.sqf"
 #include "include\avd.h"
+ccpf("x_avd\components\civilian\events.sqf");
 
 DLOG("Loading civilians... ");
-ccpf("x_avd\components\civilian\events.sqf");
 private ["_villages",
 		"_cities",
         "_capitals",

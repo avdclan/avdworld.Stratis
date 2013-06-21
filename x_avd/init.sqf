@@ -1,10 +1,12 @@
-
-enableSaving false;
-
 #define SELF "x_avd\init.sqf"
 #include "include\avd.h"
 #include "include\db.h"
 
+diag_log "";
+diag_log "";
+DLOG("Initializing AVD World " + AVD_META_VERSION);
+diag_log "";
+diag_log "";
 AVD_WORLD_SERVER_INIT = false;
 
 AVD_LOCATION_EXCLUDE=["Stratis Air Base", "Kamino Firing Range", "Pythos"];
@@ -28,7 +30,6 @@ resistance setFriend[west, 0];
 if(isServer) then {
   AVD_SERVER = (createGroup sideLogic) createUnit["LOGIC", [0, 0, 0], [], 0, ""];
   publicVariable "AVD_SERVER";
-  [] spawn {
       
 	  if(isNIL "AVD_D_CLIENT_CIV") then { AVD_D_CLIENT_CIV = AVD_SERVER; publicVariable "AVD_D_CLIENT_CIV"; DLOG("AVD_D_CLIENT_CIV is server."); };
 	  if(isNIL "AVD_D_CLIENT_EAST") then { AVD_D_CLIENT_EAST = AVD_D_CLIENT_CIV; publicVariable "AVD_D_CLIENT_EAST"; DLOG("AVD_D_CLIENT_EAST is server."); };
@@ -39,40 +40,16 @@ if(isServer) then {
 	  //publicVariable "HC_CLIENTS";
 
 
-  	["avd_network_opc", {
-        if(!isServer) exitWith {};
-        private ["_player", "_hc", "_owner", "_list"];
-    	_player = _this select 0;
-        _list = allUnits + allDead;
-        if(_player in HC_CLIENTS) then {
-          // omfg, we're loosing a headless client.
-          // just for now, we transfer all dead and alive units
-          // onto the server. this will be extended to transfer
-          // the units to another hc.
-          DLOG("Alert! We have lost a headless client.");
-          DLOG("Trying to transfer all of his units to the server");
-          _hc = owner _player;
-          {
-              if((owner _x) == _hc) then {
-                  DLOG("Transfering unit " + str(_x) + "..");
-              	  if(_x setOwner (owner AVD_SERVER)) then {
-                    DLOG("success!");  
-                  } else {
-                  	DLOG("error!");
-                  };
-              };
-          } foreach _list;
-        };
-    	    
-	}] call CBA_fnc_addEventHandler;
-  };
+  
+
             
 };
 
 
-call compile preprocessFile "x_avd\lib\init.sqf";
-call compile preprocessFile "x_avd\events.sqf";
 
+[] spawn {
+call compile preprocessFile "x_avd\lib\init.sqf";
+waitUntil { !isNil "AVD_lib_init" };
 /*
 ["avd_unit_zone_activated", {
     DLOG("location enter: " + str(_this));
@@ -81,11 +58,7 @@ call compile preprocessFile "x_avd\events.sqf";
     DLOG("location deactivated: " + str(_this));
 }] call CBA_fnc_addEventHandler;
 */
-diag_log "";
-diag_log "";
-DLOG("Initializing AVD World " + AVD_META_VERSION);
-diag_log "";
-diag_log "";
+
 
 
 //DLOG("Initializing UPSMON.");
@@ -107,3 +80,4 @@ if(hasInterface) then {
 //DB_SAVE(player);
 //DB_LOAD(getPlayerUID player, ["position", "alive"]);
 //DB_WRITE("asd", "starttime", date);
+};

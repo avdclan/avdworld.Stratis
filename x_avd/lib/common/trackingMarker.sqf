@@ -3,10 +3,11 @@
 
 private ["_unit", "_color", "_label", "_marker", "_side", "_timeout"];
 _unit = _this select 0;
-_label = if(count(_this) > 1) then { _this select 1; } else { ""; };
+_label = if(count(_this) > 1) then { _this select 1; } else { name _unit; };
 _timeout  = if(count(_this) > 2) then { _this select 2; } else { 0; };
 
 _index = call AVD_fnc_getIndex;
+if(isNil "_unit") exitWith {};
 if(_unit == objNull) exitWith { ["Sorry, I won't create a marker for a null object."] call dbg; };
 
 _oldMarker = _unit getVariable "avd_tracing_marker";
@@ -54,11 +55,7 @@ _marker setMarkerColorLocal _col;
     _time = time;
 	waitUntil {
 		  _marker setMarkerPos getPos _unit;
-          if(_label == "") then {
-          	_marker setMarkerText format["%1 (%2)", name _unit, owner _unit];
-          } else {
-              _marker setMarkerText _label;
-          };
+		  _marker setMarkerText _label;
           _side = side _unit;
           _col = "colorBlack";
           switch(_side) do {
