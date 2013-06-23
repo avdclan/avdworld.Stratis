@@ -1,4 +1,4 @@
-if(!isServer) exitWith {};
+
 #define SELF "x_avd\lib\im\events.sqf"
 #define PATH "x_avd\lib\im"
 #include "include\avd.h"
@@ -38,6 +38,7 @@ DLOG("Adding avd_unit_create eventhandler");
 DLOG("Adding avd_unit_killed eventhandler");
 
 ["avd_unit_killed", {
+    if(!isServer) exitWith {};
     _this spawn { 
 	private ["_unit", "_killer"];
     DLOG("FOO: " + str(_this));

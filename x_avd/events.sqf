@@ -1,4 +1,4 @@
-if(!isServer) exitWith {};
+
 #define SELF "x_avd\events.sqf"
 #include "include\avd.h"
 
@@ -35,6 +35,7 @@ if(!isServer) exitWith {};
 ["avd_vehicle_create", {
     private ["_unit"];
     _unit = _this select 0;
+    if(! local _unit) exitWith {};
 	_unit setVariable ["avd_xeh_init", true, true];
     
 }] call CBA_fnc_addEventHandler;
@@ -42,11 +43,11 @@ if(!isServer) exitWith {};
     DLOG("Creating unit: " + str(_this));
 	private ["_unit", "_varName"];
 	_unit = _this select 0;
-	//if(!ocal _unit) exitWith {};
+	if(!local _unit) exitWith {};
 	if(isPlayer _unit) exitWith { 
 		//[format["Not running on player %1", _unit], "XEH-unit"] call AVD_fnc_log;
-	    _var = format["player_%1", getPlayerUID player];
-		[_unit,  _var] call AVD_fnc_setVehicleVarName;    
+	    //_var = format["player_%1", getPlayerUID player];
+		//[_unit,  _var] call AVD_fnc_setVehicleVarName;    
 	    DLOG("Having player, calling event avd_player_create");
 		["avd_player_create", [_unit]] call CBA_fnc_globalEvent; 
 	};
@@ -97,8 +98,7 @@ if(!isServer) exitWith {};
 }] call CBA_fnc_addEventHandler;
 ["avd_cron", {
     private ["_time", "_offset", "_format", "_avgOffset", "_count", "_avg"];
-    _avgOffset = missionNamespace getVariable "avd_cron_check_avgoffset";
-    _count = missionNamespace getVariable "avd_cron_check_count";
+  
     if(isNil "_avgOffset") then {
       _avgOffset = 0;  
     };
