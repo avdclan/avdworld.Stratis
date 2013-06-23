@@ -1,7 +1,7 @@
 #define SELF "x_avd\lib\common\trackingMarker"
 #include "include\avd.h"
 
-[{
+
 private ["_unit", "_color", "_label", "_marker", "_side", "_timeout"];
 _unit = _this select 0;
 if(isNil "_unit") exitWith {};
@@ -96,4 +96,3 @@ _marker setMarkerColorLocal _col;
 	};
     deleteMarkerLocal _marker;
 };
-}, _this, true, true] call AVD_fnc_remote_execute;

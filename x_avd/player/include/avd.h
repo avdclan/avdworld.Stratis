@@ -18,8 +18,8 @@
 #endif
 
 #define DEPRECATED(lmessage) DLOG(lmessage)
-#define COMP(file) call compile preprocessFile format["%1\%2.sqf", PATH, file]
-#define COMPF(file) call compileFinal preprocessFile format["%1\%2.sqf", PATH, file]
+#define COMP(file) call compile preprocessFileLineNumbers format["%1\%2.sqf", PATH, file]
+#define COMPF(file) call compileFinal preprocessFileLineNumbers format["%1\%2.sqf", PATH, file]
 #define THREAD(file) execVM format["%1\%2.sqf", PATH, file]
 #define SPWN(file) THREAD(file)
 #define PARAM(num, def) if(!isNil "_this" and count(_this) > num) then { _this select num; } else { def; }
