@@ -2,7 +2,7 @@
 #include "include\avd.h"
 
 AVD_QUEUES = [] call CBA_fnc_hashCreate;
-
+publicVariable "AVD_QUEUES";
 
 AVD_fnc_queue_add = {
   private ["_name", "_index", "_args", "_myVal", "_prio", "_ttl", "_id", "_queue", "_myHash", "_date", "_ret"];
@@ -28,8 +28,9 @@ AVD_fnc_queue_add = {
   [_myHash, "args", _args] call CBA_fnc_hashSet;
   [_queue, _id, _myHash] call CBA_fnc_hashSet;
   [AVD_QUEUES, _name, _queue] call CBA_fnc_hashSet;
-  
+  publicVariable "AVD_QUEUES";
   //DLOG("Added " + str(_myHash) + " to " + str(_queue));
+  
   true;
 };
 
@@ -46,6 +47,8 @@ AVD_fnc_queue_next = {
   
   _ret = [_queue, _n select 0] call CBA_fnc_hashGet;
   [_queue, _n select 0, nil] call CBA_fnc_hashSet;
+  [AVD_QUEUES, _name, _queue] call CBA_fnc_hashSet;
+  publicVariable "AVD_QUEUES";
   _ret;
   
   
@@ -71,6 +74,7 @@ AVD_fnc_queue_setQueue = {
   if(isNil "_queue") exitWith {};
   
   [AVD_QUEUES, _queueName, _queue] call CBA_fnc_hashSet;
+  publicVariable "AVD_QUEUES";
   true;
   
 };
@@ -84,7 +88,9 @@ AVD_fnc_queue_create = {
         _myHash = [AVD_QUEUES, _queue] call CBA_fnc_hashGet;
     } else {
       	_myHash = [] call CBA_fnc_hashCreate;
-        [AVD_QUEUES, _queue, _myHash] call CBA_fnc_hashSet;  
+        [AVD_QUEUES, _queue, _myHash] call CBA_fnc_hashSet; 
+         
     };
+    publicVariable "AVD_QUEUES";
     _myHash;
 }
