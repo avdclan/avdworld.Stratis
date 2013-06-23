@@ -100,7 +100,7 @@
 ["avd_cron", {
     private ["_time", "_offset", "_format", "_avgOffset", "_count", "_avg"];
 	_avgOffset = missionNamespace getVariable"avd_cron_check_avgoffset";
-    _count = missionNamespace setVariable "avd_cron_check_count";
+    _count = missionNamespace getVariable "avd_cron_check_count";
     if(isNil "_avgOffset") then {
       _avgOffset = 0;  
     };
