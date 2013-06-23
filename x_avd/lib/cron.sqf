@@ -2,8 +2,7 @@
 #include "include\avd.h"
 
 
-// run only on server.
-if(isServer) then {
+
   
   if(! isNil "AVD_CRON_DAEMON") exitWith {
     DLOG("Cron already running.");  
@@ -18,7 +17,7 @@ if(isServer) then {
         _nextRun = floor(time + 60);
         _args = [date];
         DLOG("Calling cron." + str(_args));
-		["avd_cron", _args] call CBA_fnc_globalEvent;
+		["avd_cron", _args] call CBA_fnc_localEvent;
         _took = time - _time;
         DLOG("Cron took " + str(_took) + " seconds.");
         if(_took >= 60) then {
@@ -32,5 +31,3 @@ if(isServer) then {
     };
   };
     
-        
-};
