@@ -5,5 +5,5 @@ AVD_SERVER = (createGroup sideLogic) createUnit["LOGIC", [0, 0, 0], [], 0, ""];
 AVD_SERVER allowDamage false;
 
 publicVariable "AVD_SERVER";
-call compileFinal preprocessFile 'x_avd\lib\init.sqf';
-call compileFinal preprocessFile 'x_avd\events.sqf';
+call compileFinal preprocessFileLineNumbers 'x_avd\lib\init.sqf';
+call compileFinal preprocessFileLineNumbers 'x_avd\events.sqf';

@@ -13,6 +13,10 @@ DLOG("varCheck");
 _var = (player getVariable "avd_setup");
 if(! isNil "_var") exitWith { DLOG("EXIT!!"); };
 player setVariable ["avd_setup", true, true];
+if(vehicleVarName player == "") then {
+     _varName = format["player_%1", getPlayerUID player];
+    [player, _varName] call AVD_fnc_setVehicleVarName;
+};
 
 progressLoadingScreen 0.4;
 DLOG("Setting up player.");

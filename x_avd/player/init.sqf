@@ -21,8 +21,8 @@ DLOG("Setting varname:" + str(_varName));
 [player, _varName] call AVD_fnc_setVehicleVarName;
 
 DLOG("Adding events");
-player addMPEventHandler ["mpkilled", { _this call compile preprocessFile "x_avd\player\events\killed.sqf";}];
-player addMPEventHandler ["mprespawn", { _this call compile preprocessFile "x_avd\player\events\respawn.sqf";}];
+player addMPEventHandler ["mpkilled", { _this call compile preprocessFileLineNumbers "x_avd\player\events\killed.sqf";}];
+player addMPEventHandler ["mprespawn", { _this call compile preprocessFileLineNumbers "x_avd\player\events\respawn.sqf";}];
 
 DLOG("Initializing player.");
 SPWN("gear");

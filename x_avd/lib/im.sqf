@@ -260,4 +260,4 @@ AVD_fnc_im_arrest = {
 };
 
 
-call compileFinal preprocessFile "x_avd\lib\im\init.sqf";
+call compileFinal preprocessFileLineNumbers "x_avd\lib\im\init.sqf";

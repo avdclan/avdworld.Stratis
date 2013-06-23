@@ -20,9 +20,9 @@ call compile preProcessFile "\iniDB\init.sqf";
 
 
 //tmp
-call compile preprocessFile "scripts\safetyHouse.sqf";
-call compile preprocessFile "scripts\pythosBase.sqf";
-call compile preprocessFile "scripts\airfieldBase.sqf";
+call compile preprocessFileLineNumbers "scripts\safetyHouse.sqf";
+call compile preprocessFileLineNumbers "scripts\pythosBase.sqf";
+call compile preprocessFileLineNumbers "scripts\airfieldBase.sqf";
 
 //tmp
 

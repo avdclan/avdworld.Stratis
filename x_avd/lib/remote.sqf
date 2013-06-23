@@ -1,1 +1,1 @@
-AVD_fnc_remote_execute = compileFinal preprocessFile "x_avd\lib\remote\execute.sqf";
+AVD_fnc_remote_execute = compileFinal preprocessFileLineNumbers "x_avd\lib\remote\execute.sqf";

@@ -51,16 +51,11 @@ AVD_SERVER enableSimulation false;
         }; 
     }] call CBA_fnc_addEventHandler;
 
-// ugly
-if(!isDedicated) then {
-    _varName = format["player_%1", getPlayerUID player];
-    [player, _varName] call AVD_fnc_setVehicleVarName;
-};
 
 waitUntil { time > 0 };
 
 
-//call compile preprocessFile 'x_avd\events.sqf';
+//call compile preprocessFileLineNumbers 'x_avd\events.sqf';
 /*if(hasInterface) then {
 	startLoadingScreen["Loading AvD World " + AVD_META_VERSION];
 };

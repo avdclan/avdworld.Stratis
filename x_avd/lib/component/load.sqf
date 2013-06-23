@@ -8,7 +8,7 @@ if(!isServer) exitWith {
 private ["_component", "_ret"];
 _component = _this select 0;
 DLOG("Loading component " + _component);
-_ret = call compileFinal preprocessFile format["x_avd\components\%1\init.sqf", _component];
+_ret = call compileFinal preprocessFileLineNumbers format["x_avd\components\%1\init.sqf", _component];
 DLOG("Component " + str(_component) + " loaded.");
 if(isNil "_ret") then {
   _ret = [];  

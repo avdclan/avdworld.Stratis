@@ -80,7 +80,7 @@
 ["avd_cron", {
     if(!isServer) exitWith {};
     
-    //if(((date select 4) % 5) == 0 or time < 62) then {
+    if(((date select 4) % 5) == 0 or time < 62) then {
 	DLOG("Fixing units. ");
 	    	{
 	        	_var = _x getVariable "avd_xeh_init";
