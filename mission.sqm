@@ -7,14 +7,12 @@ class Mission
 		"A3_Characters_F_Civil",
 		"A3_Animals_F_Rabbit",
 		"A3_Weapons_F_Ammoboxes",
-		"A3_Modules_F",
-		"a3_modules_f_sites",
-		"A3_Modules_F_ObjectModifiers"
+		"A3_Modules_F"
+
 	};
 	addOnsAuto[]=
 	{
 		"A3_Characters_F_Civil",
-		"A3_Modules_F_ObjectModifiers",
 		"A3_Animals_F_Rabbit",
 		"A3_Weapons_F_Ammoboxes",
 		"a3_map_stratis"
@@ -41,7 +39,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=6;
+		items=5;
 		class Item0
 		{
 			side="CIV";
@@ -133,40 +131,6 @@ class Mission
 				};
 			};
 		};
-		class Item5
-		{
-			side="LOGIC";
-			class Vehicles
-			{
-				items=1;
-				class Item0
-				{
-					position[]={393.37735,0.13113123,7542.7178};
-					class args
-					{
-						items=2;
-						class Item0
-						{
-							value="50";
-							parentCls="ModuleSimulationManager_F";
-							typeName="radius";
-						};
-						class Item1
-						{
-							value="1";
-							parentCls="ModuleSimulationManager_F";
-							typeName="excludeAir";
-						};
-					};
-					id=5;
-					side="LOGIC";
-					vehicle="ModuleSimulationManager_F";
-					leader=1;
-					lock="UNLOCKED";
-					skill=0.60000002;
-				};
-			};
-		};
 	};
 	class Vehicles
 	{
@@ -174,7 +138,7 @@ class Mission
 		class Item0
 		{
 			position[]={2952.6912,28.33926,6214.0278};
-			id=6;
+			id=5;
 			side="AMBIENT LIFE";
 			vehicle="Rabbit_F";
 			player="PLAY CDG";
@@ -187,7 +151,7 @@ class Mission
 		class Item1
 		{
 			position[]={2877.5679,2.9351256,6068.8564};
-			id=7;
+			id=6;
 			side="EMPTY";
 			vehicle="Box_NATO_Wps_F";
 			skill=0.60000002;
@@ -195,7 +159,7 @@ class Mission
 		class Item2
 		{
 			position[]={2875.2454,2.799633,6070.1729};
-			id=8;
+			id=7;
 			side="EMPTY";
 			vehicle="Box_NATO_Ammo_F";
 			skill=0.60000002;
