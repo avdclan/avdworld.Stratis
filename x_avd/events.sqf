@@ -96,6 +96,7 @@
 	    
 	};
 }] call CBA_fnc_addEventHandler;
+
 ["avd_cron", {
     private ["_time", "_offset", "_format", "_avgOffset", "_count", "_avg"];
   

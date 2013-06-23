@@ -49,7 +49,7 @@ DLOG("Adding avd_unit_killed eventhandler");
     
 
  
-    if(! local _unit) exitWith { DLOG("NOT LOCAL"); };
+    //if(! local _unit) exitWith { DLOG("NOT LOCAL"); };
     if(side _unit != civilian) exitWith { DLOG("NOT CIVILIAN"); };
     if(_unit == _killer) exitWith { DLOG("SUICIDE"); };
     

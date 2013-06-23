@@ -16,9 +16,11 @@ _cfgVehicles = configFile >> "cfgVehicles";
 _foo = [];
 _stime = time;
 _rate = missionParam("d_spawn_house_rate");
+DLOG("Spawn rate: " + str(_rate));
 if(_rate == -1) then {
   _rate = random 1;  
 };
+DLOG("Spawn rate: " + str(_rate));
 DLOG("DELETING OLD SPAWN");
 {
   deleteVehicle _x; 
