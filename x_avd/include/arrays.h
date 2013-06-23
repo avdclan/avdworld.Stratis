@@ -22,8 +22,8 @@
 #define FLAG_GUER "Land_LampHalogen_F"
 #define FLAG_CIV "Land_LampHalogen_F"
 
-//#define SPAWN_HOLDER "Box_NATO_Wps_F"
-#define SPAWN_HOLDER "Library_WeaponHolder"
+#define SPAWN_HOLDER "Box_NATO_Wps_F"
+//#define SPAWN_HOLDER "WeaponHolder"
 
 #define NORMAL_SPAWN [["V_BandollierB_cbr", 0.6], ["U_B_CombatUniform_mcam_tshirt", 0.25], ["U_O_CombatUniform_ocamo", 0.25]]
 
@@ -44,7 +44,7 @@
 
 #define FOOD_CLASSES ["ARP_Objects_mre_m"] 
 
-
+#define EXCLUDE ["PaperCar", "O_APC_Wheeled_02_base_F"]
 
 #define ITEM_PASSPORT "ARP_Objects_passport_m"
 

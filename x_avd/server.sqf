@@ -35,6 +35,7 @@ LOAD_COMPONENT("red");
 LOAD_COMPONENT("spawn");
 
 
+
 AVD_WORLD_SERVER_LOADED = true;
 publicVariable "AVD_WORLD_SERVER_INIT";
 publicVariable "AVD_WORLD_SERVER_LOADED";

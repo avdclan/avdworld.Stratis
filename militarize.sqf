@@ -1,3 +1,5 @@
+#define SELF "militarize.sqf"
+#include "x_avd\include\avd.h"
 #include "x_avd\include\arrays.h"
  
  /*
@@ -84,9 +86,9 @@ _blueMenArray = BLUE_UNITS;
 _redMenArray = RED_UNITS;
 _yellowMenArray = ["C_man_1","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F","C_man_1_1_F","C_man_1_2_F","C_man_1_3_F"];
 
-_blueCarArray = ["B_Hunter_F","B_Hunter_HMG_F","B_Hunter_RCWS_F","B_Quadbike_F"];
-_redCarArray = ["O_Ifrit_F","O_Ifrit_GMG_F","O_Ifrit_MG_F","O_Quadbike_F"];
-_yellowCarArray = ["c_offroad"];
+_blueCarArray = [west, "car"] call AVD_fnc_lists_get;
+_redCarArray = [east, "car"] call AVD_fnc_lists_get;
+_yellowCarArray = [civilian, "car"] call AVD_fnc_lists_get;
 
 switch (_sideOption) do { 
     case 1: {
@@ -141,9 +143,13 @@ if(_vehicles)then{
         _pos = [];
         _sPos = [(_centerPos select 0) + (sin _dir) * _range, (_centerPos select 1) + (cos _dir) * _range, 0];
 		
-        _pos = _sPos findEmptyPosition[10, 300, _unitType]; 
+        //_pos = _sPos findEmptyPosition[10, 300, _unitType];
+        _road = [_centerPos, random _radius] call AVD_fnc_getDistantRoad;
+        DLOG("Got road: " + str(_road));
+        _pos = position (_road select 0);
+        DLOG("Got pos: " + str(_pos));
 		sleep 0.5;
-		if(count _pos < 1)then{_pos = _sPos;};
+		if(isNil "_pos") then {_pos = _sPos;};
 
 		_unit = createVehicle [_unitType, _pos, [], 0, "NONE"]; 
         _unit allowDamage false;

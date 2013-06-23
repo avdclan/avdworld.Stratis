@@ -1,1 +1,1 @@
-AVD_fnc_waypoint_add = compileFinal preprocessFile "x_avd\lib\waypoint\add.sqf";
+AVD_fnc_waypoint_add = compileFinal preprocessFileLineNumbers "x_avd\lib\waypoint\add.sqf";

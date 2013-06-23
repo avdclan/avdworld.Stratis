@@ -40,4 +40,7 @@ _locals = nearestLocations [[0,0,0], ["NameLocal"], 100000];
 	[_x, [100, 100], [5, 10], false, civilian] call AVD_fnc_createTriggerLocation;
 } foreach _locals;
 */
+
+// generating traffic.
+
 DLOG("Civilians initialized.");

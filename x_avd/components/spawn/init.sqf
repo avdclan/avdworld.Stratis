@@ -50,7 +50,7 @@ _o = 0;
     
     {
         
-       if(random 1 < _rate) then {
+       if(random 1 <= _rate) then {
        //[_x, format["%1 (%2 / %3 / %4)", typeOf _x, _doors, count(_positions), count(_exits)], 0] call AVD_fnc_trackingMarker;
         _houses = _houses + [_x];
        };

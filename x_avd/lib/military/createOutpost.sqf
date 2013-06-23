@@ -2,8 +2,9 @@
 #define NODEBUG
 #include "include\avd.h"
 #include "include\arrays.h"
-private ["_side", "_position", "_radius", "_marker", "_trigger", "_enemies", "_cargoHouses", "_towers", "_houses", "_hqs", "_numPat", "_airportTowers", "_logic", "_varName", "_flag", "_captureAble"];
+private ["_cGroup", "_side", "_position", "_radius", "_marker", "_trigger", "_enemies", "_cargoHouses", "_towers", "_houses", "_hqs", "_numPat", "_airportTowers", "_logic", "_varName", "_flag", "_captureAble"];
 _side = _this select 0;
+_cGroup = createGroup _side;
 _position = _this select 1;
 _radius = _this select 2;
 _captureAble = if(count(_this) > 3) then { _this select 3; } else { false; };
@@ -50,25 +51,25 @@ DLOG("Got all houses: " + str(_houses));
 // fill hq
 {
     _index = call AVD_fnc_getIndex;
-    [_x, _numSide, false, 2, random 50, 1, random 0.5, nil, nil, _index] execVM "fillHouse.sqf";
+    [_x, _numSide, false, 2, random 50, 1, random 0.5, _cGroup, nil, _index] execVM "fillHouse.sqf";
     _index = call AVD_fnc_getIndex;
-    [_x, _numSide, true, 1, random 25, 1, random 0.5, nil, nil, _index] execVM "fillHouse.sqf";
+    [_x, _numSide, true, 1, random 25, 1, random 0.5, _cGroup, nil, _index] execVM "fillHouse.sqf";
 } foreach _hqs;
 
 // fill towers
 {
     _index = call AVD_fnc_getIndex;
-    [_x, _numSide, false, 2, random 25, 1, random 0.5, nil, nil, _index] execVM "fillHouse.sqf";
+    [_x, _numSide, false, 2, random 25, 1, random 0.5, _cGroup, nil, _index] execVM "fillHouse.sqf";
 } foreach _towers;
 {
     _index = call AVD_fnc_getIndex;
-    [_x, _numSide, false, 2, random 100 + 50, 1, random 0.5, nil, nil, _index] execVM "fillHouse.sqf";
+    [_x, _numSide, false, 2, random 100 + 50, 1, random 0.5, _cGroup, nil, _index] execVM "fillHouse.sqf";
 } foreach _airportTowers;
 
 DLOG("Spawning " + str(_numPatrol) + " patrol groups.");
 for[{ _i = 0; }, { _i <= _numPatrol }, { _i = _i + 1; }] do {
     _index = call AVD_fnc_getIndex;
-	[_position, _numSide, (_radius * 1.5), true, false, false, [2, 2], 0, random 0.5, nil, nil, _index] execVM "militarize.sqf";
+	[_position, _numSide, (_radius * 1.5), true, false, false, [2, 2], 0, random 0.5, _cGroup, nil, _index] execVM "militarize.sqf";
 };
 
 if(_captureAble) then {

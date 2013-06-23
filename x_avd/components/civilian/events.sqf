@@ -14,7 +14,7 @@ AVD_LOCATIONS_INITIALIZED = [];
             _str = format["I am not %1 (%2), I am %3 (%4)", AVD_D_CLIENT_CIV, owner AVD_D_CLIENT_CIV, player, owner player];
             DLOG(_str);
         };
-        private ["_logic", "_side", "_name", "_marker", "_size", "_houses", "_chouses", "_counter"];
+        private ["_council", "_logic", "_side", "_name", "_marker", "_size", "_houses", "_chouses", "_counter", "_cGroup"];
     	_logic = _this select 0;
         if(_logic in AVD_LOCATIONS_INITIALIZED) exitWith { DLOG(str(_logic) + " already initialized."); };
         AVD_LOCATIONS_INITIALIZED = AVD_LOCATIONS_INITIALIZED + [_logic];
@@ -22,7 +22,9 @@ AVD_LOCATIONS_INITIALIZED = [];
      	_side = _logic getVariable "avd_side";
         if(_side != civilian) exitWith {};
       _name = _logic getVariable "avd_name";
-      
+	  _className = [civilian] call AVD_fnc_getRandomUnitClass;
+      _cGroup = createGroup _side;
+      _council = _grp createUnit[_className, getPos _logic, [], 0, "NONE"];
       _marker = _logic getVariable "avd_marker";
       _size = getMarkerSize _marker;
       // getting all houses
@@ -46,10 +48,11 @@ AVD_LOCATIONS_INITIALIZED = [];
                 if( ! _result) then {
 	        		_counter = _counter + 1;
           			_className = [civilian] call AVD_fnc_getRandomUnitClass;
-                    _grp = createGroup _side;
-                    _houseHolder = _grp createUnit[_className, _pos1, [], 0, "CAN_COLLIDE"];
-                    _rand = random 100;
-                    if(_rand < 40) then {
+                    _houseHolder = _cGroup createUnit[_className, _pos1, [], 0, "NONE"];
+                    _houseHolder disableAI "move";
+                    _rand = random 1;
+                    if(_rand < 0.4) then {
+                        _houseHolder enableAI "move";
                         _sides = [east, west, resistance];
                         _shfl = [_sides] call CBA_fnc_shuffle;
                         _nullGrp = createGroup (_shfl select 0);
@@ -69,7 +72,9 @@ AVD_LOCATIONS_INITIALIZED = [];
      _min = (_size select 0) / 10;
      _rand = _min / 2;
      _count = [_min, _rand];
-     [_logic, 0, (_size select 0), true, true, false, _count, 0, 0.1, nil, "", _index] execVM "militarize.sqf";
+     [_logic, 0, (_size select 0), true, true, false, _count, 0, 0.1, _cGroup, "", _index] execVM "militarize.sqf";
+     _cars = floor(random 40) + 10;
+     [_logic, 0, 10000, false, true, false, 0, [_cars, 5], 0.1, _cGroup, "", _index] execVM "militarize.sqf";
      _index spawn {
          private ["_index", "_grp"];
          _index = _this;

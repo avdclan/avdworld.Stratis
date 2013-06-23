@@ -30,7 +30,7 @@ AVD_fnc_getDistantRoad = {
      _object = _this select 0;
      _radius = _this select 1;
 	_list = _object nearRoads _radius;
-    DLOG(str(_list));
+    //DLOG(str(_list));
 	_dist = 0;
 	_obj = nil;
 	_last = nil;
