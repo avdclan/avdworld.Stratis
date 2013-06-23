@@ -1,3 +1,4 @@
+if(!isServer) exitWith {};
 #define SELF "x_avd\events.sqf"
 #include "include\avd.h"
 
@@ -41,7 +42,7 @@
     DLOG("Creating unit: " + str(_this));
 	private ["_unit", "_varName"];
 	_unit = _this select 0;
-	if(! local _unit) exitWith {};
+	//if(!ocal _unit) exitWith {};
 	if(isNull _unit) then {
 	  _counter = 0;
 	  waitUntil {

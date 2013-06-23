@@ -10,7 +10,7 @@ DLOG("Adding avd_unit_create eventhandler");
     //DLOG("set identity: " + str(_this));
     private ["_unit"];
     _unit = _this select 0;
-    if(! local _unit) exitWith { DLOG("NOT LOCAL"); };
+	if(!isServer) exitWith {};
     if(isPlayer _unit) exitWith { DLOG("IS PLAYER"); };
     
     private "_var";
