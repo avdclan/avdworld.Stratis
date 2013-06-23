@@ -64,9 +64,7 @@ DLOG("SPAWN EVENTS LOADED");
 	
 	
 	//DLOG("Calling avd_unit_create event with " + str(_unit));
-	_unit setVariable ["avd_xeh_init", true, true];
-    _unit addEventHandler ["killed", { ["avd_unit_killed", _this] call CBA_fnc_globalEvent; }]; 
-	_unit addEventHandler ["hit", { ["avd_unit_hit", _this] call CBA_fnc_globalEvent; }];
+
     
 }] call CBA_fnc_addEventHandler;
 
