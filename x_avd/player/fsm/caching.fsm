@@ -1,0 +1,228 @@
+/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, UnitCaching">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Caching_",0,250,-36.466801,-128.433441,53.533203,-78.433434,0.000000,"Caching" \n ""};
+item1[] = {"has_uncached_units",4,4314,-106.917397,22.844219,-16.917366,72.844208,1.000000,"has uncached units?"};
+item2[] = {"Cache_Unit",2,250,-135.827179,146.432587,-45.827766,196.432693,0.000000,"Cache Unit"};
+item3[] = {"has_cached_units",4,218,22.371559,25.706604,112.371567,75.706604,1.000000,"has cached units?"};
+item4[] = {"Uncache_Unit",2,250,63.027763,149.998550,153.027267,199.998627,0.000000,"Uncache Unit"};
+item5[] = {"_",8,218,-48.486099,271.967163,41.513901,321.967163,0.000000,""};
+item6[] = {"Reset_lists__go",2,250,-185.555984,-111.362984,-95.555969,-61.362984,0.000000,"Reset lists, go again."};
+item7[] = {"alive_check",8,218,-268.030243,64.039627,-178.030060,114.039597,5.000000,"alive check"};
+item8[] = {"_",1,250,-281.969421,202.270844,-191.969391,252.270828,0.000000,""};
+link0[] = {0,1};
+link1[] = {0,3};
+link2[] = {0,7};
+link3[] = {1,2};
+link4[] = {2,5};
+link5[] = {3,4};
+link6[] = {4,5};
+link7[] = {5,6};
+link8[] = {6,1};
+link9[] = {6,3};
+link10[] = {6,7};
+link11[] = {7,8};
+globals[] = {0.000000,0,0,0,0,640,480,1,14,6316128,1,-726.005737,472.772400,549.036194,-200.200439,1032,645,1};
+window[] = {0,-1,-1,-1,-1,856,332,1772,66,1,1050};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "UnitCaching";
+  class States
+  {
+    /*%FSM<STATE "Caching_">*/
+    class Caching_
+    {
+      name = "Caching_";
+      init = /*%FSM<STATEINIT""">*/"private [""_unit"", ""_list"", ""_elist""];" \n
+       "_unit = _this select 0;" \n
+       "" \n
+       "_list = [];" \n
+       "_elist = [];"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "alive_check">*/
+        class alive_check
+        {
+          priority = 5.000000;
+          to="_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!alive _unit"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "has_cached_units">*/
+        class has_cached_units
+        {
+          priority = 1.000000;
+          to="Uncache_Unit";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_etmp = _unit nearObjects[""Man"", viewDistance];" \n
+           "" \n
+           "{" \n
+           "	if(! simulationEnabled _x) then {" \n
+           "		_elist = _elist + [_x];" \n
+           "      };" \n
+           "} foreach _etmp;" \n
+           "if(count(_elist) > 0) then {" \n
+           " true;" \n
+           "} else {" \n
+           "  false;" \n
+           "};"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "has_uncached_units">*/
+        class has_uncached_units
+        {
+          priority = 1.000000;
+          to="Cache_Unit";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_tmp = _unit nearObjects[""Man"", viewDistance];" \n
+           "_tmp = allUnits - _tmp;" \n
+           "{" \n
+           "	if(simulationEnabled _x and !local _x) then {" \n
+           "		_list = _list + [_x];" \n
+           "      };" \n
+           "} foreach _tmp;" \n
+           "if(count(_list) > 0) then {" \n
+           " true;" \n
+           "} else {" \n
+           "  false;" \n
+           "};"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Cache_Unit">*/
+    class Cache_Unit
+    {
+      name = "Cache_Unit";
+      init = /*%FSM<STATEINIT""">*/"{" \n
+       "	_x enableSimulation false;" \n
+       "} foreach _list;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "_">*/
+        class _
+        {
+          priority = 0.000000;
+          to="Reset_lists__go";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"alive _unit"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Uncache_Unit">*/
+    class Uncache_Unit
+    {
+      name = "Uncache_Unit";
+      init = /*%FSM<STATEINIT""">*/"{" \n
+       "	_x enableSimulation true;" \n
+       "} foreach _elist;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "_">*/
+        class _
+        {
+          priority = 0.000000;
+          to="Reset_lists__go";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"alive _unit"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Reset_lists__go">*/
+    class Reset_lists__go
+    {
+      name = "Reset_lists__go";
+      init = /*%FSM<STATEINIT""">*/"_list = [];" \n
+       "_elist = [];"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "alive_check">*/
+        class alive_check
+        {
+          priority = 5.000000;
+          to="_";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!alive _unit"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "has_cached_units">*/
+        class has_cached_units
+        {
+          priority = 1.000000;
+          to="Uncache_Unit";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_etmp = _unit nearObjects[""Man"", viewDistance];" \n
+           "" \n
+           "{" \n
+           "	if(! simulationEnabled _x) then {" \n
+           "		_elist = _elist + [_x];" \n
+           "      };" \n
+           "} foreach _etmp;" \n
+           "if(count(_elist) > 0) then {" \n
+           " true;" \n
+           "} else {" \n
+           "  false;" \n
+           "};"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "has_uncached_units">*/
+        class has_uncached_units
+        {
+          priority = 1.000000;
+          to="Cache_Unit";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_tmp = _unit nearObjects[""Man"", viewDistance];" \n
+           "_tmp = allUnits - _tmp;" \n
+           "{" \n
+           "	if(simulationEnabled _x and !local _x) then {" \n
+           "		_list = _list + [_x];" \n
+           "      };" \n
+           "} foreach _tmp;" \n
+           "if(count(_list) > 0) then {" \n
+           " true;" \n
+           "} else {" \n
+           "  false;" \n
+           "};"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "_">*/
+    class _
+    {
+      name = "_";
+      init = /*%FSM<STATEINIT""">*/"diag_log ""Script ended."";"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="Caching_";
+  finalStates[] =
+  {
+    "_",
+  };
+};
+/*%FSM</COMPILE>*/

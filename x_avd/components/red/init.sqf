@@ -43,5 +43,16 @@ publicVariable "AVD_COMPONENT_RED_INIT";
 }, [], AVD_D_CLIENT_EAST] call AVD_fnc_remote_execute;
 
 waitUntil { !isNil "AVD_COMPONENT_RED_INIT" };
-
+/*
+[{
+		[] spawn {
+        private ["_index"];
+        waitUntil { time > (5 * 60) };
+			for[{_i = 0}, { _i < 100}, { _i = _i + 1 }] do {
+            	_index = call AVD_fnc_getIndex;
+				[[0, 0, 0], 2, 10000, true, false, false, [2, 2], 0, random 0.2, nil, nil, _index] execVM "militarize.sqf";
+        		sleep 1;
+    		};
+		};
+}, [], AVD_D_CLIENT_EAST] call AVD_fnc_remote_execute;*/
 DLOG("Reds initialized.");

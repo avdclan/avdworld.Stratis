@@ -72,13 +72,13 @@ _marker setMarkerColorLocal _col;
 			      	_col = "ColorYellow";  
 			    };
           };
-          _res = [_unit] call AVD_fnc_cache_isCached;
-          if(_res) then {
+          _res = simulationEnabled _unit;
+          if(! _res) then {
             	_col = "ColorWhite";  
           };
           _marker setMarkerColorLocal _col;
           
-	      sleep 0.5;
+	      sleep (random 1);
           if(_timeout > 0) then {
           	_str = format["_time: %1, _timeout: %2, diff: %3", _time, _timeout, (time - _time)];
             DLOG(_str);

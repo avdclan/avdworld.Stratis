@@ -1,4 +1,5 @@
 #define SELF "x_avd\components\civilian\events.sqf"
+#define NODEBUG
 #include "include\avd.h"
 
 AVD_LOCATIONS_INITIALIZED = [];

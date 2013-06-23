@@ -29,7 +29,7 @@ if(isPlayer _unit) exitWith {};
 	        _obj = _x getVariable "avd_cache_object";
 	        //detach _obj;
             //sleep 0.01;
-	        _x enableSimulation false;
+	        //_x enableSimulation false;
 	        _x setVariable ["avd_cache_isCached", true, false];
 	        _obj setVariable ["avd_cache_isCached", true, false];
        };

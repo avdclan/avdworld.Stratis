@@ -23,6 +23,12 @@ class Params {
 		default = 15;
 		texts[] = {"15", "30", "45", "60", "90", "120"};
 	};
+	class d_common_cache_enable {
+		title = "    Enable unit caching (_EXPERIMENTAL_!)";
+		values[] = {0, 1};
+		default = 0;
+		texts[] = {"disabled", "enable"};
+	};	
 	
 	class d_params_space_1 { title = ""; values[] = {0}; default = 0; texts[] = {""}; };
 	
@@ -71,7 +77,12 @@ class Params {
 		default = -99999;
 		texts[] = {""};
 	};
-	
+	class d_world_mapPointScala {
+		title = "    Define the scala to precompile water and land positions:";
+		values[] = {50, 100, 250, 500, 750, 1000};
+		default = 500;
+		texts[] = {"50", "100", "250", "500", "750", "1000"};
+	};
 
 	
 	class d_params_space_1_3 { title = ""; values[] = {0}; default = 0; texts[] = {""}; };
@@ -84,8 +95,8 @@ class Params {
 	
 	class d_spawn_house_rate {
 		title = "    Amount of Houses to place spawn in";
-		values[] = {25, 50, 75, 100, -1};
-		default = 50;
+		values[] = {0.25, 0.5, 0.75, 1, -1};
+		default = 0.5;
 		texts[] = {"25 %", "50 %", "75 %", "100 %", "random"};
 	};
 	

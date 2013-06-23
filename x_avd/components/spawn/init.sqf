@@ -1,20 +1,24 @@
 #define SELF "x_avd\components\spawn\init.sqf"
 #include "include\avd.h"
 #include "include\arrays.h"
+#include "include\params.h"
 if(!isServer) exitWith {};
 if(isNil "AVD_SPAWN_BOXES") then {
 	AVD_SPAWN_BOXES = []; 
 	publicVariable "AVD_SPAWN_BOXES";
           
 };
-private ["_houses"];
+private ["_houses", "_rate"];
 DLOG("Loading spawn...");
 _houses = [];
 // collecting houses.
 _cfgVehicles = configFile >> "cfgVehicles";
 _foo = [];
 _stime = time;
-
+_rate = missionParam("d_spawn_house_rate");
+if(_rate == -1) then {
+  _rate = random 1;  
+};
 DLOG("DELETING OLD SPAWN");
 {
   deleteVehicle _x; 
@@ -42,7 +46,7 @@ _o = 0;
     
     {
         
-       if(random 1 < 0.5) then {
+       if(random 1 < _rate) then {
        //[_x, format["%1 (%2 / %3 / %4)", typeOf _x, _doors, count(_positions), count(_exits)], 0] call AVD_fnc_trackingMarker;
         _houses = _houses + [_x];
        };
@@ -54,72 +58,8 @@ _p = (100 / _o) * count(_houses);
 DLOG("Got " + str(count(_houses)) + "/" + str(_o) + " (" + str(_p) + "%) houses to place spawn in.");
 _houses = [_houses] call CBA_fnc_shuffle;
 {
-   _pos = _x buildingPos 1;
-   _result = [_pos,[0,0,0]] call BIS_fnc_areEqual;
-   if(_result) then {
-     _pos = getPosATL _x;  
-   };   
-	//_x enableSimulation false;
-    _holder = SPAWN_HOLDER createVehicle _pos;
-    _holder allowDamage false;
-   	clearWeaponCargoGlobal _holder;
-	clearMagazineCargoGlobal _holder;
-    //_holder disableCollisionWith _x;
-    
-    //_x disableCollisionWith _holder;
-    _holder setPosATL _pos;
-    
-   
-   // add min 2, max 5 food items.
-   _num = floor(random 3) + 2;
-   _shfl = [FOOD_SPAWN] call CBA_fnc_shuffle;
-   for[{_i = 0}, {_i < _num}, { _i = _i + 1 }] do {
-      {
-          _rand = random 1;
-          _class = _x select 0;
-          _p = _x select 1;
-          if(_rand < _p) then {
-            _holder addMagazineCargoGlobal [_class, 1];  
-          };
-      } foreach _shfl;
-   };
-   
-   
-   // add min 2, max 5 drink items.
-   _num = floor(random 3) + 2;
-   _shfl = [DRINK_SPAWN] call CBA_fnc_shuffle;
-   for[{_i = 0}, {_i < _num}, { _i = _i + 1 }] do {
-      {
-          _rand = random 1;
-          _class = _x select 0;
-          _p = _x select 1;
-          if(_rand < _p) then {
-             DLOG("Adding " + str(_class) + " to holder " + str(_holder));
-            _holder addMagazineCargoGlobal [_class, 1];  
-          };
-      } foreach _shfl;
-   };
-   
-   
-   // add min 2, max 5 drink items.
-   _num = floor(random 3) + 2;
-   _shfl = [NORMAL_SPAWN] call CBA_fnc_shuffle;
-   for[{_i = 0}, {_i < _num}, { _i = _i + 1 }] do {
-      {
-          _rand = random 1;
-          _class = _x select 0;
-          _p = _x select 1;
-          if(_rand < _p) then {
-             DLOG("Adding " + str(_class) + " to holder " + str(_holder));
-            _holder addWeaponCargoGlobal [_class, 1];  
-          };
-      } foreach _shfl;
-   };
-   
-   //player setPos _pos;
-   AVD_SPAWN_BOXES = AVD_SPAWN_BOXES + [_holder];
-   publicVariable "AVD_SPAWN_BOXES";
-   [_x] call AVD_fnc_trackingMarker;
-   sleep 60;
+	_id = call AVD_fnc_getIndex;
+	["SPAWN_LOCATIONS", _id, [_x]] call AVD_fnc_queue_add;
+	sleep 0.01;
 } foreach _houses;
 DLOG("Algo took: " + str(time - _stime));

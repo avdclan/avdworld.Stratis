@@ -17,10 +17,15 @@
 	#define PATH "x_avd"
 #endif
 
+#define DEPRECATED(lmessage) DLOG(lmessage)
 #define COMP(file) call compile preprocessFile format["%1\%2.sqf", PATH, file]
-#define SPWN(file) execVM format["%1\%2.sqf", PATH, file]
-#define PARAM(num, def) if(!isNil "_this" and count(_this) >= num) then { _this select num; } else { def; }
+#define COMPF(file) call compileFinal preprocessFile format["%1\%2.sqf", PATH, file]
+#define THREAD(file) execVM format["%1\%2.sqf", PATH, file]
+#define SPWN(file) THREAD(file)
+#define PARAM(num, def) if(!isNil "_this" and count(_this) > num) then { _this select num; } else { def; }
 
 #define x_hashSet(h, k, v) [h, k, v] call CBA_fnc_hashSet
 #define x_hashGet(h, k) [h, k] call CBA_fnc_hashGet
 #define x_hash() [] call CBA_fnc_hashCreate
+
+#define ERROR(lmessage) DLOG(lmessage)

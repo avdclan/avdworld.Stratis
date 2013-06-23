@@ -49,7 +49,8 @@
 
 #define ANIM_HANDCUFF "amovpknlmstpsnonwnondnon"
 
+#define GUER_UNITS ["I_officer_F", "I_soldier_F", "I_Soldier_AT_F", "I_Soldier_lite_F", "I_medic_F", "I_Soldier_GL_F", "I_Soldier_SF_F", "I_engineer_F"];
 #define BLUE_UNITS ["B_Soldier_lite_F", "B_recon_TL_F", "B_officer_F", "B_recon_F", "B_recon_ALT_F"]
 //["B_spotter_F","B_sniper_F","B_soldier_AR_F","B_soldier_exp_F","B_Soldier_GL_F","B_soldier_M_F","B_medic_F","B_Soldier_F","B_soldier_repair_F","B_soldier_LAT_F","B_Soldier_SL_F","B_Soldier_lite_F","B_Soldier_TL_F"]
-#define RED_UNITS ["O_Soldier_lite_F", "O_recon_TL_F", "O_officer_F", "O_recon_F", "O_recon_ALT_F"] 
+#define RED_UNITS ["O_Soldier_lite_F", "O_recon_TL_F", "O_officer_F", "O_recon_F"] 
 //["O_spotter_F","O_sniper_F","O_Soldier_F","O_Soldier_AR_F","O_soldier_exp_F","O_Soldier_GL_F","O_soldier_M_F","O_medic_F","O_soldier_repair_F","O_Soldier_LAT_F","O_Soldier_lite_F","O_Soldier_SL_F","O_Soldier_TL_F"];

@@ -87,22 +87,37 @@ cursorTarget spawn {
   }  
 };
 */
-_villages = nearestLocations [[0,0,0], ["NameVillage"], 100000]; 
-_cities = nearestLocations [[0,0,0], ["NameCity"], 100000];
-_capitals = nearestLocations [[0,0,0], ["NameCityCapital"], 100000];
-_locals = nearestLocations [[0,0,0], ["NameLocal"], 100000];
-{
-    DLOG("Village: " + str(text _x));
-} foreach _villages;
-{
-    DLOG("_cities: " + str(text _x));
-} foreach _cities;
-{
-    DLOG("_capitals: " + str(text _x));
-} foreach _capitals;
-{
-    DLOG("_locals: " + str(text _x));
-} foreach _locals
+/*["avd_task_success", {
+    DLOG("Task completed: " + str(_this));
+}] call CBA_fnc_addEventHandler;
+*/
+//call compile preprocessFile "x_avd\lib\tasks.sqf";
+//[player, ["Test Task", "Das ist ein Test Task!!!", "HIER IST DER TEST"], getPos player] call AVD_fnc_tasks_create;
 
-call compile preprocessFile "x_avd\components\red\init.sqf";
+//["ScoreAdded",["Disabled the nuke without triggering an alarm.",5]] call bis_fnc_showNotification;
+/*_pos = getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition");
+if(isNil "d_spawn_house_rate") then {
+	DLOG("Nil..");    
+} else {
+  	DLOG(d_spawn_house_rate);  
+};
 
+DLOG(str(AVD_MAP_LOCATIONS_LAND));
+*/
+
+
+
+/*_pos = AVD_MAP_LOCATIONS_WATER select (floor(random (count(AVD_MAP_LOCATIONS_WATER)-1)));
+for[{_i = 0}, { _i < 100}, { _i = _i + 1 }] do {
+           	DLOG("creating group. at " + str(_pos));
+			_grp = createGroup  west;
+            _unit = _grp createUnit["I_Soldier_GL_F", _pos, [], 0, ""];
+            _unit enableSimulation false; 
+            _unit = _grp createUnit["I_Soldier_GL_F", _pos, [], 0, ""];
+            _unit enableSimulation false;
+            DLOG("Got group: " + str(_grp));
+            
+            
+     		
+};
+*/

@@ -135,15 +135,14 @@ private ["_lc", "_lg"];
 //_lc enableSimulation false;
 _lc = _unit;
 _unit setVariable ["avd_cache_object", _lc, true];
-[_unit, [2, 2], "black", _lc] call AVD_fnc_cache_createTriggerZone;
+/*[_unit, [2, 2], "black", _lc] call AVD_fnc_cache_createTriggerZone;
 [_unit, [5, 5], "purple", _lc] call AVD_fnc_cache_createTriggerZone;
 [_unit, [50, 50], "red", _lc] call AVD_fnc_cache_createTriggerZone;
 [_unit, [250, 250], "yellow", _lc] call AVD_fnc_cache_createTriggerZone;
 [_unit, [1000, 1000], "blue", _lc] call AVD_fnc_cache_createTriggerZone;
 [_unit, [2000, 2000], "green", _lc] call AVD_fnc_cache_createTriggerZone;
 [_unit, [5000, 5000], "white", _lc] call AVD_fnc_cache_createTriggerZone;
+*/
 _unit setVariable ["avd_cache_enabled", true, true];
 _unit setVariable ["avd_cache_isCachable", true, true];
-
-[_unit] call AVD_fnc_cache_cacheUnit;
 //_lc attachTo [_unit, [0,0,0]];

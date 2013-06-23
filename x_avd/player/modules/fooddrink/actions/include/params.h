@@ -1,0 +1,1 @@
+#define missionParam(name) [name] call AVD_fnc_getMissionParam

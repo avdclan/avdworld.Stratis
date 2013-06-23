@@ -6,7 +6,9 @@ if(! hasInterface) exitWith {};
 #define SELF "x_avd\player\init.sqf"
 #define PATH "x_avd\player"
 #include "include\avd.h"
+#include "include\params.h"
 #include "player.h"
+
 
 private ["_var"];
 DLOG("varCheck");
@@ -25,8 +27,10 @@ player addMPEventHandler ["mprespawn", { _this call compile preprocessFile "x_av
 DLOG("Initializing player.");
 SPWN("gear");
 
-
-
+if(missionParam("d_common_cache_enable") == 1) then {
+  	DLOG("Enabling experimental unit caching.");
+    [player] execFSM "x_avd\player\fsm\caching.fsm";  
+};
 
 //player addMPEventHandler["MPKilled", ]
 DLOG("Adding actions.");
@@ -36,3 +40,4 @@ ccp("x_avd\player\init_include.sqf");
 
 DLOG("Setting view distance");
 setViewDistance 1500;
+endLoadingScreen;

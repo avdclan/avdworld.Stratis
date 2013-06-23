@@ -1,5 +1,5 @@
 #define SELF "x_avd\lib\military\createOutpost.sqf"
-//#define NODEBUG
+#define NODEBUG
 #include "include\avd.h"
 #include "include\arrays.h"
 private ["_side", "_position", "_radius", "_marker", "_trigger", "_enemies", "_cargoHouses", "_towers", "_houses", "_hqs", "_numPat", "_airportTowers", "_logic", "_varName", "_flag", "_captureAble"];

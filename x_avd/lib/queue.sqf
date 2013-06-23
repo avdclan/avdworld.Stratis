@@ -8,7 +8,7 @@ AVD_fnc_queue_add = {
   private ["_name", "_index", "_args", "_myVal", "_prio", "_ttl", "_id", "_queue", "_myHash", "_date", "_ret"];
   _name = PARAM(0, nil);
   if(isNil "_name") exitWith {};
-  _id = PARAM(0, nil);
+  _id = PARAM(1, nil);
   _args = PARAM(2, nil);
   _prio = PARAM(3, 0);
   _ttl = PARAM(4, 0);
@@ -21,18 +21,6 @@ AVD_fnc_queue_add = {
   _ret = [_queue, _id] call CBA_fnc_hashHasKey;
   if(_ret) exitWith { false; };
   _myHash = [] call CBA_fnc_hashCreate;
- /* x_hashSet(_myHash, "id", _id);
-  x_hashSet(_myHash, "date", _date);
-  x_hashSet(_myHash, "time", time);
-  x_hashSet(_myHash, "priority", _prio);
-  x_hashSet(_myHash, "queue", _queue);
-  x_hashSet(_myHash, "args", _args);
-  
-  // add to queue
-  x_hashSet(_queue, _id, _myHash);
-  
-  x_hashSet(AVD_QUEUES, _name, _queue);
-  */
   [_myHash, "date", date] call CBA_fnc_hashSet;
   [_myHash, "time", time] call CBA_fnc_hashSet;
   [_myHash, "priority", _prio] call CBA_fnc_hashSet;
@@ -41,7 +29,7 @@ AVD_fnc_queue_add = {
   [_queue, _id, _myHash] call CBA_fnc_hashSet;
   [AVD_QUEUES, _name, _queue] call CBA_fnc_hashSet;
   
-  DLOG("Added " + str(_myHash) + " to " + str(_queue));
+  //DLOG("Added " + str(_myHash) + " to " + str(_queue));
   true;
 };
 
@@ -57,6 +45,7 @@ AVD_fnc_queue_next = {
   
   
   _ret = [_queue, _n select 0] call CBA_fnc_hashGet;
+  [_queue, _n select 0, nil] call CBA_fnc_hashSet;
   _ret;
   
   
