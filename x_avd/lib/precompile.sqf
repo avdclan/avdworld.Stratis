@@ -54,7 +54,7 @@ for "_i" from (0) to ((count paramsArray) - 1) do
 {
 	_str = configName((missionConfigFile/"Params") select _i);
     _val = paramsArray select _i;
-    _code = format["AVD_PARAM_%1 = %2;", _str, _val];
+    _code = format["AVD_PARAM_%1 = %2; publicVariable ""AVD_PARAM_%1"";", _str, _val];
     DLOG("Setting Param: " + str(_code));
     call compile _code;
 };
