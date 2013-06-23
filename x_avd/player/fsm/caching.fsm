@@ -23,7 +23,7 @@ link9[] = {6,3};
 link10[] = {6,7};
 link11[] = {7,8};
 globals[] = {0.000000,0,0,0,0,640,480,1,14,6316128,1,-726.005737,472.772400,549.036194,-200.200439,1032,645,1};
-window[] = {0,-1,-1,-1,-1,1040,250,1690,250,1,1050};
+window[] = {0,-1,-1,-1,-1,1157,304,1744,367,1,1050};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -36,7 +36,13 @@ class FSM
       name = "Caching_";
       init = /*%FSM<STATEINIT""">*/"private [""_unit"", ""_list"", ""_elist""];" \n
        "_unit = _this select 0;" \n
-       "" \n
+       "diag_log AVD_PARAM_d_cache_unit_distance;" \n
+       "_distance = AVD_PARAM_d_cache_unit_distance;" \n
+       "if(_distance == 0) then {" \n
+       "	_distance = viewDistance;" \n
+       "};" \n
+       "_str = ""Using "" + str(_distance) + "" for caching distance."";" \n
+       "diag_log _str;" \n
        "_list = [];" \n
        "_elist = [];" \n
        "" \n
@@ -60,7 +66,7 @@ class FSM
           priority = 1.000000;
           to="Uncache_Unit";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_etmp = _unit nearObjects[""Man"", viewDistance];" \n
+          condition=/*%FSM<CONDITION""">*/"_etmp = _unit nearObjects[""Man"", _distance];" \n
            "" \n
            "{" \n
            "	if(! simulationEnabled _x) then {" \n
@@ -81,10 +87,10 @@ class FSM
           priority = 1.000000;
           to="Cache_Unit";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_tmp = _unit nearObjects[""Man"", viewDistance];" \n
+          condition=/*%FSM<CONDITION""">*/"_tmp = _unit nearObjects[""Man"", _distance];" \n
            "_tmp = allUnits - _tmp;" \n
            "{" \n
-           "	if(simulationEnabled _x and !local _x) then {" \n
+           "	if(simulationEnabled _x and (!local _x or( isServer and !isDedicated))) then {" \n
            "		_list = _list + [_x];" \n
            "      };" \n
            "} foreach _tmp;" \n
@@ -173,7 +179,7 @@ class FSM
           priority = 1.000000;
           to="Uncache_Unit";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_etmp = _unit nearObjects[""Man"", viewDistance];" \n
+          condition=/*%FSM<CONDITION""">*/"_etmp = _unit nearObjects[""Man"", _distance];" \n
            "" \n
            "{" \n
            "	if(! simulationEnabled _x) then {" \n
@@ -194,10 +200,10 @@ class FSM
           priority = 1.000000;
           to="Cache_Unit";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_tmp = _unit nearObjects[""Man"", viewDistance];" \n
+          condition=/*%FSM<CONDITION""">*/"_tmp = _unit nearObjects[""Man"", _distance];" \n
            "_tmp = allUnits - _tmp;" \n
            "{" \n
-           "	if(simulationEnabled _x and !local _x) then {" \n
+           "	if(simulationEnabled _x and (!local _x or( isServer and !isDedicated))) then {" \n
            "		_list = _list + [_x];" \n
            "      };" \n
            "} foreach _tmp;" \n

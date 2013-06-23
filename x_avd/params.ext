@@ -23,12 +23,32 @@ class Params {
 		default = 15;
 		texts[] = {"15", "30", "45", "60", "90", "120"};
 	};
-	class d_common_cache_enable {
+	
+	class d_params_space_caching_1 { title = ""; values[] = {0}; default = 0; texts[] = {""}; };
+	class d_params_dummy_line_caching {
+		title = "-- Cache Settings:";
+		values[] = {0};
+		default = 0;
+		texts[] = {"VERY EXPERIMENTAL!!!!"};
+	};
+	class d_cache_unit_enable {
 		title = "    Enable unit caching (_EXPERIMENTAL_!)";
 		values[] = {0, 1};
 		default = 0;
 		texts[] = {"disabled", "enable"};
 	};	
+	class d_cache_unit_distance {
+		title = "    Distance for unit to be cached in meters";
+		values[] = {0, 10, 50, 100, 500, 1000, 1500, 2000, 2500, 3000};
+		default = 0;
+		texts[] = {"Player viewDistance", "10", "50", "100", "500", "1000", "1500", "2000", "2500", "3000"};
+	};
+	class d_cache_unit_local {
+		title = "    Enable caching for local units (player only)";
+		values[] = {0, 1};
+		default = 0;
+		texts[] = {"disabled", "enabled"};
+	};
 	
 	class d_params_space_1 { title = ""; values[] = {0}; default = 0; texts[] = {""}; };
 	

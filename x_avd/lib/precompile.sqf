@@ -48,4 +48,16 @@ AVD_fnc_precompile_mapMap = {
 };
 [[0, 0], missionParam("d_world_mapPointScala")] call AVD_fnc_precompile_mapMap;
 
+// set config params
+
+for "_i" from (0) to ((count paramsArray) - 1) do
+{
+	_str = configName((missionConfigFile/"Params") select _i);
+    _val = paramsArray select _i;
+    _code = format["AVD_PARAM_%1 = %2;", _str, _val];
+    DLOG("Setting Param: " + str(_code));
+    call compile _code;
+};
+
+
 DLOG("Precompiling took " + str(time - _time) + " seconds.");

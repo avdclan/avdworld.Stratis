@@ -27,7 +27,7 @@ player addMPEventHandler ["mprespawn", { _this call compile preprocessFileLineNu
 DLOG("Initializing player.");
 SPWN("gear");
 
-if(missionParam("d_common_cache_enable") == 1) then {
+if(missionParam("d_cache_unit_enable") == 1) then {
   	DLOG("Enabling experimental unit caching.");
     [player] execFSM "x_avd\player\fsm\caching.fsm";  
 };

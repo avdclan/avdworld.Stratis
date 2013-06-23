@@ -1,14 +1,22 @@
 #define SELF "x_avd\lib\common\trackingMarker"
 #include "include\avd.h"
 
+[{
 private ["_unit", "_color", "_label", "_marker", "_side", "_timeout"];
 _unit = _this select 0;
-_label = if(count(_this) > 1) then { _this select 1; } else { name _unit; };
-_timeout  = if(count(_this) > 2) then { _this select 2; } else { 0; };
-
-_index = call AVD_fnc_getIndex;
 if(isNil "_unit") exitWith {};
-if(_unit == objNull) exitWith { ["Sorry, I won't create a marker for a null object."] call dbg; };
+if(_unit == objNull) exitWith {};
+
+_label = PARAM(1, nil);
+_timeout  = PARAM(2, 0);
+if(isNil "_label") then {
+  if(_unit isKindOf "Man") then {
+    _label = name _unit;  
+  } else {
+    _label = typeOf _unit;  
+  };
+}; 
+_index = call AVD_fnc_getIndex;
 
 _oldMarker = _unit getVariable "avd_tracing_marker";
 if(! isNil "_oldMarker") then {
@@ -56,7 +64,7 @@ _marker setMarkerColorLocal _col;
 	waitUntil {
 		  _marker setMarkerPos getPos _unit;
           _nlabel = format["%1 (%2)", _label, owner _unit];
-		  _marker setMarkerText _nlabel;
+		  _marker setMarkerTextLocal _nlabel;
           _side = side _unit;
           _col = "colorBlack";
           switch(_side) do {
@@ -88,4 +96,4 @@ _marker setMarkerColorLocal _col;
 	};
     deleteMarkerLocal _marker;
 };
-
+}, _this, true, true] call AVD_fnc_remote_execute;
