@@ -43,12 +43,6 @@ if(!isServer) exitWith {};
 	private ["_unit", "_varName"];
 	_unit = _this select 0;
 	//if(!ocal _unit) exitWith {};
-	if(isNull _unit) then {
-	  _counter = 0;
-	  waitUntil {
-	  	!isNull _unit
-	  };  
-	};
 	if(isPlayer _unit) exitWith { 
 		//[format["Not running on player %1", _unit], "XEH-unit"] call AVD_fnc_log;
 	    _var = format["player_%1", getPlayerUID player];
