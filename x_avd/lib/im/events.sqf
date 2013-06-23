@@ -1,4 +1,3 @@
-
 #define SELF "x_avd\lib\im\events.sqf"
 #define PATH "x_avd\lib\im"
 #include "include\avd.h"
@@ -139,6 +138,7 @@ DLOG("Adding avd_unit_crime_report eventhandler");
 	  
     };
 }] call CBA_fnc_addEventHandler;
+
 
 ["avd_cron", {
     private ["_queue", "_next"];

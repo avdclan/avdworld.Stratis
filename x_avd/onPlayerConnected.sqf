@@ -16,6 +16,10 @@ _name = _this select 1;
         //DLOG(_n + " is " + _name + ", calling event for " + _x);
         _str = format["Player %1 connected.", _x];
         DLOG(_str);
+        if(vehicleVarName player == "") then {
+        	_varName = format["player_%1", getPlayerUID player];
+            [player, _varName] call AVD_fnc_setVehicleVarName;
+        };
       	["avd_network_opc", [_x]] call CBA_fnc_globalEvent;  
     };
   

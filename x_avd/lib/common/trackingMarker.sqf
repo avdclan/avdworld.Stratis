@@ -55,7 +55,8 @@ _marker setMarkerColorLocal _col;
     _time = time;
 	waitUntil {
 		  _marker setMarkerPos getPos _unit;
-		  _marker setMarkerText _label;
+          _nlabel = format["%1 (%2)", _label, owner _unit];
+		  _marker setMarkerText _nlabel;
           _side = side _unit;
           _col = "colorBlack";
           switch(_side) do {

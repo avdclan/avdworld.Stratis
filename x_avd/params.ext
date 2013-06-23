@@ -95,8 +95,8 @@ class Params {
 	
 	class d_spawn_house_rate {
 		title = "    Amount of Houses to place spawn in";
-		values[] = {0.25, 0.5, 0.75, 1, -1};
-		default = 0.5;
+		values[] = {25, 50, 75, 100, -1};
+		default = 50;
 		texts[] = {"25 %", "50 %", "75 %", "100 %", "random"};
 	};
 	

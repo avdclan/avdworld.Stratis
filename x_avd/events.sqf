@@ -2,9 +2,12 @@
 #define SELF "x_avd\events.sqf"
 #include "include\avd.h"
 
-#include "lib\im\events.sqf"
-#include "components\spawn\events.sqf"
+DLOG("LOADING GLOBAL EVENTS");
 
+COMPF("lib\im\events");
+DLOG("IM EVENTS LOADED");
+COMPF("components\spawn\events");
+DLOG("SPAWN EVENTS LOADED");
 	["avd_network_opc", {
         if(!isServer) exitWith {};
         private ["_player", "_hc", "_owner", "_list"];
@@ -40,10 +43,11 @@
     
 }] call CBA_fnc_addEventHandler;
 ["avd_unit_create", {
-    DLOG("Creating unit: " + str(_this));
+    if(!isServer) exitWith {};
+    //DLOG("Creating unit: " + str(_this));
 	private ["_unit", "_varName"];
 	_unit = _this select 0;
-	if(!local _unit) exitWith {};
+	
 	if(isPlayer _unit) exitWith { 
 		//[format["Not running on player %1", _unit], "XEH-unit"] call AVD_fnc_log;
 	    //_var = format["player_%1", getPlayerUID player];
@@ -55,11 +59,11 @@
 	if(_varName == "") then {    
 	  _varName = call AVD_fnc_getValidVarName;
 	  [_unit, _varName] call AVD_fnc_setVehicleVarName;
-	  DLOG("Setting varName to " + str(_varName));
+	  //DLOG("Setting varName to " + str(_varName));
 	};
 	
 	
-	DLOG("Calling avd_unit_create event with " + str(_unit));
+	//DLOG("Calling avd_unit_create event with " + str(_unit));
 	_unit setVariable ["avd_xeh_init", true, true];
     _unit addEventHandler ["killed", { ["avd_unit_killed", _this] call CBA_fnc_globalEvent; }]; 
 	_unit addEventHandler ["hit", { ["avd_unit_hit", _this] call CBA_fnc_globalEvent; }];
@@ -114,3 +118,5 @@
     _format = format["offset: %1 (avg: %8), allGroups: %9, allUnits: %2, allDead: %3, vehicles: %4, players: %5, fps: %6, fpsmin: %7", _offset, count(allUnits), count(allDead), count(vehicles), count(playableUnits), diag_fps, diag_fpsmin, (_avg / _count), count(allGroups)];
     DLOG(_format);
 }] call CBA_fnc_addEventHandler;
+
+DLOG("GLOBAL EVENTS LOADED");
