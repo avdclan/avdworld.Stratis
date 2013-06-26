@@ -1,7 +1,7 @@
 #include "debug.h"
 #include "meta.h"
 #include "remote.h"
-#define AVD_DB "avdworld"
+#define AVD_DB "avdworld\avdworld"
 #define DB AVD_DB
 
 #define ccp(path) call compile preprocessFileLineNumbers path
@@ -10,7 +10,10 @@
 #define getIndex call AVD_fnc_getIndex
 
 #define VAR(obj, var, val) obj setVariable[var, val, false]
-#define pVAR(obj, var, val) obj setVariable[var, val, false]
+#define setPVAR(obj, var, val) [obj, var, val] call AVD_fnc_db_setPersistentVar
+#define getPVAR(obj, var, def) [obj, var, def] call AVD_fnc_db_getPersistentVar
+#define makePersistent(obj) obj setVariable ["avd_persistent", true, true]
+
 
 #define isAdmin (serverCommandAvailable "#kick" || isServer)
 
@@ -30,3 +33,7 @@
 #define x_hash() [] call CBA_fnc_hashCreate
 
 #define ERROR(lmessage) DLOG(lmessage)
+
+#define REAL_TIME time
+
+#define SAFE_HOUSE_POS (SAFE_HOUSE buildingPos floor(random 5)+1) 

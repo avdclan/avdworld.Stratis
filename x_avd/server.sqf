@@ -15,8 +15,7 @@ publicVariable "AVD_WORLD_SERVER_INIT";
 COMPF("server\events");
 DLOG("Initializing AvD World Server...");
 
-DLOG("Initializing iniDB.");
-call compile preProcessFile "\iniDB\init.sqf";
+LOAD_COMPONENT("void");
 
 
 //tmp
@@ -28,12 +27,14 @@ call compile preprocessFileLineNumbers "scripts\airfieldBase.sqf";
 
 //LOAD_COMPONENT("spawn");
 
+
+/*
 LOAD_COMPONENT("civilian");
 
 LOAD_COMPONENT("red");
 
 LOAD_COMPONENT("spawn");
-
+*/
 
 
 AVD_WORLD_SERVER_LOADED = true;

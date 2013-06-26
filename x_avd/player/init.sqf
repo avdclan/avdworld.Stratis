@@ -25,7 +25,6 @@ player addMPEventHandler ["mpkilled", { _this call compile preprocessFileLineNum
 player addMPEventHandler ["mprespawn", { _this call compile preprocessFileLineNumbers "x_avd\player\events\respawn.sqf";}];
 
 DLOG("Initializing player.");
-SPWN("gear");
 
 if(missionParam("d_cache_unit_enable") == 1) then {
   	DLOG("Enabling experimental unit caching.");
@@ -41,3 +40,7 @@ ccp("x_avd\player\init_include.sqf");
 DLOG("Setting view distance");
 setViewDistance 1500;
 endLoadingScreen;
+
+if(isNil "AVD_VOID_LOADED" or !AVD_VOID_LOADED) then {
+  player setPosASL SAFE_HOUSE_POS;  
+};

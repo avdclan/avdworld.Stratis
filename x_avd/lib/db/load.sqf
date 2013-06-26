@@ -6,15 +6,16 @@ if(!isServer) exitWith {
     DLOG("Loading is only for servers, exiting.");
 };
 
-private ["_object", "_keys", "_ret"];
+private ["_object", "_dkey", "_ret", "_dtype", "_db"];
+
 _object = PARAM(0, nil);
-_keys = PARAM(1, { [] });
+_dkey = PARAM(1, nil);
+_dtype = PARAM(2, "STRING");
+_db = PARAM(3, AVD_DB);
 _ret = [];
-//DLOG("Loading " + str(_object) + ", keys: " + str(_keys));
-{
-    _key = [_x, """", ""] call CBA_fnc_replace;
-    _r = [AVD_DB, _object, _key] call iniDB_read;
-    DLOG("Got " + str(_r) + " for " + str(_key));
-	_ret = _ret + [_r];
-} foreach _keys;
+_dkey = [_dkey, """", ""] call CBA_fnc_replace;
+//DLOG("Trying to load " + str(_dkey) + " from " + str(_db) + " object: " + str(_object));
+_ret = [_db, _object, _dkey, _dtype] call iniDB_read;  
+//DLOG("Got " + str(_ret) + " for " + str(_key));
 _ret;
+    

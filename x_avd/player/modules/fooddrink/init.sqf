@@ -5,15 +5,13 @@
 
 DLOG("Initializing Food & Drink System");
 private ["_unit", "_foodVal", "_drinkVal"];
-if(isNil "_this") then {
-  _this = [];  
-};
-_unit = if(count(_this) > 0) then { _this select 0; } else { player; };
-_foodVal = if(count(_this) > 1) then { _this select 1; } else { 1000; };
-_drinkVal = if(count(_this) > 2) then { _this select 2; } else { 1000; };
+  
+_unit = PARAM(0, player);
+_foodVal = PARAM(1, 1000);
+_drinkVal = PARAM(2, 1000);
 
-pVAR(_unit, "avd_fds_foodVal", _foodVal);
-pVAR(_unit, "avd_fds_drinkVal", _drinkVal);
+setPVAR(_unit, "avd_fds_foodVal", _foodVal);
+setPVAR(_unit, "avd_fds_drinkVal", _drinkVal);
 
 COMP("functions");
 COMP("actions");
@@ -32,8 +30,8 @@ AVD_FDS_TIMER = [_unit, _foodVal, _drinkVal] spawn {
       
       _factor = 0.025;
       _anim = animationState _unit;
-      _drinkVal = _unit getVariable "avd_fds_drinkVal";
-      _foodVal = _unit getVariable "avd_fds_foodVal";
+      _drinkVal = [_unit, "avd_fds_drinkVal"] call AVD_fnc_db_getPersistentVar;
+      _foodVal = [_unit, "avd_fds_foodVal"] call AVD_fnc_db_getPersistentVar;
       {
           _anims = _x select 0;
           if(_anim in _anims) exitWith {
@@ -42,8 +40,8 @@ AVD_FDS_TIMER = [_unit, _foodVal, _drinkVal] spawn {
       } foreach CONSUME_LISTS;
       _drinkVal =  _drinkVal - (_factor * 5);
       _foodVal =  _foodVal - _factor;
-	  VAR(_unit, "avd_fds_drinkVal", _drinkVal);      
-	  VAR(_unit, "avd_fds_foodVal", _foodVal);
+	  setPVAR(_unit, "avd_fds_foodVal", _foodVal);
+	  setPVAR(_unit, "avd_fds_drinkVal", _drinkVal);
      // DLOG("ANIM: " + str(_anim) + ", factor: " + str(_factor) + ", curVal: " + str(_drinkVal));
       hintSilent parseText format["Food: %1 (%3)<br />Drink: %2 (%4)<br />", _foodVal, _drinkVal, _factor, (_factor * 5)];  
       if(_drinkVal <= 0 or _foodVal <= 0) then {

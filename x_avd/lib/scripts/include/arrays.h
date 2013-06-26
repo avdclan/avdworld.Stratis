@@ -24,6 +24,7 @@
 
 #define SPAWN_HOLDER "Box_NATO_Wps_F"
 //#define SPAWN_HOLDER "WeaponHolder"
+#define TREASURE_HOLDER "Box_NATO_Wps_F"
 
 #define NORMAL_SPAWN [["V_BandollierB_cbr", 0.6], ["U_B_CombatUniform_mcam_tshirt", 0.25], ["U_O_CombatUniform_ocamo", 0.25]]
 

@@ -18,6 +18,6 @@ call compileFinal preprocessFileLineNumbers "x_avd\lib\im.sqf";
 
 call compileFinal preprocessFileLineNumbers "x_avd\lib\scripts\arrest.sqf";
 
-call compileFinal preprocessFile "x_avd\lib\precompile.sqf";
+//call compileFinal preprocessFile "x_avd\lib\precompile.sqf";
 
 AVD_lib_init = true;

@@ -1,14 +1,14 @@
 #define SELF "x_avd\client.sqf"
 #include "include\avd.h"
-
+waitUntil { !isNull player };
 
 
 DLOG("Loading client.");
 //startLoadingScreen["Waiting for AVD Server to initialize... "];
 DLOG("Waiting for AVD World Server to initialize...");
 progressLoadingScreen 0.1;
-//waitUntil { !isNil "AVD_WORLD_SERVER_LOADED" };
-//waitUntil { AVD_WORLD_SERVER_LOADED };
+waitUntil { !isNil "AVD_VOID_LOADED" };
+waitUntil { AVD_VOID_LOADED };
 DLOG("Server is ready.");
 
 /*waitUntil { !isNil "AVD_SAFETY_HOUSE" };
