@@ -1,5 +1,6 @@
 #define SELF "x_avd\player\actions\debug1.sqf"
 #include "include\avd.h"
+#include "include\db.h"
 #include "include\arrays.h"
 //_outpost = [east, getPos player, 500, true] call compile preprocessFile "x_avd\lib\military\createOutpost.sqf";
 //DLOG("Having outpost: " + str(_outpost));
@@ -152,6 +153,12 @@ _vec = _rand createVehicle getPos player;
 DLOG("Got vec " + str(_vec) + "on pos " + str(getPos _vec));
 */
 //DLOG("Loading " + str(_object) + ", keys: " + str(_keys));
-_test = [1, 2, 3, 4, 5, 6];
-_test set [3, nil];
-DLOG(str(_test));
+_l = [player, ["ammo"]] call AEROSON_fnc_getLoadout;
+DLOG("Loadout: " + str(_l)); 
+_d = [];
+{
+	//_p = PACK(_x);
+    //_d = _d + [_p];
+    DLOG(_x);
+} foreach _l;
+DLOG("Packed: " + str(_d));

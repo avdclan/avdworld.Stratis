@@ -20,4 +20,7 @@ call compileFinal preprocessFileLineNumbers "x_avd\lib\scripts\arrest.sqf";
 
 //call compileFinal preprocessFile "x_avd\lib\precompile.sqf";
 
+
+call compileFinal preprocessFileLineNumbers "x_avd\lib\ext.sqf";
+
 AVD_lib_init = true;

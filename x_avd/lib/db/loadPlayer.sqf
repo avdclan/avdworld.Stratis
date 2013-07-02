@@ -105,6 +105,14 @@ if(! _ret) then {
      _pvars = DB_LOAD_FROM(_db, "player", "persistentVars");
      _pvars = [_pvars, "any", "nil"] call CBA_fnc_replace;
      
+     
+     private "_pHash";
+     _pHash = [] call CBA_fnc_hashCreate;
+     
+     [_pHash, "uid", _uid] call CBA_fnc_hashSet;
+     
+     
+     
      DLOG("Restoring player " + str(_player) + ", dir " + str(_dir) + ", vest: " + str(_vest) + " and so on..");
      
      if(_world != worldName) then {
