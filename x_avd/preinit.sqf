@@ -14,6 +14,7 @@ call compileFinal preprocessFileLineNumbers 'x_avd\lib\init.sqf';
 
 call compileFinal preprocessFileLineNumbers 'x_avd\events.sqf';
 
+
 // create safe house
 SAFE_HOUSE = "Land_MilOffices_V1_F" createVehicle [0, 0, 1500];
 SAFE_HOUSE setPosASL [0, 0, 1500];

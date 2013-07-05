@@ -34,7 +34,7 @@ DLOG("Adding avd_unit_create eventhandler");
  
 }] call CBA_fnc_addEventHandler;
 
-  */
+
 DLOG("Adding avd_unit_killed eventhandler");
 
 ["avd_unit_killed", {
@@ -160,3 +160,4 @@ DLOG("Adding avd_unit_crime_report eventhandler");
     
         
 }] call CBA_fnc_addEventHandler;
+  */

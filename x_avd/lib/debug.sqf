@@ -1,7 +1,9 @@
 #define SELF "x_avd\lib\debug.sqf"
 #include "include\avd.h"
 #include "include\params.h"
-
+private "_enabled";
+_enabled = missionParam("d_debug_log");
+if(_enabled) then {
 AVD_fnc_log = {
   private ["_message", "_broadcast", "_enabled", "_level", "_format", "_name", "_broadcasted", "_line"];
   _message = PARAM(0, nil);
@@ -26,4 +28,8 @@ AVD_fnc_log = {
    [_format,"BIS_fnc_log"] spawn BIS_fnc_MP; 
   };
         
+};
+
+} else {
+AVD_fnc_log = {};  
 };
