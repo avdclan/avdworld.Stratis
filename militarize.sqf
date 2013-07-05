@@ -82,9 +82,9 @@ if(typeName _vehRatio == "ARRAY")then{
 };
 _allUnitsArray = [];
 
-_blueMenArray = BLUE_UNITS; 
-_redMenArray = RED_UNITS;
-_yellowMenArray = ["C_man_1","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F","C_man_1_1_F","C_man_1_2_F","C_man_1_3_F"];
+_blueMenArray = [west, "man"] call AVD_fnc_lists_get;
+_redMenArray = [east, "man"] call AVD_fnc_lists_get;
+_yellowMenArray = [civilian, "man"] call AVD_fnc_lists_get;
 
 _blueCarArray = [west, "car"] call AVD_fnc_lists_get;
 _redCarArray = [east, "car"] call AVD_fnc_lists_get;

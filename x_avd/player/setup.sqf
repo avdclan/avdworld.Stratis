@@ -42,3 +42,4 @@ endLoadingScreen;
 sleep 0.5;
 cutText["Welcome " + str(name player), "PLAIN DOWN"];
 [format["AVD World %1",worldName], "by Rush & Ahab", AVD_META_VERSION] spawn BIS_fnc_infoText;
+

@@ -42,3 +42,17 @@ AVD_WORLD_SERVER_LOADED = true;
 publicVariable "AVD_WORLD_SERVER_INIT";
 publicVariable "AVD_WORLD_SERVER_LOADED";
 DLOG("AvD World Server initialized.");
+
+[] spawn {
+    waitUntil {
+        DLOG("Saving players...");
+   	    [{                   
+        	if(!hasInterface) exitWith {};
+        	_loaded = player getVariable "avd_player_loaded";
+			if(isNil "_loaded") exitWith {};
+  			[player] call AVD_fnc_db_savePlayer;
+        }, [], _x] call AVD_fnc_remote_execute;
+        sleep 30;
+        false;      
+    };
+};

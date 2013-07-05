@@ -32,7 +32,13 @@ if(! _ret) then {
      _alive = DB_LOAD_FROM(_db, "player", "alive");
      _alive = call compile _alive;
      _side = DB_LOAD_FROM(_db, "player", "side");
-     _side = call compile _side;
+     switch(_side) do {
+       case "WEST": { _side = WEST; };
+       case "EAST": { _side = EAST; };
+       case "GUER": { _side = RESISTANCE; };
+       default { _side = civilian; };  
+     };
+     
      _damage = DB_LOAD_NUMBER_FROM(_db, "player", "damage");
      _dir = DB_LOAD_NUMBER_FROM(_db, "player", "dir");
      _posATL = DB_LOAD_ARRAY_FROM(_db, "player", "posATL");

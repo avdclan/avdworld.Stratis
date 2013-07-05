@@ -20,7 +20,7 @@ AVD_LOCATIONS_INITIALIZED = [];
         AVD_LOCATIONS_INITIALIZED = AVD_LOCATIONS_INITIALIZED + [_logic];
     	// populate location with civilians
      	_side = _logic getVariable "avd_side";
-        if(_side != civilian) exitWith {};
+        if(_side != civilian) exitWith { DLOG("WRONG SIDE: " + str(_side)); };
       _name = _logic getVariable "avd_name";
 	  _className = [civilian] call AVD_fnc_getRandomUnitClass;
       _cGroup = createGroup _side;

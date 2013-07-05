@@ -5,12 +5,16 @@
 #include "include\arrays.h"
 
 
-["avd_cron", {
-    if(!isServer) exitWith {};
+
+    if(true) exitWith {};
     
-   private ["_args", "_queue", "_hash", "_pos", "_result", "_holder", "_num", "_shfl"]; 
+    
+    
+[] spawn {   
+   private ["_args", "_queue", "_hash", "_pos", "_result", "_holder", "_num", "_shfl"];
+   waitUntil { 
    _queue = ["SPAWN_LOCATIONS"] call AVD_fnc_queue_next;
-   
+   if(isNil "_queue") exitWith {};
    _args = [_queue, "args"] call CBA_fnc_hashGet;
    DLOG("_args: " + str(_args));
    _elem = _args select 0;
@@ -80,4 +84,7 @@
    AVD_SPAWN_BOXES = AVD_SPAWN_BOXES + [_holder];
    publicVariable "AVD_SPAWN_BOXES";
    [_elem] call AVD_fnc_trackingMarker;
-}] call CBA_fnc_addEVentHandler;
+   sleep 0.5;
+   false;
+   };
+};

@@ -54,8 +54,8 @@ _grpId = if (count _this > 9) then { _this select 9;} else {nil};
 if(isNil("LV_ACskills"))then{LV_ACskills = compile preprocessFile "LV_functions\LV_fnc_ACskills.sqf";};
 if(isNil("LV_vehicleInit"))then{LV_vehicleInit = compile preprocessFile "LV_functions\LV_fnc_vehicleInit.sqf";};
 
-_blueMenArray = BLUE_UNITS; 
-_redMenArray = RED_UNITS;
+_blueMenArray = [west, "man"] call AVD_fnc_lists_get;
+_redMenArray = [east, "man"] call AVD_fnc_lists_get;
 
 switch (_sideOption) do { 
     case 1: {
