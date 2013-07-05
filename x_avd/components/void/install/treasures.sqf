@@ -4,6 +4,7 @@
 #include "include\db.h"
 DLOG("Installing Treasures");
 
+AVDUMMY = (createGroup sideLogic) createUnit ["LOGIC", [0, 0, 0], [], 0, ""];
 
 AVD_fnc_getRandomWaterPos = {
   private ["_min", "_max", "_minDepth", "_maxDepth", "_tmp"];

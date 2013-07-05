@@ -1,3 +1,4 @@
+if(!isServer) exitWith {};
 #define SELF "x_avd\xeh\init.sqf"
 #include "include\avd.h"
 // runs on EVERY unit created.
