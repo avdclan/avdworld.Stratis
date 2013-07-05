@@ -30,7 +30,7 @@ call compile preprocessFileLineNumbers "scripts\airfieldBase.sqf";
 
 
 
-LOAD_COMPONENT("civilian");
+//LOAD_COMPONENT("civilian");
 
 LOAD_COMPONENT("red");
 
