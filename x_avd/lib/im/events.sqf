@@ -2,6 +2,7 @@
 #define PATH "x_avd\lib\im"
 #include "include\avd.h"
 #include "include\crimes.h"
+//if(true) exitWith {};
 
 DLOG("Adding avd_unit_create eventhandler");
 // generate identity

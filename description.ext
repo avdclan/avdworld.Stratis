@@ -30,7 +30,7 @@ class Extended_PreInit_EventHandlers
 class Extended_Init_EventHandlers 
 {
 	  onRespawn = true;
-	  //xeh_init = "_this execVM 'x_avd\xeh\init.sqf';";  	
+	  xeh_init = "_this call compile preprocessFileLineNumbers 'x_avd\xeh\init.sqf';";  	
       class Man 
       {
       	  onRespawn = true;

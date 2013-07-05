@@ -9,7 +9,8 @@ private ["_treasures"];
 
 _treasures = DB_LOAD_ARRAY("treasures", "index");
 DLOG("Got treasures: " + str(_treasures));
-
+AVD_TREASURES = [];
+publicVariable "AVD_TREASURES";
 {
     _f = format["treasure-%1", _x];
     _id = DB_LOAD(_f, "id");
@@ -36,5 +37,8 @@ DLOG("Got treasures: " + str(_treasures));
         
     
     [_vec, _varName] call AVD_fnc_setVehicleVarName;
+    AVD_TREASURES = AVD_TREASURES + [_vec];
+
     DLOG("Created " + str(_vec));
 } foreach _treasures;
+publicVariable "AVD_TREASURES";

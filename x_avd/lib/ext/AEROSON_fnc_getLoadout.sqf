@@ -51,11 +51,14 @@ _isFlashlightOn = false;
 _isIRLaserOn = false;
 
 // save weapon mode and muzzle
-if ( _onFoot ) then {
-	_currentWeapon = currentMuzzle _target;
-	_currentMode = currentWeaponMode _target;
-	_isFlashlightOn = _target isFlashlightOn _currentWeapon;
-	_isIRLaserOn = _target isIRLaserOn _currentWeapon;  
+if ( _onFoot ) then { 
+    if(primaryWeapon _target != "") then {
+        _currentWeapon = currentMuzzle _target;
+		_currentMode = currentWeaponMode _target;
+		_isFlashlightOn = _target isFlashlightOn _currentWeapon;
+        _isIRLaserOn = _target isIRLaserOn _currentWeapon;
+    };
+	  
 } else {
 	_currentWeapon = currentWeapon _target;
 };

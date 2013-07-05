@@ -16,11 +16,11 @@ civilian setFriend [east, 0.7];
 civilian setFriend [resistance, 0.8];
 
 west setFriend[civilian, 1];
-west setFriend[east, 0.7];
+west setFriend[east, 0.1];
 west setFriend[resistance, 0];
 
 east setFriend[civilian, 1];
-east setFriend[west, 0.7];
+east setFriend[west, 0.1];
 east setFriend[resistance, 0];
 
 resistance setFriend[civilian, 1];

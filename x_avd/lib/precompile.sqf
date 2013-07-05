@@ -53,7 +53,7 @@ AVD_fnc_precompile_mapMap = {
 };
 
 
-[[0, 0], missionParam("d_world_mapPointScala")] call AVD_fnc_precompile_mapMap;
+//[[0, 0], missionParam("d_world_mapPointScala")] call AVD_fnc_precompile_mapMap;
 
 // set config params
 
@@ -110,8 +110,9 @@ AVD_fnc_lists_get = {
     private ["_side", "_type", "_hash", "_list", "_random", "_ret"];
     _side = PARAM(0, civilian);
     _type = PARAM(1, "");
+    _type = toLower _type;
     _random = PARAM(2, false);
-    
+    DLOG("Looking for " + str(_side) + ", type: " + str(_type));
     _hash = [AVD_LISTS, str(_side)] call CBA_fnc_hashGet;
     _list = [_hash, _type] call CBA_fnc_hashGet;
 	_list;

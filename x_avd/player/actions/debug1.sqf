@@ -153,12 +153,4 @@ _vec = _rand createVehicle getPos player;
 DLOG("Got vec " + str(_vec) + "on pos " + str(getPos _vec));
 */
 //DLOG("Loading " + str(_object) + ", keys: " + str(_keys));
-_l = [player, ["ammo"]] call AEROSON_fnc_getLoadout;
-DLOG("Loadout: " + str(_l)); 
-_d = [];
-{
-	//_p = PACK(_x);
-    //_d = _d + [_p];
-    DLOG(_x);
-} foreach _l;
-DLOG("Packed: " + str(_d));
+_u = (createGroup west) createUnit ["B_Soldier_F", getPos player, [], 0, ""];

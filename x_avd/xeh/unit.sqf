@@ -1,5 +1,5 @@
 //waitUntil { time > 0 }; // wtf.
-
+_this call compile preprocessFileLineNumbers 'x_avd\xeh\init.sqf';
 #define SELF "x_avd\xeh\unit.sqf"
 //#define NODEBUG
 #include "include\avd.h"

@@ -33,6 +33,8 @@ if(_save and isServer) then {
     [_hash, "dir", getDir _player] call CBA_fnc_hashSet;
     [_hash, "posATL", getPosATL _player] call CBA_fnc_hashSet;
     [_hash, "posASL", getPosASL _player] call CBA_fnc_hashSet;
+    [_hash, "side", side _player] call CBA_fnc_hashSet;
+   	/*
     [_hash, "weapons", PACK(weapons _player)] call CBA_fnc_hashSet;
     [_hash, "primaryWeapon", primaryWeapon _player] call CBA_fnc_hashSet;
     [_hash, "primaryWeaponItems", PACK(primaryWeaponItems _player)] call CBA_fnc_hashSet;
@@ -46,6 +48,15 @@ if(_save and isServer) then {
     [_hash, "uniformItems", PACK(uniformItems _player)] call CBA_fnc_hashSet;
     [_hash, "backpack", backpack  _player] call CBA_fnc_hashSet;
     [_hash, "backpackItems", PACK(backpackItems _player)] call CBA_fnc_hashSet;
+   	*/
+    
+    _l = [_player, ["ammo"]] call AEROSON_fnc_getLoadout;
+    APACK(_l, 8);
+	APACK(_l, 10);
+	APACK(_l, 12);
+	[_hash, "loadout", _l] call CBA_fnc_hashSet;
+
+    
     [_hash, "onWater", surfaceIsWater getPos _player] call CBA_fnc_hashSet;
     [_hash, "animation", animationState _player] call CBA_fnc_hashSet;
     

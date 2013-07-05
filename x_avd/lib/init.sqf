@@ -17,8 +17,9 @@ call compileFinal preprocessFileLineNumbers "x_avd\lib\im.sqf";
 
 
 call compileFinal preprocessFileLineNumbers "x_avd\lib\scripts\arrest.sqf";
+call compileFinal preprocessFileLineNumbers "x_avd\lib\scripts\switchUnitGear.sqf";
 
-//call compileFinal preprocessFile "x_avd\lib\precompile.sqf";
+call compileFinal preprocessFile "x_avd\lib\precompile.sqf";
 
 
 call compileFinal preprocessFileLineNumbers "x_avd\lib\ext.sqf";

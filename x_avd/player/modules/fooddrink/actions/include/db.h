@@ -9,3 +9,5 @@
 #define DB_LOAD_NUMBER_FROM(sdb, sobject, skeys) [sobject, skeys, "NUMBER", sdb] call AVD_fnc_db_load
 #define PACK(data) ([data] call AVD_fnc_db_packData)
 #define UNPACK(data) ([data] call AVD_fnc_db_unpackData)
+#define APACK(array, num) _data = PACK(array select num); array set[num, _data]
+#define AUNPACK(array, num) _data = UNPACK(array select num); array set[num, _data]

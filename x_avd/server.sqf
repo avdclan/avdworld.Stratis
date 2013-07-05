@@ -19,22 +19,23 @@ LOAD_COMPONENT("void");
 
 
 //tmp
+/*
 call compile preprocessFileLineNumbers "scripts\safetyHouse.sqf";
 call compile preprocessFileLineNumbers "scripts\pythosBase.sqf";
 call compile preprocessFileLineNumbers "scripts\airfieldBase.sqf";
-
+*/
 //tmp
 
 //LOAD_COMPONENT("spawn");
 
 
-/*
+
 LOAD_COMPONENT("civilian");
 
 LOAD_COMPONENT("red");
 
 LOAD_COMPONENT("spawn");
-*/
+
 
 
 AVD_WORLD_SERVER_LOADED = true;
