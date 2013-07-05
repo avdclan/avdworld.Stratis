@@ -9,11 +9,15 @@ class Mission
 		"A3_Weapons_F_Ammoboxes",
 		"A3_Modules_F",
 		"A3_Characters_F_BLUFOR",
-		"A3_Characters_F_OPFOR"
+		"A3_Characters_F_OPFOR",
+		"A3_Soft_F_MRAP_03",
+		"example_uniform_config",
+		"officer_soldier"
 	};
 	addOnsAuto[]=
 	{
 		"A3_Characters_F_Civil",
+		"example_uniform_config",
 		"A3_Animals_F_Rabbit",
 		"a3_map_stratis"
 	};
@@ -45,7 +49,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=4;
+		items=5;
 		class Item0
 		{
 			side="CIV";
@@ -118,6 +122,61 @@ class Mission
 				};
 			};
 		};
+		class Item4
+		{
+			side="GUER";
+			class Vehicles
+			{
+				items=5;
+				class Item0
+				{
+					position[]={2883.3142,3.2095966,6069.4399};
+					id=4;
+					side="GUER";
+					vehicle="bandit1_Soldier_F";
+					leader=1;
+					rank="CORPORAL";
+					skill=0.60000002;
+					init="this setDamage 1;";
+				};
+				class Item1
+				{
+					position[]={2881.6187,3.1163294,6070.1748};
+					id=5;
+					side="GUER";
+					vehicle="bandit2_Soldier_F";
+					skill=0.60000002;
+					init="this setDamage 1;";
+				};
+				class Item2
+				{
+					position[]={2881.4209,3.0915453,6071.3052};
+					id=6;
+					side="GUER";
+					vehicle="bandit2_Soldier_F";
+					skill=0.60000002;
+					init="this setDamage 1;";
+				};
+				class Item3
+				{
+					position[]={2879.5574,3.0303698,6070.2114};
+					id=7;
+					side="GUER";
+					vehicle="bandit4_Soldier_F";
+					skill=0.60000002;
+					init="this setDamage 1;";
+				};
+				class Item4
+				{
+					position[]={2880.4614,3.0953455,6069.2783};
+					id=8;
+					side="GUER";
+					vehicle="bandit4_Soldier_F";
+					skill=0.60000002;
+					init="this setDamage 1;";
+				};
+			};
+		};
 	};
 	class Vehicles
 	{
@@ -125,7 +184,7 @@ class Mission
 		class Item0
 		{
 			position[]={2952.6912,28.33926,6214.0278};
-			id=4;
+			id=9;
 			side="AMBIENT LIFE";
 			vehicle="Rabbit_F";
 			player="PLAY CDG";
