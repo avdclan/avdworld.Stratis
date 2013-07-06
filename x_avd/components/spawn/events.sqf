@@ -1,6 +1,6 @@
 if(!isServer) exitWith {};
 #define SELF "x_avd\components\spawn\events.sqf"
-//#define NODEBUG
+#define NODEBUG
 
 #include "include\avd.h"
 #include "include\arrays.h"

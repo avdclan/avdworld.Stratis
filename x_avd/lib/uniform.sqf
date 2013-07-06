@@ -1,4 +1,5 @@
 #define SELF "x_avd\lib\uniform.sqf"
+//#define NODEBUG
 #include "include\avd.h"
 
 AVD_fnc_isUniform = {
@@ -8,7 +9,7 @@ AVD_fnc_isUniform = {
     if(_ret == "uniform") exitWith { true; };
     false;
 };
-AVD_fnc_isWeaponType = {
+AVD_fnc_isUniformType = {
   private ["_weapon", "_type", "_ret"];
   _weapon = _this select 0;
   _type = _this select 1;
@@ -18,30 +19,31 @@ AVD_fnc_isWeaponType = {
   if(_ret == _type) exitWith { true; };
   false;  
 };
-AVD_fnc_getWeaponType = {
-  private ["_className", "_unit", "_var"];
+
+AVD_fnc_getUniformType = {
+  private ["_className", "_unit", "_var", "_cfg", "_type", "_ret", "_result"];
   _className = _this select 0;
-    
-  // unless allowedSlots is same on either backpack, vest or uniform,
-  // we have to do this dirty shit.
-  _unit = call AVD_fnc_getDummyUnit;
+  _ret = "";
   
-  // performing uniform check.
-  DLOG("CHECKING IF IT'S UNIFORM.");
-  _unit addUniform _className;
-  if(uniform _unit == _className) exitWith { deleteVehicle _unit; "uniform"; };
+  _cfg = configFile >> "cfgWeapons" >> _className;
+  if(isClass _cfg) then {
+  	_result = [_className, "_"] call CBA_fnc_split;
+  	_type = _result select 0; 
+    switch(_type) do {
+        case "U": {
+          _ret = "uniform";  
+        };
+        case "V": {
+          _ret = "vest";  
+        };
+        
+        case "H": {
+            _ret = "headgear";
+        };
+    };  
+  };
   
-  // performing vest check.
-  DLOG("CHECKING IF IT'S VEST.");
-  _unit addVest _className;
-  if(vest _unit == _className) exitWith { deleteVehicle _unit; "vest"; };
-  
-  // performing vest check.
-  DLOG("CHECKING IF IT'S HEADGEAR.");
-  _unit addHeadgear _className;
-  if(headgear _unit == _className) exitWith { deleteVehicle _unit; "headgear"; };
-  deleteVehicle _unit;
-  false;
+  _ret;
 };
 
 
@@ -56,4 +58,4 @@ AVD_fnc_getDummyUnit = {
     removeHeadgear _dummy;
     removeVest _dummy;
     _dummy;
-}
+};

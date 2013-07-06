@@ -49,9 +49,7 @@ if(_ci) then {
   
   
 };
-//call compile preprocessFile "x_avd\lib\im.sqf";
- private ["_side", "_reporter", "_victim", "_code", "_commiter", "_state"];
-[east] call AVD_fnc_im_reportCrime;
+
 
 /*
 {

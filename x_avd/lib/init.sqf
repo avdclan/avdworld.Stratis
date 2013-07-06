@@ -13,6 +13,7 @@ call compileFinal preprocessFileLineNumbers "x_avd\lib\waypoint.sqf";
 call compileFinal preprocessFileLineNumbers "x_avd\lib\group.sqf";
 call compileFinal preprocessFileLineNumbers "x_avd\lib\military.sqf";
 call compileFinal preprocessFileLineNumbers "x_avd\lib\im.sqf";
+call compileFinal preprocessFileLineNumbers "x_avd\lib\uniform.sqf";
 
 
 

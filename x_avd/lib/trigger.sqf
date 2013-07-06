@@ -93,7 +93,7 @@ AVD_fnc_createTriggerLocation = {
     
     _logic setVariable ["avd_side", _side, true];
     _logic setVariable ["avd_location_side", _side, true];
-    _logic setVariable ["avd_location_trigger", _trg, true];
+   // _logic setVariable ["avd_location_trigger", _trg, true];
     _logic setVariable ["avd_marker", _marker, true];
     _logic setVariable ["avd_name", _name, true];
     _logic setVariable ["avd_location_radius", _rad, true];

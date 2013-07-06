@@ -1,5 +1,8 @@
 #include "x_avd\include\avd.h"
 #include "x_avd\params.ext"
+#include "x_avd\defines.hpp"
+#include "x_avd\dialogs\include.hpp"
+
 joinUnassigned = 1;
 author = "Rush & Ahab ";
 OnLoadName = "AVD World";

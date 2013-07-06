@@ -13,6 +13,7 @@ class Mission
 	};
 	addOnsAuto[]=
 	{
+		"A3_Characters_F_Civil",
 		"A3_Animals_F_Rabbit",
 		"a3_map_stratis"
 	};

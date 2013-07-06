@@ -8,6 +8,11 @@ COMPF("lib\im\events");
 DLOG("IM EVENTS LOADED");
 COMPF("components\spawn\events");
 DLOG("SPAWN EVENTS LOADED");
+
+
+
+
+
 	["avd_network_opc", {
         if(!isServer) exitWith {};
         private ["_player", "_hc", "_owner", "_list"];
