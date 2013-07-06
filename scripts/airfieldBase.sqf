@@ -1,4 +1,3 @@
-[] call (uinamespace getvariable 'bis_fnc_recompile');
 
 _this = createCenter civilian;
 

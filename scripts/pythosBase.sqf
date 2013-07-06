@@ -1,5 +1,3 @@
-[] call (uinamespace getvariable 'bis_fnc_recompile');
-
 _vehicle_10 = objNull;
 if (true) then
 {

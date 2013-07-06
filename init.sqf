@@ -42,16 +42,6 @@ if(isServer) then {
 	  HC_CLIENTS = [AVD_D_CLIENT_CIV, AVD_D_CLIENT_EAST, AVD_D_CLIENT_WEST, AVD_D_CLIENT_GUER];
 	  //publicVariable "HC_CLIENTS";      
 };
-
-
-	["foo", { 
-    	waitUntil { 
-        	DLOG ("DEINE MUDDI!!!! CCCCCCCCC"); 
-            false; 
-        }; 
-    }] call CBA_fnc_addEventHandler;
-
-
 waitUntil { time > 0 };
 
 
