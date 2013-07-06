@@ -20,9 +20,20 @@ _db = format["avdworld\player_%1", getPlayerUID _player];
 _ret = _db call inidb_exists;
 if(! _ret) then {
     // create player
-    DLOG("Player does not exist, creating.");
-    [_player] call compile preprocessFileLineNumbers "x_avd\player\gear.sqf";
-    
+    DLOG("Player '" + str(_player) + "' does not exist, creating.");
+    [{
+      	DLOG("THIS IS " + str(player) + " WITH THIS: " + str(_this));
+        private "_player";
+        _player = player;
+        removeAllWeapons _player;
+		removeAllItems _player;
+		removeBackpack _player;
+		removeGoggles _player;
+		removeHeadgear _player;
+		removeUniform _player; 
+		removeVest _player;  
+    	[player] call compile preprocessFileLineNumbers "x_avd\player\gear.sqf";
+    }, [_player], _player] call AVD_fnc_remote_execute;
    
 } else {  
 	 private ["_uid", "_name", "_world", "_alive", "_damage", "_dir", "_posATL", "_posASL", "_weapons", "_primaryWeapon", "_magazines", "_items", "_headgear", "_vest", "_uniform", "_backpack", "_backpackItems", "_onWater", "_animation", "_pvars"];
@@ -83,7 +94,8 @@ if(! _ret) then {
         if(! local _player) exitWith {};
         _loadOut = _this select 1;
         
-     	[_player, _loadOut, ["ammo"]] call AEROSON_fnc_setLoadout;
+     	//[_player, _loadOut, ["ammo"]] call AEROSON_fnc_setLoadout;
+        [_player, _loadOut] call AEROSON_fnc_setLoadout;
      }, [_player, _loadOut]] call AVD_fnc_remote_execute;
      
 	 if(_onWater) then {

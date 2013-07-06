@@ -1,4 +1,6 @@
 if(!isServer) exitWith {};
+#define NODEBUG
+
 #define SELF "x_avd\xeh\init.sqf"
 #include "include\avd.h"
 // runs on EVERY unit created.

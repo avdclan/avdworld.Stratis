@@ -8,7 +8,13 @@
 private ["_rand", "_player"];
 _player = PARAM(0, player);
 _rand = random 1;
-
+removeAllWeapons _player;
+removeAllItems _player;
+removeBackpack _player;
+removeGoggles _player;
+removeHeadgear _player;
+removeUniform _player; 
+removeVest _player;
 _vest = [PLAYER_DEFAULT_VESTS] call CBA_fnc_shuffle;
 {
    _class = _x select 0;
@@ -53,3 +59,5 @@ _item = [PLAYER_DEFAULT_ITEMS] call CBA_fnc_shuffle;
    }
 } foreach _item;
 
+[_player] joinSilent grpNull;
+[_player] joinSilent (createGroup resistance);

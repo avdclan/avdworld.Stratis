@@ -81,4 +81,4 @@ if(_captureAble) then {
     _trigger setTriggerActivation[str(_side), "NOT PRESENT", false];
     _trigger setTriggerStatements["this", "[""avd_outpost_cleared"", [" + vehicleVarName _logic + ", " + str(_this) + "]] call CBA_fnc_localEvent; deleteVehicle thisTrigger;", ""];
 };
-_logic;
+[_logic, _cGroup];

@@ -13,8 +13,6 @@ class Mission
 	};
 	addOnsAuto[]=
 	{
-		"A3_Characters_F_Civil",
-		"example_uniform_config",
 		"A3_Animals_F_Rabbit",
 		"a3_map_stratis"
 	};
@@ -46,7 +44,7 @@ class Mission
 	};
 	class Groups
 	{
-		items=5;
+		items=19;
 		class Item0
 		{
 			side="CIV";
@@ -55,10 +53,10 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2872.5959,2.8935339,6065.6802};
+					position[]={3319.9065,100.33546,4560.0459};
 					id=0;
 					side="CIV";
-					vehicle="C_man_1";
+					vehicle="C_RangeMaster";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -73,10 +71,10 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2874.9944,2.8794177,6064.1284};
+					position[]={3320.4448,100.45198,4559.9688};
 					id=1;
 					side="CIV";
-					vehicle="C_man_1";
+					vehicle="C_RangeMaster";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -91,10 +89,10 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2877.2512,3.0435576,6062.5767};
+					position[]={3319.522,100.51858,4559.5264};
 					id=2;
 					side="CIV";
-					vehicle="C_man_1";
+					vehicle="C_RangeMaster";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -109,10 +107,10 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2878.9441,3.2079115,6061.8716};
+					position[]={3318.926,100.25119,4559.9307};
 					id=3;
 					side="CIV";
-					vehicle="C_man_1";
+					vehicle="C_RangeMaster";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -121,56 +119,271 @@ class Mission
 		};
 		class Item4
 		{
-			side="GUER";
+			side="CIV";
 			class Vehicles
 			{
-				items=5;
+				items=1;
 				class Item0
 				{
-					position[]={2883.3142,3.2095966,6069.4399};
+					position[]={3318.2532,100.41116,4559.3721};
 					id=4;
-					side="GUER";
-					vehicle="bandit1_Soldier_F";
+					side="CIV";
+					vehicle="C_RangeMaster";
+					player="PLAY CDG";
 					leader=1;
-					rank="CORPORAL";
 					skill=0.60000002;
-					init="this setDamage 1;";
 				};
-				class Item1
+			};
+		};
+		class Item5
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
 				{
-					position[]={2881.6187,3.1163294,6070.1748};
+					position[]={3318.2532,100.76129,4558.6025};
 					id=5;
-					side="GUER";
-					vehicle="bandit2_Soldier_F";
+					side="CIV";
+					vehicle="C_RangeMaster";
+					player="PLAY CDG";
+					leader=1;
 					skill=0.60000002;
-					init="this setDamage 1;";
 				};
-				class Item2
+			};
+		};
+		class Item6
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
 				{
-					position[]={2881.4209,3.0915453,6071.3052};
+					position[]={3319.176,101.19664,4557.9297};
 					id=6;
-					side="GUER";
-					vehicle="bandit2_Soldier_F";
+					side="CIV";
+					vehicle="C_RangeMaster";
+					player="PLAY CDG";
+					leader=1;
 					skill=0.60000002;
-					init="this setDamage 1;";
 				};
-				class Item3
+			};
+		};
+		class Item7
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
 				{
-					position[]={2879.5574,3.0303698,6070.2114};
+					position[]={3321.0022,101.33125,4558.2178};
 					id=7;
-					side="GUER";
-					vehicle="bandit4_Soldier_F";
+					side="CIV";
+					vehicle="C_RangeMaster";
+					player="PLAY CDG";
+					leader=1;
 					skill=0.60000002;
-					init="this setDamage 1;";
 				};
-				class Item4
+			};
+		};
+		class Item8
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
 				{
-					position[]={2880.4614,3.0953455,6069.2783};
+					position[]={3322.8289,101.29433,4558.9106};
 					id=8;
-					side="GUER";
-					vehicle="bandit4_Soldier_F";
+					side="CIV";
+					vehicle="C_RangeMaster";
+					player="PLAY CDG";
+					leader=1;
 					skill=0.60000002;
-					init="this setDamage 1;";
+				};
+			};
+		};
+		class Item9
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3322.4827,100.54039,4560.4502};
+					id=9;
+					side="CIV";
+					vehicle="C_RangeMaster";
+					player="PLAY CDG";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item10
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3321.0793,100.86205,4559.2764};
+					id=10;
+					side="CIV";
+					vehicle="C_RangeMaster";
+					player="PLAY CDG";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item11
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3319.8872,101.01627,4558.5449};
+					id=11;
+					side="CIV";
+					vehicle="C_RangeMaster";
+					player="PLAY CDG";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item12
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3321.2329,100.40333,4560.3345};
+					id=12;
+					side="CIV";
+					vehicle="C_RangeMaster";
+					player="PLAY CDG";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item13
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3322.0405,100.93903,4559.4302};
+					id=13;
+					side="CIV";
+					vehicle="C_RangeMaster";
+					player="PLAY CDG";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item14
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3321.8098,101.37402,4558.3911};
+					id=14;
+					side="CIV";
+					vehicle="C_RangeMaster";
+					player="PLAY CDG";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item15
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3323.54,101.06319,4559.6611};
+					id=15;
+					side="CIV";
+					vehicle="C_RangeMaster";
+					player="PLAY CDG";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item16
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3323.7322,101.99794,4557.6602};
+					id=16;
+					side="CIV";
+					vehicle="C_RangeMaster";
+					player="PLAY CDG";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item17
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3323.8667,101.44399,4558.9297};
+					id=17;
+					side="CIV";
+					vehicle="C_RangeMaster";
+					player="PLAY CDG";
+					leader=1;
+					skill=0.60000002;
+				};
+			};
+		};
+		class Item18
+		{
+			side="CIV";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={3322.3672,101.72018,4557.814};
+					id=18;
+					side="CIV";
+					vehicle="C_RangeMaster";
+					player="PLAY CDG";
+					leader=1;
+					skill=0.60000002;
 				};
 			};
 		};
@@ -181,7 +394,7 @@ class Mission
 		class Item0
 		{
 			position[]={2952.6912,28.33926,6214.0278};
-			id=9;
+			id=19;
 			side="AMBIENT LIFE";
 			vehicle="Rabbit_F";
 			player="PLAY CDG";

@@ -1,5 +1,5 @@
 if(!isServer) exitWith {};
-
+#define NODEBUG
 #define SELF "x_avd\lib\precompile.sqf"
 #include "include\avd.h"
 #include "include\world.h"

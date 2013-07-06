@@ -1,6 +1,6 @@
 #define SELF "x_avd\lib\common\trackingMarker"
 #include "include\avd.h"
-
+if(!(isServer && !isDedicated)) exitWith {};
 
 private ["_unit", "_color", "_label", "_marker", "_side", "_timeout"];
 _unit = _this select 0;
@@ -80,6 +80,9 @@ _marker setMarkerColorLocal _col;
 			    case CIVILIAN: {
 			      	_col = "ColorYellow";  
 			    };
+                default {
+          			_col = "colorBlack";          
+                };
           };
           _res = simulationEnabled _unit;
           if(! _res) then {

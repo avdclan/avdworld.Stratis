@@ -47,14 +47,14 @@ AVD_fnc_getWeaponType = {
   	private ["_class", "_elem", "_ret"];
   
     _class = PARAM(0, nil);
-    if(isNil "_class") exitWith {};
+    if(isNil "_class") exitWith { DLOG("no class"); };
     
     // cfgAmmo, cfgMagazines, cfgWeapons
     _elem = configFile >> "cfgWeapons" >> _class;
-    if(isClass _elem) exitWith { "weapon"; };
+    if(isClass _elem) exitWith { DLOG("is weapon."); "weapon"; };
     _elem = configFile >> "cfgMagazines" >> _class;
-    if(isClass _elem) exitWith { "magazine"; };
+    if(isClass _elem) exitWith { DLOG("is mag."); "magazine"; };
     _elem = configFile >> "cfgAmmo" >> _class;
-    if(isClass _elem) exitWith { "ammo"; };
+    if(isClass _elem) exitWith { DLOG("is ammo."); "ammo"; };
     nil;  
 };

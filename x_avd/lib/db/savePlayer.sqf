@@ -50,7 +50,8 @@ if(_save and isServer) then {
     [_hash, "backpackItems", PACK(backpackItems _player)] call CBA_fnc_hashSet;
    	*/
     
-    _l = [_player, ["ammo"]] call AEROSON_fnc_getLoadout;
+    //_l = [_player, ["ammo"]] call AEROSON_fnc_getLoadout;
+    _l = [_player] call AEROSON_fnc_getLoadout;
     _cc = 0;
     {
         DLOG(str(_cc) + ": " + str(_x));

@@ -1,7 +1,8 @@
 #define SELF "x_avd\lib\queue.sqf"
+#define NODEBUG
 #include "include\avd.h"
 
-AVD_QUEUES = [] call CBA_fnc_hashCreate;
+AVD_QUEUES = [[], objNull] call CBA_fnc_hashCreate;
 publicVariable "AVD_QUEUES";
 
 AVD_fnc_queue_add = {
@@ -26,6 +27,8 @@ AVD_fnc_queue_add = {
   [_myHash, "priority", _prio] call CBA_fnc_hashSet;
   [_myHash, "queue", _name] call CBA_fnc_hashSet;
   [_myHash, "args", _args] call CBA_fnc_hashSet;
+  
+  if(typeName _myHash != "ARRAY") exitWith { ERROR("_myHash is not an array!" + str(_myHash)); false; };
   [_queue, _id, _myHash] call CBA_fnc_hashSet;
   [AVD_QUEUES, _name, _queue] call CBA_fnc_hashSet;
   publicVariable "AVD_QUEUES";
@@ -35,26 +38,45 @@ AVD_fnc_queue_add = {
 };
 
 AVD_fnc_queue_next = {
-  private ["_name", "_queue", "_ret"];
+  DLOG("next");
+  private ["_name", "_queue", "_ret", "_nums", "_t1", "_t2", "_data"];
   _name = PARAM(0, nil);
   if(isNil "_name") exitWith { nil; };
   _queue = [_name] call AVD_fnc_queue_getQueue;
-  if(isNil "_queue" or count(_queue) <= 1) exitWith { nil; };
-  _n = _queue select 1;
-  _args = _queue select 2;
+  DLOG("Having queue '" + str(_name) + "': " + str(_queue));
+  //CBA_fnc_hashRem
+  // get next element in array
+  _nums = _queue select 1;
+  _data = _queue select 2;
   
-  if(count(_n) == 0) exitWith { nil; };
+  // get element
+  DLOG("Getting element " + str(_nums select 0));
+  _ret = [_queue, _nums select 0] call CBA_fnc_hashGet;
+  if(isNil "_ret") exitWith { nil; };
   
-  _ret = [_queue, _n select 0] call CBA_fnc_hashHasKey;
-  if(!_ret) exitWith { nil; };
-  _ret = [_queue, _n select 0] call CBA_fnc_hashGet;
-  [_queue, _n select 0, nil] call CBA_fnc_hashSet;
+  DLOG("Having val: " + str(_ret));
+  DLOG("Deleting element " + str(_nums select 0));
+  [_queue, _nums select 0, objNull] call CBA_fnc_hashSet;
+  DLOG("queue: " + str(_queue));
+  DLOG("Resetting queue");
+  [AVD_QUEUES, _name, objNull] call CBA_fnc_hashSet;
   [AVD_QUEUES, _name, _queue] call CBA_fnc_hashSet;
-  publicVariable "AVD_QUEUES";
-  _ret; 
+  switch(tolower typeName _ret) do {
+      case "string": {
+    	if(_ret == "UNDEF") then {
+          DLOG("WTF is UNDEF?!");
+          DLOG("Skipping this fscking element, getting next!");
+          _ret = _this call AVD_fnc_queue_next;  
+        };     
+      };
+  };
+  DLOG("Returning: " + str(_ret));
+  _ret;
+  
 };
 
 AVD_fnc_queue_getQueue = {
+  DLOG("getQueue");
   private ["_queue", "_myHash", "_ret"];
   _queue = PARAM(0, nil);
   if(isNil "_queue") exitWith {};
@@ -64,6 +86,7 @@ AVD_fnc_queue_getQueue = {
   } else {
       _myHash = [_queue] call AVD_fnc_queue_create;
   };
+  DLOG("Returning queue: " + str(_myhash));
   _myHash;
 };
 
@@ -87,7 +110,7 @@ AVD_fnc_queue_create = {
     if(_ret) then {
         _myHash = [AVD_QUEUES, _queue] call CBA_fnc_hashGet;
     } else {
-      	_myHash = [] call CBA_fnc_hashCreate;
+      	_myHash = [[], objNull] call CBA_fnc_hashCreate;
         [AVD_QUEUES, _queue, _myHash] call CBA_fnc_hashSet; 
          
     };

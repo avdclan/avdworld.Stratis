@@ -9,7 +9,7 @@ AVD_LOCATIONS_INITIALIZED = [];
 //    remoteSpawn({ DLOG("test!");}, []);
 
 	[{
-        
+        waitUntil { !isNull AVD_D_CLIENT_CIV };
         if(! local AVD_D_CLIENT_CIV) exitWith {
             _str = format["I am not %1 (%2), I am %3 (%4)", AVD_D_CLIENT_CIV, owner AVD_D_CLIENT_CIV, player, owner player];
             DLOG(_str);
@@ -69,11 +69,11 @@ AVD_LOCATIONS_INITIALIZED = [];
       
       // place normal civs.
      _index = call AVD_fnc_getIndex;
-     _min = (_size select 0) / 10;
+     _min = (_size select 0) / 20;
      _rand = _min / 2;
      _count = [_min, _rand];
      [_logic, 0, (_size select 0), true, true, false, _count, 0, 0.1, _cGroup, "", _index] execVM "militarize.sqf";
-     _cars = floor(random 40) + 10;
+     _cars = floor(random 20) + 10;
      [_logic, 0, 10000, false, true, false, 0, [_cars, 5], 0.1, _cGroup, "", _index] execVM "militarize.sqf";
      _index spawn {
          private ["_index", "_grp"];
@@ -90,7 +90,7 @@ AVD_LOCATIONS_INITIALIZED = [];
          _grp setBehaviour "CARELESS";
          _grp setSpeedMode "LIMITED";
      };
-   }, _this] call AVD_fnc_remote_execute;
+   }, _this, AVD_D_CLIENT_CIV] call AVD_fnc_remote_execute;
      
 }] call CBA_fnc_addEventHandler;
 

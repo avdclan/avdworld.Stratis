@@ -67,7 +67,7 @@ DLOG("SPAWN EVENTS LOADED");
 
     
 }] call CBA_fnc_addEventHandler;
-
+/*
 ["avd_player_create", {
     if(!isServer) exitWith {};
     private ["_player"];
@@ -82,7 +82,7 @@ DLOG("SPAWN EVENTS LOADED");
 	removeVest _player;
     
 }] call CBA_fnc_addEventHandler;
-
+*/
 ["avd_unit_killed", {
   //  DLOG("KILLED: " + str(_this));
 }] call CBA_fnc_addEventHandler;

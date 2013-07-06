@@ -16,7 +16,10 @@ _locals = nearestLocations [[0,0,0], ["NameLocal"], 100000];
 { 
 	DLOG("Loading village : " + str(text _x) + " -> " + str(AVD_LOCATION_EXCLUDE));
 	if(!((text _x) in AVD_LOCATION_EXCLUDE)) then {
-		[east, position _x, 250, true] spawn AVD_fnc_military_createOutpost;
+		_res = [east, position _x, 250, true] call AVD_fnc_military_createOutpost;
+        _cGroup = _res select 1;
+        _cars = floor(random 2) + 3;
+        [position _x, 2, 10000, false, true, false, 0, [_cars, 5], 0.1, _cGroup, ""] execVM "militarize.sqf";
     };
     
 
@@ -26,7 +29,10 @@ _locals = nearestLocations [[0,0,0], ["NameLocal"], 100000];
 { 
 	
 	if(((text _x) in AVD_LOCATION_EXCLUDE)) then {
-		[east, position _x, 250, true] spawn AVD_fnc_military_createOutpost;
+		_res = [east, position _x, 250, true] call AVD_fnc_military_createOutpost;
+        _cGroup = _res select 1;
+		_cars = floor(random 2) + 3;
+     	[position _x, 2, 10000, false, true, false, 0, [_cars, 5], 0.1, _cGroup, ""] execVM "militarize.sqf";
     };
 } foreach _cities; 
 

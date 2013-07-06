@@ -1,6 +1,5 @@
 [] call (uinamespace getvariable 'bis_fnc_recompile');
 
-
 _vehicle_10 = objNull;
 if (true) then
 {
@@ -312,15 +311,6 @@ if (true) then
   _this setPos [7104.1836, 5960.5781, -0.78496337];
 };
 
-_vehicle_178 = objNull;
-if (true) then
-{
-  _this = createVehicle ["Land_Mound02_8m_F", [7095.8945, 5955.6289, 0.16137573], [], 0, "CAN_COLLIDE"];
-  _vehicle_178 = _this;
-  _this setDir 22.112715;
-  _this setPos [7095.8945, 5955.6289, 0.16137573];
-};
-
 _vehicle_183 = objNull;
 if (true) then
 {
@@ -536,3 +526,92 @@ _this = _group_3 addWaypoint [[7115.1455, 6014.9932], 0];
 _this setWaypointType "CYCLE";
 _waypoint_7 = _this;
 
+_vehicle_225 = objNull;
+if (true) then
+{
+  _this = createVehicle ["Land_Wreck_Traw_F", [7145.189, 5934.6738, -3.622123], [], 0, "CAN_COLLIDE"];
+  _vehicle_225 = _this;
+  _this setDir -76.474915;
+  _this setPos [7145.189, 5934.6738, -3.622123];
+};
+
+_vehicle_226 = objNull;
+if (true) then
+{
+  _this = createVehicle ["Land_Wreck_Traw2_F", [7170.0039, 5925.2168, -12.002712], [], 0, "CAN_COLLIDE"];
+  _vehicle_226 = _this;
+  _this setDir -40.998753;
+  _this setPos [7170.0039, 5925.2168, -12.002712];
+};
+
+_vehicle_227 = objNull;
+if (true) then
+{
+  _this = createVehicle ["Land_Wreck_Traw2_F", [7040.5127, 5852.1274, -1.8809527], [], 0, "CAN_COLLIDE"];
+  _vehicle_227 = _this;
+  _this setDir -86.564804;
+  _this setPos [7040.5127, 5852.1274, -1.8809527];
+};
+
+_vehicle_228 = objNull;
+if (true) then
+{
+  _this = createVehicle ["Land_Wreck_Traw_F", [7016.6592, 5852.9985, -0.00020694733], [], 0, "CAN_COLLIDE"];
+  _vehicle_228 = _this;
+  _this setDir -85.874496;
+  _this setPos [7016.6592, 5852.9985, -0.00020694733];
+};
+
+_vehicle_229 = objNull;
+if (true) then
+{
+  _this = createVehicle ["Land_UWreck_FishingBoat_F", [7062.0898, 5887.1392, 0.55242652], [], 0, "CAN_COLLIDE"];
+  _vehicle_229 = _this;
+  _this setDir 53.392136;
+  _this setPos [7062.0898, 5887.1392, 0.55242652];
+};
+
+_vehicle_232 = objNull;
+if (true) then
+{
+  _this = createVehicle ["Land_UWreck_FishingBoat_F", [7071.8369, 6040.3086, 1.6433114], [], 0, "CAN_COLLIDE"];
+  _vehicle_232 = _this;
+  _this setDir 399.1156;
+  _this setPos [7071.8369, 6040.3086, 1.6433114];
+};
+
+_vehicle_234 = objNull;
+if (true) then
+{
+  _this = createVehicle ["Land_Wreck_Traw_F", [7032.4312, 5794.4688, -0.55721629], [], 0, "CAN_COLLIDE"];
+  _vehicle_234 = _this;
+  _this setDir -621.16547;
+  _this setPos [7032.4312, 5794.4688, -0.55721629];
+};
+
+_vehicle_238 = objNull;
+if (true) then
+{
+  _this = createVehicle ["Land_d_Stone_Shed_V1_F", [7092.2358, 5937.1729, 0.43967143], [], 0, "CAN_COLLIDE"];
+  _vehicle_238 = _this;
+  _this setDir 208.40167;
+  _this setPos [7092.2358, 5937.1729, 0.43967143];
+};
+
+_vehicle_247 = objNull;
+if (true) then
+{
+  _this = createVehicle ["Land_Slum_House02_F", [7094.6133, 5952.5479, 0.54380161], [], 0, "CAN_COLLIDE"];
+  _vehicle_247 = _this;
+  _this setDir 114.50667;
+  _this setPos [7094.6133, 5952.5479, 0.54380161];
+};
+
+_vehicle_249 = objNull;
+if (true) then
+{
+  _this = createVehicle ["ARP_Objects_cot", [7093.104, 5951.7671, 0.57956839], [], 0, "CAN_COLLIDE"];
+  _vehicle_249 = _this;
+  _this setDir -68.953232;
+  _this setPos [7093.104, 5951.7671, 0.57956839];
+};
