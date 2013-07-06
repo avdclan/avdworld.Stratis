@@ -24,7 +24,8 @@
 	Sets player's loadout from global var loadout
   
 */
-
+#define SELF "x_avd\lib\ext\AEROSON_fnc_setLoadout.sqf"
+#include "include\debug.h"
 private ["_target","_options","_loadMagsAmmo","_data","_loadedMagazines","_placeholderCount","_add","_outfit","_weapon","_muzzles","_magazines","_magazine","_currentWeapon","_currentMode"];
 
 _options = [];
@@ -38,11 +39,16 @@ if(count _this < 4) then {
 	PARAMREQ(_data)
 	PARAM(_options,[])
 } else {
-	_target = player;
+	_target = player; 
 	_data = loadout;
 	//playSound3D ["A3\Sounds_F\sfx\ZoomIn.wav", _target]; 
 };
-
+if(! local _target) exitWith {
+    DLOG("Target " + str(_target) + " not local, executing on remote machine.");
+    [{
+    	_this call AEROSON_fnc_setLoadout;
+    }, _this, _target] call AVD_fnc_remote_execute; 
+};
 if(isNil{_data}) exitWith {
 	systemChat "you are trying to set/load empty loadout";
 };

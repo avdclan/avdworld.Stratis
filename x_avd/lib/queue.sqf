@@ -39,19 +39,19 @@ AVD_fnc_queue_next = {
   _name = PARAM(0, nil);
   if(isNil "_name") exitWith { nil; };
   _queue = [_name] call AVD_fnc_queue_getQueue;
+  if(isNil "_queue" or count(_queue) <= 1) exitWith { nil; };
   _n = _queue select 1;
   _args = _queue select 2;
   
   if(count(_n) == 0) exitWith { nil; };
   
-  
+  _ret = [_queue, _n select 0] call CBA_fnc_hashHasKey;
+  if(!_ret) exitWith { nil; };
   _ret = [_queue, _n select 0] call CBA_fnc_hashGet;
   [_queue, _n select 0, nil] call CBA_fnc_hashSet;
   [AVD_QUEUES, _name, _queue] call CBA_fnc_hashSet;
   publicVariable "AVD_QUEUES";
-  _ret;
-  
-  
+  _ret; 
 };
 
 AVD_fnc_queue_getQueue = {

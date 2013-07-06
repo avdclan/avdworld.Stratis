@@ -76,8 +76,15 @@ if(! _ret) then {
      sleep 0.05;
      DLOG("Restoring damage: " + str(_damage));
      _player setDamage _damage;
-
-     [player, _loadOut, ["ammo"]] call AEROSON_fnc_setLoadout;
+	
+     [{
+        private ["_player", "_loadOut"];
+        _player = _this select 0;
+        if(! local _player) exitWith {};
+        _loadOut = _this select 1;
+        
+     	[_player, _loadOut, ["ammo"]] call AEROSON_fnc_setLoadout;
+     }, [_player, _loadOut]] call AVD_fnc_remote_execute;
      
 	 if(_onWater) then {
          DLOG("Restoring posASL " + str(_posASL));
