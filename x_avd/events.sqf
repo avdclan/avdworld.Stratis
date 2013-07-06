@@ -1,4 +1,4 @@
-
+if(!isSErver) exitWith {};
 #define SELF "x_avd\events.sqf"
 #include "include\avd.h"
 
