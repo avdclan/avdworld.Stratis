@@ -22,8 +22,8 @@
 #define FLAG_GUER "Land_LampHalogen_F"
 #define FLAG_CIV "Land_LampHalogen_F"
 
-#define SPAWN_HOLDER "Box_NATO_Wps_F"
-//#define SPAWN_HOLDER "WeaponHolder"
+//#define SPAWN_HOLDER "Box_NATO_Wps_F"
+#define SPAWN_HOLDER "WeaponHolderSimulated"
 #define TREASURE_HOLDER "Box_NATO_Wps_F"
 
 #define NORMAL_SPAWN [["hgun_P07_F", 0.4], ["V_BandollierB_cbr", 0.6], ["U_B_CombatUniform_mcam_tshirt", 0.25], ["U_O_CombatUniform_ocamo", 0.25], ["hgun_ACPC2_F", 0.3], ["16Rnd_9x21_Mag", 0.75], ["ACRE_PRC148_UHF", 0.2]]
