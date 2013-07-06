@@ -19,9 +19,9 @@ LOAD_COMPONENT("void");
 
 
 //call compile preprocessFileLineNumbers "scripts\safetyHouse.sqf";
-//call compile preprocessFileLineNumbers "scripts\pythosBase.sqf";
-//call compile preprocessFileLineNumbers "scripts\werkstatt.sqf";
-//call compile preprocessFileLineNumbers "scripts\anwesen.sqf";
+call compile preprocessFileLineNumbers "scripts\pythosBase.sqf";
+call compile preprocessFileLineNumbers "scripts\werkstatt.sqf";
+call compile preprocessFileLineNumbers "scripts\anwesen.sqf";
 //call compile preprocessFileLineNumbers "scripts\airfieldBase.sqf";
 
 

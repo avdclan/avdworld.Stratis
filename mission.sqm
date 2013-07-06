@@ -56,7 +56,7 @@ class Mission
 					position[]={3319.9065,100.33546,4560.0459};
 					id=0;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -74,7 +74,7 @@ class Mission
 					position[]={3320.4448,100.45198,4559.9688};
 					id=1;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -92,7 +92,7 @@ class Mission
 					position[]={3319.522,100.51858,4559.5264};
 					id=2;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -110,7 +110,7 @@ class Mission
 					position[]={3318.926,100.25119,4559.9307};
 					id=3;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -128,7 +128,7 @@ class Mission
 					position[]={3318.2532,100.41116,4559.3721};
 					id=4;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -146,7 +146,7 @@ class Mission
 					position[]={3318.2532,100.76129,4558.6025};
 					id=5;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -164,7 +164,7 @@ class Mission
 					position[]={3319.176,101.19664,4557.9297};
 					id=6;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -182,7 +182,7 @@ class Mission
 					position[]={3321.0022,101.33125,4558.2178};
 					id=7;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -200,7 +200,7 @@ class Mission
 					position[]={3322.8289,101.29433,4558.9106};
 					id=8;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -218,7 +218,7 @@ class Mission
 					position[]={3322.4827,100.54039,4560.4502};
 					id=9;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -236,7 +236,7 @@ class Mission
 					position[]={3321.0793,100.86205,4559.2764};
 					id=10;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -254,7 +254,7 @@ class Mission
 					position[]={3319.8872,101.01627,4558.5449};
 					id=11;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -272,7 +272,7 @@ class Mission
 					position[]={3321.2329,100.40333,4560.3345};
 					id=12;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -290,7 +290,7 @@ class Mission
 					position[]={3322.0405,100.93903,4559.4302};
 					id=13;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -308,7 +308,7 @@ class Mission
 					position[]={3321.8098,101.37402,4558.3911};
 					id=14;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -326,7 +326,7 @@ class Mission
 					position[]={3323.54,101.06319,4559.6611};
 					id=15;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -344,7 +344,7 @@ class Mission
 					position[]={3323.7322,101.99794,4557.6602};
 					id=16;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -362,7 +362,7 @@ class Mission
 					position[]={3323.8667,101.44399,4558.9297};
 					id=17;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
@@ -380,7 +380,7 @@ class Mission
 					position[]={3322.3672,101.72018,4557.814};
 					id=18;
 					side="CIV";
-					vehicle="C_RangeMaster";
+					vehicle="C_man_1";
 					player="PLAY CDG";
 					leader=1;
 					skill=0.60000002;
