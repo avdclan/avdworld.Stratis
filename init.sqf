@@ -42,7 +42,8 @@ if(isServer) then {
 	  HC_CLIENTS = [AVD_D_CLIENT_CIV, AVD_D_CLIENT_EAST, AVD_D_CLIENT_WEST, AVD_D_CLIENT_GUER];
 	  //publicVariable "HC_CLIENTS";      
 };
-waitUntil { time > 0 };
+
+//waitUntil { time > 0 };
 
 
 //call compile preprocessFileLineNumbers 'x_avd\events.sqf';
