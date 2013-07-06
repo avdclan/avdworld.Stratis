@@ -84,11 +84,12 @@ AVD_fnc_createTriggerLocation = {
     
     //_logic enableSimulation false;
     //_trg = createTrigger["EmptyDetector", position _loc];
-    _trg = [
+   /* _trg = [
     	_logic, 
         [_x, _y, 0, false], 
         ["ANY", "PRESENT", true]
     ] call AVD_fnc_trigger_createMultiTrigger;
+                                                */
     
     _logic setVariable ["avd_side", _side, true];
     _logic setVariable ["avd_location_side", _side, true];

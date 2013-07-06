@@ -37,7 +37,7 @@ AVD_fnc_spawn_mkSpawn = {
 
 ["avd_cron", {
    private ["_args", "_queue", "_hash", "_pos", "_result", "_holder", "_num", "_shfl", "_ret", "_spos"];
-   for "_i" from 0 to 10 do {
+   for "_i" from 1 to 25 do {
 	   _queue = ["SPAWN_LOCATIONS"] call AVD_fnc_queue_next;
 	   if(isNil "_queue") exitWith { DLOG("Queue empty."); };
        _ret = [_queue, "args"] call CBA_fnc_hashHasKey;

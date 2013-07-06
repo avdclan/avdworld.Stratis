@@ -43,7 +43,7 @@ if(isServer) then {
 	  //publicVariable "HC_CLIENTS";      
 };
 
-//waitUntil { time > 0 };
+waitUntil { time > 0 };
 
 
 //call compile preprocessFileLineNumbers 'x_avd\events.sqf';

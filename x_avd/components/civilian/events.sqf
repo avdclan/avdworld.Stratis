@@ -8,12 +8,7 @@ AVD_LOCATIONS_INITIALIZED = [];
     //DLOG("Location radius: " + str((_this select 0) getVariable "avd_location_radius"));
 //    remoteSpawn({ DLOG("test!");}, []);
 
-	[{
-        waitUntil { !isNull AVD_D_CLIENT_CIV };
-        if(! local AVD_D_CLIENT_CIV) exitWith {
-            _str = format["I am not %1 (%2), I am %3 (%4)", AVD_D_CLIENT_CIV, owner AVD_D_CLIENT_CIV, player, owner player];
-            DLOG(_str);
-        };
+		if(!isServer) exitWith {};
         private ["_council", "_logic", "_side", "_name", "_marker", "_size", "_houses", "_chouses", "_counter", "_cGroup"];
     	_logic = _this select 0;
         if(_logic in AVD_LOCATIONS_INITIALIZED) exitWith { DLOG(str(_logic) + " already initialized."); };
@@ -90,7 +85,7 @@ AVD_LOCATIONS_INITIALIZED = [];
          _grp setBehaviour "CARELESS";
          _grp setSpeedMode "LIMITED";
      };
-   }, _this, AVD_D_CLIENT_CIV] call AVD_fnc_remote_execute;
+
      
 }] call CBA_fnc_addEventHandler;
 
