@@ -42,3 +42,19 @@ AVD_fnc_getSideByClass = {
     
     _ret;
 };
+
+AVD_fnc_getWeaponType = {
+  	private ["_class", "_elem", "_ret"];
+  
+    _class = PARAM(0, nil);
+    if(isNil "_class") exitWith {};
+    
+    // cfgAmmo, cfgMagazines, cfgWeapons
+    _elem = configFile >> "cfgWeapons" >> _class;
+    if(isClass _elem) exitWith { "weapon"; };
+    _elem = configFile >> "cfgMagazines" >> _class;
+    if(isClass _elem) exitWith { "magazine"; };
+    _elem = configFile >> "cfgAmmo" >> _class;
+    if(isClass _elem) exitWith { "ammo"; };
+    nil;  
+};

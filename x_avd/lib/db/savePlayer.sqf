@@ -51,6 +51,11 @@ if(_save and isServer) then {
    	*/
     
     _l = [_player, ["ammo"]] call AEROSON_fnc_getLoadout;
+    _cc = 0;
+    {
+        DLOG(str(_cc) + ": " + str(_x));
+        _cc = _cc + 1;
+    } foreach _l;
     APACK(_l, 8);
 	APACK(_l, 10);
 	APACK(_l, 12);
@@ -69,7 +74,7 @@ if(_save and isServer) then {
         if(!isServer) exitWith {};
         DLOG("Calling savePlayer on server with " + str(_this));
         _this call AVD_fnc_db_savePlayer;
-    }, [player,_hash, true]] call AVD_fnc_remote_execute;
+    }, [_player,_hash, true]] call AVD_fnc_remote_execute;
     
     
 };

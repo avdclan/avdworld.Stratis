@@ -1,4 +1,4 @@
-/*
+	/*
 
 	AUTHOR: aeroson
 	NAME: fnc_get_loadout.sqf
