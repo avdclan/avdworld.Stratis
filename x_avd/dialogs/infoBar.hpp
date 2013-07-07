@@ -8,7 +8,7 @@ class infoBar
     fadein =  0;
     fadeout =  0;
 	name = "infoBar";
-	onLoad = "infoBarOpen = 1;with uiNameSpace do { infoBar = _this select 0 };[player]execVM ""x_avd\player\dialogs\infobar\\infoBar.sqf"";";
+	onLoad = "infoBarOpen = 1;with uiNameSpace do { infoBar = _this select 0 };[player] execVM ""x_avd\player\dialogs\infobar\infoBar.sqf"";";
 	onUnload = "infoBarOpen = 0";
 	
 #define GUI_GRID_X	(0)
