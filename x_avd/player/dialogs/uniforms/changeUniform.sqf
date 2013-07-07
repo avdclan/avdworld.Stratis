@@ -19,5 +19,5 @@ _side = [_data] call AVD_fnc_getSideByClass;
 DLOG("Got side: " + str(_side));
 
 [player] joinSilent grpNull;
-[player] joinSilent _side;
+[player] joinSilent (createGroup _side);
 closeDialog 0;

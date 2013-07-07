@@ -36,6 +36,7 @@ AVD_fnc_spawn_mkSpawn = {
 };
 
 ["avd_cron", {
+    if(!isServer) exitWith {};
    private ["_args", "_queue", "_hash", "_pos", "_result", "_holder", "_num", "_shfl", "_ret", "_spos"];
    for "_i" from 1 to 25 do {
 	   _queue = ["SPAWN_LOCATIONS"] call AVD_fnc_queue_next;
