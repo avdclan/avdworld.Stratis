@@ -63,7 +63,7 @@ class infoBar
 		{
 			idc = 10033;
 			text = "C"; //--- ToDo: Localize;
-			x = 0.975521 * safezoneW + safezoneX;
+			x = 0.969792 * safezoneW + safezoneX;
 			y = 0.841 * safezoneH + safezoneY;
 			w = 0.0171875 * safezoneW;
 			h = 0.033 * safezoneH;

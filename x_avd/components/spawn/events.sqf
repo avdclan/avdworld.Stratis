@@ -6,7 +6,8 @@ if(!isServer) exitWith {};
 #include "include\arrays.h"
 
 AVD_fnc_spawn_mkSpawn = {
-  DLOG(_this);
+    if(!isServer) exitWith {};
+  DLOG(_this); 
   private ["_holder", "_num", "_items", "_shfl"];
   _holder = PARAM(0, nil);
   _num = PARAM(1, 2);
