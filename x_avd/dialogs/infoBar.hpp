@@ -44,7 +44,7 @@ class infoBar
 		class RscPicture_1200: RscPicture
 		{
 			idc = 12030;
-			text = "x_avd\player\dialogs\infobar\\waterBottle.paa";
+			text = "x_avd\player\dialogs\infobar\waterBottle.paa";
 			x = 0.969792 * safezoneW + safezoneX;
 			y = 0.94 * safezoneH + safezoneY;
 			w = 0.0229167 * safezoneW;
@@ -53,7 +53,7 @@ class infoBar
 		class RscPicture_1201: RscPicture
 		{
 			idc = 12031;
-			text = "x_avd\player\dialogs\infobar\\mre.paa";
+			text = "x_avd\player\dialogs\infobar\mre.paa";
 			x = 0.969792 * safezoneW + safezoneX;
 			y = 0.885 * safezoneH + safezoneY;
 			w = 0.0229167 * safezoneW;
