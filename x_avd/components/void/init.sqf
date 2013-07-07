@@ -1,5 +1,5 @@
 if(!isServer) exitWith {};
-call compileFinal preProcessFile "\iniDB\init.sqf";
+
 AVD_VOID_LOADED = false;
 #define SELF "x_avd\components\void\init.sqf"
 #define PATH "x_avd\components\void"

@@ -1,13 +1,14 @@
 #define SELF "x_avd\lib\db\loadPlayer.sqf"
 #include "include\avd.h"
 #include "include\db.h"
-
+DLOG("With " + str(_this));
 if(!isServer) exitWith {
   DLOG("Retrieving data from server.");
   [{
       if(!isServer) exitWith {};
       DLOG("Remote loadPlayer call from: " + str(_this));
-      _this call AVD_fnc_db_loadPlayer;
+      _this spawn AVD_fnc_db_loadPlayer;
+      DLOG("Sent.");
   }, _this] call AVD_fnc_remote_execute;  
 };
 
@@ -24,6 +25,7 @@ if(! _ret) then {
     [{
       	DLOG("THIS IS " + str(player) + " WITH THIS: " + str(_this));
         private "_player";
+        if(! local (_this select 0)) exitWith {};
         _player = player;
         removeAllWeapons _player;
 		removeAllItems _player;
@@ -35,12 +37,12 @@ if(! _ret) then {
         _tmp = nil;
 	  
 		  waitUntil {
-		    _tmp = [[0,0,0], 100000] call CBA_fnc_randPos;
+		    _tmp = [[4000,4000,0], 10000] call CBA_fnc_randPos;
 		    !surfaceIsWater _tmp;  
 		  };
 		  _player setPos _tmp;
     	[player] call compile preprocessFileLineNumbers "x_avd\player\gear.sqf";
-    }, [_player], _player] call AVD_fnc_remote_execute;
+    }, [_player]] call AVD_fnc_remote_execute;
    
 } else {  
 	 private ["_uid", "_name", "_world", "_alive", "_damage", "_dir", "_posATL", "_posASL", "_weapons", "_primaryWeapon", "_magazines", "_items", "_headgear", "_vest", "_uniform", "_backpack", "_backpackItems", "_onWater", "_animation", "_pvars"];
@@ -130,6 +132,7 @@ if(! _ret) then {
 
 _player setVariable ["avd_player_loaded", true, true];
 [{
+    if(! local _this) exitWith {};
     AVD_PLAYER_LOADED = true;
-},[], _player] call AVD_fnc_remote_execute;
+},_player] call AVD_fnc_remote_execute;
 

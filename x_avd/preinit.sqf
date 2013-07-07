@@ -2,6 +2,8 @@
 #include "include\avd.h"
 #include "include\db.h"
 #include "include\component.h"
+call compileFinal preProcessFile "\iniDB\init.sqf";
+
 AVD_SERVER = (createGroup sideLogic) createUnit["LOGIC", [0, 0, 0], [], 0, ""];
 AVD_SERVER allowDamage false;
 
