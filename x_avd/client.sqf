@@ -11,7 +11,7 @@ progressLoadingScreen 0.1;
 waitUntil { !isNil "AVD_VOID_LOADED" };
 waitUntil { AVD_VOID_LOADED };
                                 */
-DLOG("Server is ready.");1
+DLOG("Server is ready.");
 
 /*waitUntil { !isNil "AVD_SAFETY_HOUSE" };
 player setPosASL (AVD_SAFETY_HOUSE buildingPos 2);
