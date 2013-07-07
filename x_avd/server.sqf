@@ -15,12 +15,12 @@ publicVariable "AVD_WORLD_SERVER_INIT";
 COMPF("server\events");
 DLOG("Initializing AvD World Server...");
 
-LOAD_COMPONENT("void");
+/*LOAD_COMPONENT("void");
 
 DLOG("Waiting for VOID to complete...");
 waitUntil { !isNil "AVD_VOID_LOADED" };
 waitUntil { AVD_VOID_LOADED };
-
+*/
 
 //call compile preprocessFileLineNumbers "scripts\safetyHouse.sqf";
 call compile preprocessFileLineNumbers "scripts\pythosBase.sqf";
