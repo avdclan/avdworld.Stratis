@@ -23,12 +23,12 @@ waitUntil { AVD_VOID_LOADED };
 */
 
 //call compile preprocessFileLineNumbers "scripts\safetyHouse.sqf";
-/*call compile preprocessFileLineNumbers "scripts\pythosBase.sqf";
+call compile preprocessFileLineNumbers "scripts\pythosBase.sqf";
 call compile preprocessFileLineNumbers "scripts\werkstatt.sqf";
 call compile preprocessFileLineNumbers "scripts\anwesen.sqf";
 
 call compile preprocessFileLineNumbers "scripts\airfieldBase.sqf";
-*/
+
 
 //LOAD_COMPONENT("spawn");
 
@@ -38,7 +38,7 @@ call compile preprocessFileLineNumbers "scripts\airfieldBase.sqf";
 
 LOAD_COMPONENT("red");
 
-LOAD_COMPONENT("spawn");
+//LOAD_COMPONENT("spawn");
 
 //LOAD_COMPONENT("civilian");
 
