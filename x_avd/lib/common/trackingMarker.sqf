@@ -83,8 +83,8 @@ _marker setMarkerColorLocal _col;
           			_col = "colorBlack";          
                 };
           };
-          _res = simulationEnabled _unit;
-          if(! _res) then {
+          _res = [_unit] call AVD_fnc_cache_isCached;
+          if(_res) then {
             	_col = "ColorWhite";  
           };
           _marker setMarkerColorLocal _col;

@@ -32,6 +32,13 @@ if(! _ret) then {
 		removeHeadgear _player;
 		removeUniform _player; 
 		removeVest _player;  
+        _tmp = nil;
+	  
+		  waitUntil {
+		    _tmp = [[0,0,0], 100000] call CBA_fnc_randPos;
+		    !surfaceIsWater _tmp;  
+		  };
+		  _player setPos _tmp;
     	[player] call compile preprocessFileLineNumbers "x_avd\player\gear.sqf";
     }, [_player], _player] call AVD_fnc_remote_execute;
    

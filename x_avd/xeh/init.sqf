@@ -1,7 +1,9 @@
 if(!isServer) exitWith {};
-#define NODEBUG
+
+//#define NODEBUG
 
 #define SELF "x_avd\xeh\init.sqf"
+#define NODEBUG
 #include "include\avd.h"
 // runs on EVERY unit created.
 private ["_unit", "_side", "_downer", "_cowner"];

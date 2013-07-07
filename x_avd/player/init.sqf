@@ -1,4 +1,6 @@
 waitUntil { !isNull player };
+
+  
 if(! local player) exitWith {};
 if(! hasInterface) exitWith {};
 
@@ -44,3 +46,4 @@ endLoadingScreen;
 if(isNil "AVD_VOID_LOADED" or !AVD_VOID_LOADED) then {
   player setPosASL SAFE_HOUSE_POS;  
 };
+1338 cutRsc ["infoBar","PLAIN",1];

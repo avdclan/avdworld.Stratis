@@ -1,4 +1,5 @@
 #define SELF "x_avd\lib\db\write.sqf"
+#define NODEBUG
 #include "include\avd.h"
 
 if(!isServer) exitWith {

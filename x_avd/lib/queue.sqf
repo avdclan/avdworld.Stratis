@@ -79,6 +79,7 @@ AVD_fnc_queue_getQueue = {
   DLOG("getQueue");
   private ["_queue", "_myHash", "_ret"];
   _queue = PARAM(0, nil);
+  _myHash = nil;
   if(isNil "_queue") exitWith {};
   _ret = [AVD_QUEUES, _queue] call CBA_fnc_hashHasKey;
   if(_ret) then {

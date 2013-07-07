@@ -5,7 +5,7 @@ AVD_fnc_log = {
   private ["_message", "_broadcast", "_enabled", "_level", "_format", "_name", "_broadcasted", "_line"];
   _message = PARAM(0, nil);
   _name = PARAM(1, "NOT SET, PLEASE FIX!");
-  _line = PARAM(2, nil);
+  _line = PARAM(2, __LINE__);
   _level = PARAM(3, 7);
   _broadcasted = PARAM(3, false);
   

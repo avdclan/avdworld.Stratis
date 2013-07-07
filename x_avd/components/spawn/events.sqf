@@ -19,12 +19,22 @@ AVD_fnc_spawn_mkSpawn = {
           _p = _x select 1;
           if(_rand < _p) then {
             _wtype = [_class] call AVD_fnc_getWeaponType;
+            DLOG("Adding " + str(_wtype) + " (" + str(_class) + ") holder: " + str(_holder));
             switch(_wtype) do {
                 case "magazine": { 
             		_holder addMagazineCargoGlobal [_class, 1];
                 };
                 case "weapon": {
                     _holder addWeaponCargoGlobal [_class, 1];
+                };
+                case "uniform": {
+                    _holder addItemCargoGlobal [_class, 1];
+                };
+                case "vest": {
+                    _holder addItemCargoGlobal [_class, 1];
+                };
+                case "headgear": {
+                    _holder addItemCargoGlobal [_class, 1];
                 };
                 default {
                   	_holder addWeaponCargoGlobal [_class, 1];  
@@ -52,20 +62,23 @@ AVD_fnc_spawn_mkSpawn = {
 	     _pos = getPosATL _elem;  
 	   };   
 		//_elem enableSimulation false;
+        DLOG("Creating holder: " + str(SPAWN_HOLDER));
 	    _holder = SPAWN_HOLDER createVehicle [0, 0, 100];
-	    _holder allowDamage false;
+	   /* _holder allowDamage false;
 	   	clearWeaponCargoGlobal _holder;
 		clearMagazineCargoGlobal _holder;
 	    //_holder disableCollisionWith _elem;
-	    
+	    */
 	    //_elem disableCollisionWith _holder;
-        _spos = [_pos select 0, _pos select 1, ((_pos select 2) + 2)];
+        //_spos = [_pos select 0, _pos select 1, ((_pos select 2) + 1)];
+        _spos = _pos;
+        DLOG("Holder before pos: " + str(_holder));
 	    _holder setPosATL _spos;
-
+		DLOG("Holder after pos: " + str(_holder));
 	   // add min 2, max 5 food items.
        _num = floor(random 3) + 2;        
        [_holder, _num, FOOD_SPAWN] call AVD_fnc_spawn_mkSpawn;
-
+		DLOG("Holder after: " + str(_holder));
 	   // add min 2, max 5 drink items.
 	   _num = floor(random 3) + 2;
 	   [_holder, _num, DRINK_SPAWN] call AVD_fnc_spawn_mkSpawn;

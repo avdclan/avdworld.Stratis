@@ -1,5 +1,7 @@
 AVD_fnc_db_write = compileFinal preprocessFileLineNumbers "x_avd\lib\db\write.sqf";
+AVD_fnc_db_writeHash = compileFinal preprocessFileLineNumbers "x_avd\lib\db\writeHash.sqf";
 AVD_fnc_db_load = compileFinal preprocessFileLineNumbers "x_avd\lib\db\load.sqf";
+AVD_fnc_db_loadAll = compileFinal preprocessFileLineNumbers "x_avd\lib\db\loadAll.sqf";
 AVD_fnc_db_saveUnit = compileFinal preprocessFileLineNumbers "x_avd\lib\db\saveUnit.sqf";
 AVD_fnc_db_setPersistentVar = compileFinal preprocessFileLineNumbers "x_avd\lib\db\setPersistentVar.sqf";
 AVD_fnc_db_getPersistentVar = compileFinal preprocessFileLineNumbers "x_avd\lib\db\getPersistentVar.sqf";

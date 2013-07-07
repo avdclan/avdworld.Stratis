@@ -41,12 +41,14 @@ AVD_fnc_fds_drink = {
   
   _val = [_drink] call AVD_fnc_fds_getDrinkValue;
   private "_curVal";
-  _curVal = _unit getVariable "avd_fds_drinkVal";
+  _curVal =  [_unit, "avd_fds_drinkVal"] call AVD_fnc_db_getPersistentVar;
+
   _unit removeMagazine _drink;
   private "_newVal";
   _newVal = _curVal + _val;
   if(_newVal > 1000) then { _newVal = 1000; };
-  _unit setVariable["avd_fds_drinkVal", _newVal, true];
+   [_unit, "avd_fds_drinkVal", _newVal] call AVD_fnc_db_setPersistentVar;
+
 };
 
 AVD_fnc_fds_canEat = {
@@ -88,11 +90,11 @@ AVD_fnc_fds_food = {
   
   _val = [_food] call AVD_fnc_fds_getFoodValue;
   private "_curVal";
-  _curVal = _unit getVariable "avd_fds_foodVal";
+  _curVal = [_unit, "avd_fds_foodVal"] call AVD_fnc_db_getPersistentVar;
   _unit removeMagazine _food;
   private "_newVal";
   _newVal = _curVal + _val;
   if(_newVal > 1000) then { _newVal = 1000; };
-  _unit setVariable["avd_fds_foodVal", _newVal, true];
+  [_unit, "avd_fds_foodVal", _newVal] call AVD_fnc_db_setPersistentVar;
 };
 

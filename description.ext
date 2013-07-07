@@ -23,7 +23,14 @@ saving = 0;
 
 enableItemsDropping = 0;
 
+class RscTitles
+{
+	titles[] = {};
+	#include "x_avd\dialogs\navGui.hpp"
+	#include "x_avd\dialogs\infoBar.hpp"
+	//#include "gui\infoBar.hpp"
 
+};
 
 class Extended_PreInit_EventHandlers 
 {

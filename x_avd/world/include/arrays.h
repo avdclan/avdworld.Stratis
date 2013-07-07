@@ -7,6 +7,11 @@
 #define TOWERS ["Land_Cargo_Patrol_V1_F", "Land_Cargo_Patrol_V2_F"]
 #define x_isTower(obj) (typeOf obj in TOWERS)
 
+#define CIVILIAN_HOUSES ["Land_i_Stone_HouseSmall_V1_F", "Land_i_Stone_Shed_V1_F", "Land_i_Stone_HouseBig_V1_F", "Land_Slum_House03_F", "Land_Slum_House01_F", "Land_Slum_House02_F", "Land_i_House_Big_02_V1_F", "Land_i_House_Big_01_V1_F", "Land_i_House_Small_03_V1_F", "Land_i_House_Small_01_V2_F", "Land_u_House_Small_02_V1_F", "Land_Lighthouse_small_F"]
+#define SHOP_HOUSES ["Land_i_Shop_01_V1_F", "Land_i_Shop_02_V1_F"] 
+
+#define GARAGE_HOUSES ["Land_i_Garage_V1_F"]
+
 #define FUELS [["Land_dp_bigTank_F", 5000], ["Land_dp_smallTank_F", 3000]]
 
 #define AIRPORT_TOWERS ["Land_Airport_Tower_F"]
@@ -15,16 +20,16 @@
 
 #define CAPTURE_BUILDINGS ["Land_Radar_F"]
 
-#define MARINA_PIERS ["Land_Pier_F"]
+#define MARINA_PIERS ["Land_Pier_F", "Land_Pier_small_F", ]
 
 #define FLAG_EAST "Land_LampHalogen_F"
 #define FLAG_WEST "Land_LampHalogen_F"
 #define FLAG_GUER "Land_LampHalogen_F"
 #define FLAG_CIV "Land_LampHalogen_F"
 
-#define SPAWN_HOLDER "Box_NATO_Wps_F"
-//#define SPAWN_HOLDER "WeaponHolderSimulated"
-#define TREASURE_HOLDER "Box_NATO_Wps_F"
+//#define SPAWN_HOLDER "Box_NATO_Wps_F"
+#define SPAWN_HOLDER "GroundWeaponHolder"
+#define TREASURE_HOLDER "GroundWeaponHolder"
 
 #define NORMAL_SPAWN [["hgun_P07_F", 0.4], ["V_BandollierB_cbr", 0.6], ["U_B_CombatUniform_mcam_tshirt", 0.25], ["U_O_CombatUniform_ocamo", 0.25], ["hgun_ACPC2_F", 0.3], ["16Rnd_9x21_Mag", 0.75], ["ACRE_PRC148_UHF", 0.2]]
 
@@ -45,14 +50,16 @@
 
 #define FOOD_CLASSES ["ARP_Objects_mre_m"] 
 
-#define EXCLUDE ["PaperCar", "O_APC_Wheeled_02_base_F"]
+#define EXCLUDE ["PaperCar", "O_APC_Wheeled_02_base_F", "Civilian", "Civilian_F", "Officer_soldier", "SoldierEB"]
 
 #define ITEM_PASSPORT "ARP_Objects_passport_m"
 
 #define ANIM_HANDCUFF "amovpknlmstpsnonwnondnon"
 
-#define GUER_UNITS ["I_officer_F", "I_soldier_F", "I_Soldier_AT_F", "I_Soldier_lite_F", "I_medic_F", "I_Soldier_GL_F", "I_Soldier_SF_F", "I_engineer_F"];
-#define BLUE_UNITS ["B_Soldier_lite_F", "B_recon_TL_F", "B_officer_F", "B_recon_F", "B_recon_ALT_F"]
-//["B_spotter_F","B_sniper_F","B_soldier_AR_F","B_soldier_exp_F","B_Soldier_GL_F","B_soldier_M_F","B_medic_F","B_Soldier_F","B_soldier_repair_F","B_soldier_LAT_F","B_Soldier_SL_F","B_Soldier_lite_F","B_Soldier_TL_F"]
-#define RED_UNITS ["O_Soldier_lite_F", "O_recon_TL_F", "O_officer_F", "O_recon_F"] 
-//["O_spotter_F","O_sniper_F","O_Soldier_F","O_Soldier_AR_F","O_soldier_exp_F","O_Soldier_GL_F","O_soldier_M_F","O_medic_F","O_soldier_repair_F","O_Soldier_LAT_F","O_Soldier_lite_F","O_Soldier_SL_F","O_Soldier_TL_F"];
+#define GUER_UNITS [resistance, "man"] call AVD_fnc_lists_get
+#define BLUE_UNITS [west, "man"] call AVD_fnc_lists_get
+#define CIV_UNITS [civilian, "man"] call AVD_fnc_lists_get
+#define RED_UNITS [east, "man"] call AVD_fnc_lists_get
+
+
+#define SHIP_WRECKS ["Land_Wreck_Traw_F", "Land_Wreck_Traw2_F", "Land_UWreck_MV22_F", "Land_UWreck_FishingBoat_F"]

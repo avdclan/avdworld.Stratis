@@ -45,7 +45,8 @@ AVD_fnc_getWeaponType = {
   
     _class = PARAM(0, nil);
     if(isNil "_class") exitWith { DLOG("no class"); };
-    
+    _elem = [_class] call AVD_fnc_getUniformType;
+    if(_elem != "") exitWith { _elem; };
     // cfgAmmo, cfgMagazines, cfgWeapons
     _elem = configFile >> "cfgWeapons" >> _class;
     if(isClass _elem) exitWith { "weapon"; };

@@ -1,4 +1,5 @@
 #define SELF "x_avd\lib\db\savePlayer.sqf"
+#define NODEBUG
 #include "include\avd.h"
 #include "include\db.h"
 

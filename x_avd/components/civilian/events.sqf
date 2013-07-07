@@ -19,7 +19,7 @@ AVD_LOCATIONS_INITIALIZED = [];
       _name = _logic getVariable "avd_name";
 	  _className = [civilian] call AVD_fnc_getRandomUnitClass;
       _cGroup = createGroup _side;
-      _council = _grp createUnit[_className, getPos _logic, [], 0, "NONE"];
+      _council = _cGroup createUnit[_className, getPos _logic, [], 0, "NONE"];
       _marker = _logic getVariable "avd_marker";
       _size = getMarkerSize _marker;
       // getting all houses
@@ -44,6 +44,7 @@ AVD_LOCATIONS_INITIALIZED = [];
 	        		_counter = _counter + 1;
           			_className = [civilian] call AVD_fnc_getRandomUnitClass;
                     _houseHolder = _cGroup createUnit[_className, _pos1, [], 0, "NONE"];
+                    _houseHolder setPosATL _pos1;
                     _houseHolder disableAI "move";
                     _rand = random 1;
                     if(_rand < 0.4) then {
@@ -64,11 +65,11 @@ AVD_LOCATIONS_INITIALIZED = [];
       
       // place normal civs.
      _index = call AVD_fnc_getIndex;
-     _min = (_size select 0) / 20;
+     _min = (_size select 0) / 60;
      _rand = _min / 2;
      _count = [_min, _rand];
      [_logic, 0, (_size select 0), true, true, false, _count, 0, 0.1, _cGroup, "", _index] execVM "militarize.sqf";
-     _cars = floor(random 20) + 10;
+     _cars = floor(random 10) + 5;
      [_logic, 0, 10000, false, true, false, 0, [_cars, 5], 0.1, _cGroup, "", _index] execVM "militarize.sqf";
      _index spawn {
          private ["_index", "_grp"];

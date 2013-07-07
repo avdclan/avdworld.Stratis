@@ -1,3 +1,5 @@
+
+#include "include\avd.h"
 private ["_unit", "_var"];
 _unit = _this select 0;
 if(_unit isKindOf "Animal") exitWith { false; };

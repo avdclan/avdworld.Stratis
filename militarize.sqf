@@ -1,4 +1,5 @@
 #define SELF "militarize.sqf"
+#define NODEBUG
 #include "x_avd\include\avd.h"
 #include "x_avd\include\arrays.h"
  
@@ -145,6 +146,9 @@ if(_vehicles)then{
 		
         //_pos = _sPos findEmptyPosition[10, 300, _unitType];
         _road = [_centerPos, random _radius] call AVD_fnc_getDistantRoad;
+        /*_rl = _centerPos nearRoads _radius;
+        _rl = [_rl] call CBA_fnc_shuffle;
+        _road = _rl select 0;*/
         DLOG("Got road: " + str(_road));
         _pos = position (_road select 0);
         DLOG("Got pos: " + str(_pos));

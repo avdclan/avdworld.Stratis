@@ -6,7 +6,7 @@
 //waitUntil { time >= 1 };
 diag_log "";
 diag_log "";
-DLOG("Initializing AVD World " + AVD_META_VERSION);
+DLOG("Initializing AVD World " + AVD_META_VERSION + ", on " + missionName);
 diag_log "";
 diag_log "";
 AVD_LOCATION_EXCLUDE=["Stratis Air Base", "Kamino Firing Range", "Pythos"];
@@ -31,6 +31,9 @@ onPlayerConnected "[_id, _name] execVM ""x_avd\onPlayerConnected.sqf""";
 onPlayerDisconnected "[_id, _name] call compile preprocessFileLineNumbers ""x_avd\onPlayerDisconnected.sqf""";
 
 
+DLOG("Waiting for mission to start.");
+waitUntil { time > 0 };
+
 if(isServer) then {
 
       
@@ -43,7 +46,6 @@ if(isServer) then {
 	  //publicVariable "HC_CLIENTS";      
 };
 
-waitUntil { time > 0 };
 
 
 //call compile preprocessFileLineNumbers 'x_avd\events.sqf';

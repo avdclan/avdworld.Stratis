@@ -1,5 +1,6 @@
 if(!isSErver) exitWith {};
 #define SELF "x_avd\events.sqf"
+//#define NODEBUG
 #include "include\avd.h"
 
 DLOG("LOADING GLOBAL EVENTS");

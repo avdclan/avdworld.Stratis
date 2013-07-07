@@ -2,6 +2,7 @@
 #define PATH "x_avd\lib\im"
 #include "include\avd.h"
 #include "include\crimes.h"
+#include "include\params.h"
 //if(true) exitWith {};
 
 DLOG("Adding avd_unit_create eventhandler");
@@ -19,13 +20,7 @@ DLOG("Adding avd_unit_create eventhandler");
    
   	private ["_age", "_brave"];
     
-    _age = floor((((random 0.3) + 0.2) * 100));
-    _unit setVariable ["avd_identity_age", _age, true];
     
-    _brave = random 1;
-    _unit setVariable ["avd_identity_brave", _brave, true];
-    
-    //DLOG("Unit " + str(_unit) + " created");
 	[_unit, format["%2_%1", typeOf _unit, _unit]] call AVD_fnc_trackingMarker;
 }] call CBA_fnc_addEventHandler;
 

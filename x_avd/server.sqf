@@ -17,6 +17,10 @@ DLOG("Initializing AvD World Server...");
 
 LOAD_COMPONENT("void");
 
+DLOG("Waiting for VOID to complete...");
+waitUntil { !isNil "AVD_VOID_LOADED" };
+waitUntil { AVD_VOID_LOADED };
+
 
 //call compile preprocessFileLineNumbers "scripts\safetyHouse.sqf";
 call compile preprocessFileLineNumbers "scripts\pythosBase.sqf";
@@ -35,7 +39,7 @@ LOAD_COMPONENT("red");
 
 LOAD_COMPONENT("spawn");
 
-LOAD_COMPONENT("civilian");
+//LOAD_COMPONENT("civilian");
 
 
 

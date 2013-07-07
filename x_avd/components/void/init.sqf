@@ -5,7 +5,7 @@ AVD_VOID_LOADED = false;
 #define PATH "x_avd\components\void"
 
 #include "include\avd.h"
-
+waitUntil { time > 2 };
 DLOG("Initializing V.O.I.D.");
 
 // check if void was already initialized in the past

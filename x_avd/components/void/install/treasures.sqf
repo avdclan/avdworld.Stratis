@@ -46,7 +46,7 @@ for "_i" from 0 to _count-1 do {
   _tHolder = TREASURE_HOLDER createVehicle [_pos select 0, _pos select 1, 100];
   clearWeaponCargoGlobal _tHolder;
   clearMagazineCargoGlobal _tHolder;
-  _tHolder allowDamage false;
+  //_tHolder allowDamage false;
   _tHolder setPosASL _pos;
   _tholder addMagazineCargoGlobal ["ARP_Objects_blackbox_m", (floor(random 3) + 1)];
   // code to add the actual treasure
@@ -58,6 +58,8 @@ for "_i" from 0 to _count-1 do {
   _magazines = [["ARP_Objects_blackbox_m"], [(floor(random 3) + 1)]];
   DB_WRITE(_fstr, "weaponCargo", _weapons);
   DB_WRITE(_fstr, "magazineCargo", _magazines);
+  _w = [SHIP_WRECKS] call CBA_fnc_shuffle;
+  DB_WRITE(_fstr, "wreck", (_w select 0));
   _list = _list + [_id];
 };
 DB_WRITE("treasures", "index", _list);

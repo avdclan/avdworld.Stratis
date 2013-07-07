@@ -50,7 +50,13 @@ if(_ci) then {
   
 };
 
-
+/*
+10 cutRsc ["navGui","PLAIN",1];
+_pp = AVD_TREASURES select 0;
+//DLOG("Pos: " + str(getPos _pp)); 
+[player, getPos _pp]execVM "x_avd\player\dialogs\navgui\navGui.sqf";
+player setPosATL getPosATL _pp;
+*/
 /*
 {
     DLOG("Having house: " + str(_x) + " type: " + str(typeof _x));
@@ -77,3 +83,4 @@ sleep 1;
 } foreach playableUnits;
 };
 */
+

@@ -1,4 +1,5 @@
 #define SELF "x_avd\lib\road.sqf"
+#define NODEBUG
 #include "include\avd.h"
 
 AVD_fnc_getNearestRoad = {

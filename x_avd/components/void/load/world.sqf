@@ -3,4 +3,5 @@
 
 #include "include\avd.h"
 
+COMPF("civilian");
 COMPF("treasures");
