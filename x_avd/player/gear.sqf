@@ -59,5 +59,7 @@ _item = [PLAYER_DEFAULT_ITEMS] call CBA_fnc_shuffle;
    }
 } foreach _item;
 
+/*
 [_player] joinSilent grpNull;
 [_player] joinSilent (createGroup resistance);
+*/

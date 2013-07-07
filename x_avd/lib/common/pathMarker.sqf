@@ -1,5 +1,5 @@
 #include "include\avd.h"
-
+if(true) exitWith {};
 private ["_obj"];
 _obj = PARAM(0, nil);
 
