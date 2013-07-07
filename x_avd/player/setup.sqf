@@ -28,7 +28,12 @@ DLOG("Loading data for player...");
 [player] call AVD_fnc_db_loadPlayer;
 
 DLOG("Waiting for player data.");
-waitUntil { !isNil "AVD_PLAYER_LOADED" };
+
+waitUntil { 
+	_v = player getVariable "avd_player_loaded";
+	!isNil "_v" 
+};
+waitUntil { _v = player getVariable "avd_player_loaded"; _v };
 DLOG("Got player data");
 
 progressLoadingScreen 0.4;

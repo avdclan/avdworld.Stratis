@@ -131,8 +131,4 @@ if(! _ret) then {
 
 
 _player setVariable ["avd_player_loaded", true, true];
-[{
-    if(! local _this) exitWith {};
-    AVD_PLAYER_LOADED = true;
-},_player] call AVD_fnc_remote_execute;
 
