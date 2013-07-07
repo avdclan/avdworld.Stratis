@@ -1,6 +1,6 @@
 #define SELF "init.sqf"
 #include "x_avd\include\avd.h"
-
+AVD_VOID_LOADED = true;
 
 
 //waitUntil { time >= 1 };

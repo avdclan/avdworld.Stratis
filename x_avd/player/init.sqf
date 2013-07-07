@@ -43,7 +43,4 @@ DLOG("Setting view distance");
 setViewDistance 1500;
 endLoadingScreen;
 
-if(isNil "AVD_VOID_LOADED" or !AVD_VOID_LOADED) then {
-  player setPosASL SAFE_HOUSE_POS;  
-};
 1338 cutRsc ["infoBar","PLAIN",1];
